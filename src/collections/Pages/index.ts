@@ -1,20 +1,24 @@
-import type { CollectionConfig } from 'payload/types';
+import { admins } from '@/access/admins';
+import { adminsAndUsers } from '@/access/adminsAndUsers';
+import { HomeBlock } from '@/blocks/Home';
+import { CollectionConfig } from 'payload/types';
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
   admin: {
     useAsTitle: 'title',
+    defaultColumns: ['title', 'slug', 'updatedAt'],
+  },
+  access: {
+    create: admins,
+    read: adminsAndUsers,
+    update: admins,
+    delete: admins,
   },
   fields: [
     {
       name: 'title',
       type: 'text',
-      required: true,
-    },
-    {
-      name: 'slug',
-      type: 'text',
-      required: true,
     },
     {
       name: 'layout',
@@ -22,7 +26,7 @@ export const Pages: CollectionConfig = {
       admin: {
         initCollapsed: true,
       },
-      blocks: [],
+      blocks: [HomeBlock],
     },
   ],
 };

@@ -5,10 +5,8 @@ import path from 'path';
 import { buildConfig } from 'payload/config';
 // import sharp from 'sharp'
 import { fileURLToPath } from 'url';
-
 import { Users } from './collections/Users';
 import Header from './app/globals/Header';
-import { Media } from './collections/Media';
 import Footer from './app/globals/Footer';
 import Settings from './app/globals/Settings';
 import { Pages } from './collections/Pages';
@@ -20,7 +18,7 @@ export default buildConfig({
   admin: {
     user: Users.slug,
   },
-  collections: [Users, Media, Pages],
+  collections: [Users, Pages],
   editor: lexicalEditor({}),
   // plugins: [payloadCloud()], // TODO: Re-enable when cloud supports 3.0
   secret: process.env.PAYLOAD_SECRET || 'this is best',
