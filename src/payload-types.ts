@@ -25,6 +25,8 @@ export interface Config {
  */
 export interface User {
   id: string;
+  name?: string | null;
+  roles?: ('admin' | 'user')[] | null;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -42,10 +44,20 @@ export interface User {
  */
 export interface Page {
   id: string;
-  title: string;
-  layout?: QuoteBlock[] | null;
+  title?: string | null;
+  layout?: (HomeBlock | QuoteBlock)[] | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HomeBlock".
+ */
+export interface HomeBlock {
+  displayText?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'home-block';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

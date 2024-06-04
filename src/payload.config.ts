@@ -5,7 +5,6 @@ import path from 'path';
 import { buildConfig } from 'payload/config';
 // import sharp from 'sharp'
 import { fileURLToPath } from 'url';
-
 import { Users } from './collections/Users';
 import { Pages } from './collections/Pages';
 
