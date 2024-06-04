@@ -7,6 +7,11 @@ import { buildConfig } from 'payload/config'
 import { fileURLToPath } from 'url'
 
 import { Users } from './collections/Users'
+import Header from './app/globals/Header'
+import { Media } from './collections/Media'
+import Footer from './app/globals/Footer'
+import Settings from './app/globals/Settings'
+import { Pages } from './collections/Pages'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -15,16 +20,17 @@ export default buildConfig({
   admin: {
     user: Users.slug,
   },
-  collections: [Users],
+  collections: [Users, Media, Pages],
   editor: lexicalEditor({}),
   // plugins: [payloadCloud()], // TODO: Re-enable when cloud supports 3.0
-  secret: process.env.PAYLOAD_SECRET || '',
+  secret: process.env.PAYLOAD_SECRET || 'this is best',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',
   }),
+  globals: [Header, Footer, Settings],
 
   // Sharp is now an optional dependency -
   // if you want to resize images, crop, set focal point, etc.
