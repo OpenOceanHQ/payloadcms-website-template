@@ -1,4 +1,3 @@
-import { admins } from '@/access/admins';
 import { adminsAndUsers } from '@/access/adminsAndUsers';
 import { HomeBlock, QuoteBlock } from '@/app/(payload)/Blocks';
 
@@ -11,10 +10,10 @@ export const Pages: CollectionConfig = {
     defaultColumns: ['title', 'slug', 'updatedAt'],
   },
   access: {
-    create: admins,
+    create: adminsAndUsers,
     read: adminsAndUsers,
-    update: admins,
-    delete: admins,
+    update: adminsAndUsers,
+    delete: adminsAndUsers,
   },
   fields: [
     {
