@@ -1,8 +1,9 @@
-import type { Access } from 'payload/types';
-
+import type { AccessArgs, FieldAccess } from 'payload/types';
 import { checkRole } from './checkRole';
 
-export const adminsAndUsers: Access = ({ req: { user } }) => {
+type isAdminAndUser = (args: AccessArgs) => boolean | {};
+
+export const adminsAndUsers: isAdminAndUser = ({ req: { user } }) => {
   if (user) {
     if (checkRole(['admin'], user)) {
       return true;
@@ -13,6 +14,16 @@ export const adminsAndUsers: Access = ({ req: { user } }) => {
         equals: user.id,
       },
     };
+  }
+
+  return false;
+};
+
+export const adminsAndUsersFieldAccess: FieldAccess = ({ req: { user } }) => {
+  if (user) {
+    if (checkRole(['admin'], user) || checkRole(['user'], user)) {
+      return true;
+    }
   }
 
   return false;
