@@ -25,6 +25,9 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',
   }),
+  graphQL: {
+    disablePlaygroundInProduction: false,
+  },
 
   // Sharp is now an optional dependency -
   // if you want to resize images, crop, set focal point, etc.

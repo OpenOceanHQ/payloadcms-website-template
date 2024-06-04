@@ -1,6 +1,6 @@
-import { admins } from '@/access/admins';
 import { adminsAndUsers } from '@/access/adminsAndUsers';
-import { HomeBlock } from '@/blocks/Home';
+import { HomeBlock, QuoteBlock } from '@/app/(payload)/Blocks';
+
 import { CollectionConfig } from 'payload/types';
 
 export const Pages: CollectionConfig = {
@@ -10,10 +10,10 @@ export const Pages: CollectionConfig = {
     defaultColumns: ['title', 'slug', 'updatedAt'],
   },
   access: {
-    create: admins,
+    create: adminsAndUsers,
     read: adminsAndUsers,
-    update: admins,
-    delete: admins,
+    update: adminsAndUsers,
+    delete: adminsAndUsers,
   },
   fields: [
     {
@@ -26,7 +26,7 @@ export const Pages: CollectionConfig = {
       admin: {
         initCollapsed: true,
       },
-      blocks: [HomeBlock],
+      blocks: [HomeBlock, QuoteBlock],
     },
   ],
 };
