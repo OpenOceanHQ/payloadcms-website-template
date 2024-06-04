@@ -1,5 +1,3 @@
-// import { FormBlock } from '../Form';
-
 import { Page } from '@/payload-types';
 import QuoteBlock from '../QuoteBlock';
 
@@ -13,8 +11,6 @@ export const RenderBlocks = ({ data }: { data: RenderBlocks }) => {
 
 const blocks = (block: NonNullable<RenderBlocks>[number], index: number) => {
   switch (block.blockType) {
-    // case 'form-block':
-    //   return <FormBlock key={index} data={block} />;
     case 'quote-block':
       return <QuoteBlock key={index} data={block} />;
     default:
