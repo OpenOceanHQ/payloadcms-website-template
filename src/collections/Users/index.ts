@@ -1,20 +1,24 @@
 import type { CollectionConfig } from 'payload/types';
 
-import { admins } from '../../access/admins';
-import { anyone } from '../../access/anyone';
-import adminsAndUser from './access/adminsAndUser';
+import { admins } from '@/access/admins';
+import { anyone } from '@/access/anyone';
+import { adminsAndUsers } from '@/access/adminsAndUsers';
 import { ensureFirstUserIsAdmin } from './hooks/ensureFirstUserIsAdmin';
+// import { loginAfterCreate } from './hooks/loginAfterCreate';
 
-const Users: CollectionConfig = {
+export const Users: CollectionConfig = {
   slug: 'users',
   admin: {
     useAsTitle: 'email',
     defaultColumns: ['name', 'email'],
   },
+  // hooks: {
+  //   afterChange: [loginAfterCreate],
+  // },
   access: {
-    read: adminsAndUser,
+    read: adminsAndUsers,
     create: anyone,
-    update: adminsAndUser,
+    update: adminsAndUsers,
     delete: admins,
   },
   auth: true,
@@ -50,5 +54,3 @@ const Users: CollectionConfig = {
   ],
   timestamps: true,
 };
-
-export default Users;
