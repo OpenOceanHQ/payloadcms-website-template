@@ -4,6 +4,8 @@ const Header: GlobalConfig = {
   slug: 'header',
   fields: [
     { name: 'logo', type: 'upload', relationTo: 'media' },
+    { name: 'storeName', type: 'text', required: true },
+
     {
       name: 'navLinks',
       type: 'array',
