@@ -1,4 +1,4 @@
-import { GlobalConfig } from 'payload/types'
+import { GlobalConfig } from 'payload/types';
 
 const Header: GlobalConfig = {
   slug: 'header',
@@ -28,6 +28,6 @@ const Header: GlobalConfig = {
       required: true,
     },
   ],
-}
+};
 
-export default Header
+export default Header;

@@ -1,4 +1,4 @@
-import { GlobalConfig } from 'payload/types'
+import { GlobalConfig } from 'payload/types';
 
 const Settings: GlobalConfig = {
   slug: 'settings',
@@ -10,6 +10,6 @@ const Settings: GlobalConfig = {
       relationTo: ['pages'],
     },
   ],
-}
+};
 
-export default Settings
+export default Settings;

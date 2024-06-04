@@ -1,4 +1,4 @@
-import { GlobalConfig } from 'payload/types'
+import { GlobalConfig } from 'payload/types';
 
 const Footer: GlobalConfig = {
   slug: 'footer',
@@ -22,6 +22,6 @@ const Footer: GlobalConfig = {
       ],
     },
   ],
-}
+};
 
-export default Footer
+export default Footer;
