@@ -46,7 +46,7 @@ export interface User {
 export interface Page {
   id: string;
   title?: string | null;
-  layout?: (HomeBlock | QuoteBlock)[] | null;
+  layout?: (HomeBlock | QuoteBlock | LogoCloudBlock)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -70,6 +70,35 @@ export interface QuoteBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'quote-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "LogoCloudBlock".
+ */
+export interface LogoCloudBlock {
+  sectionTitleAndDescription?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  section_title_and_description_html?: string | null;
+  logos: {
+    storeLogo: string | Media;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'logo-cloud-block';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
