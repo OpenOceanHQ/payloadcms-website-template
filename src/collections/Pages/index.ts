@@ -17,6 +17,12 @@ export const Pages: CollectionConfig = {
   },
   fields: [
     {
+      name: 'slug',
+      type: 'text',
+      required: true,
+      unique: true,
+    },
+    {
       name: 'title',
       type: 'text',
     },

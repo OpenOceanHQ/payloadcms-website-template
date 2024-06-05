@@ -2,15 +2,16 @@ import { RenderBlocks } from '@/common/Blocks/RenderBlocks';
 import configPromise from '@payload-config';
 import { notFound } from 'next/navigation';
 import { getPayload } from 'payload';
-import React from 'react';
+import { ParsedUrlQuery } from 'querystring';
 
-const Home = async () => {
+const page = async ({ params }: { params: ParsedUrlQuery }) => {
+  const { slug } = params;
   const payload = await getPayload({ config: configPromise });
 
   try {
     const { docs } = await payload.find({
       collection: 'pages',
-      where: { slug: { equals: 'home' } },
+      where: { slug: { equals: slug } },
     });
 
     if (docs.length === 0) {
@@ -22,4 +23,5 @@ const Home = async () => {
     return notFound();
   }
 };
-export default Home;
+
+export default page;
