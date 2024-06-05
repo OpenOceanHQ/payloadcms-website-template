@@ -13,7 +13,7 @@ const Home = async ({}: Props) => {
 
   return (
     <div>
-      <RenderBlocks data={docs[0].layout} />
+      <RenderBlocks data={docs[1].layout} />
     </div>
   );
 };

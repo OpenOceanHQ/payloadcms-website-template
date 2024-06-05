@@ -45,7 +45,7 @@ export interface User {
 export interface Page {
   id: string;
   title?: string | null;
-  layout?: (HomeBlock | QuoteBlock)[] | null;
+  layout?: (HomeBlock | QuoteBlock | StatsBlock)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -69,6 +69,36 @@ export interface QuoteBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'quote-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "StatsBlock".
+ */
+export interface StatsBlock {
+  sectionTitleAndDescription: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  yourMetrics: {
+    metric: string;
+    value: string;
+    id?: string | null;
+  }[];
+  sectionTitleAndDescription_html?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'stats-block';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -104,6 +134,7 @@ export interface PayloadMigration {
   updatedAt: string;
   createdAt: string;
 }
+
 
 declare module 'payload' {
   export interface GeneratedTypes extends Config {}
