@@ -21,6 +21,7 @@
     "@payloadcms/db-mongodb": "beta",
     "@payloadcms/next": "beta",
     "@payloadcms/plugin-cloud": "beta",
+    "@payloadcms/plugin-form-builder": "beta",
     "@payloadcms/richtext-lexical": "beta",
     "@typescript-eslint/eslint-plugin": "^7.11.0",
     "@typescript-eslint/parser": "^7.11.0",
@@ -30,6 +31,7 @@
     "payload": "beta",
     "react": "^19.0.0-rc-f994737d14-20240522",
     "react-dom": "^19.0.0-rc-f994737d14-20240522",
+    "react-hook-form": "^7.51.5",
     "sharp": "0.32.6"
   },
   "devDependencies": {

@@ -7,6 +7,7 @@ import { buildConfig } from 'payload/config';
 import { fileURLToPath } from 'url';
 import { Users } from './collections/Users';
 import { Pages } from './collections/Pages';
+import { formBuilderPlugin } from '@payloadcms/plugin-form-builder';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -28,6 +29,14 @@ export default buildConfig({
   graphQL: {
     disablePlaygroundInProduction: false,
   },
+  plugins: [
+    formBuilderPlugin({
+      fields: {
+        text: true,
+        checkbox: true,
+      },
+    }),
+  ],
 
   // Sharp is now an optional dependency -
   // if you want to resize images, crop, set focal point, etc.
