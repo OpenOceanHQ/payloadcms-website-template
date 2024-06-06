@@ -46,7 +46,7 @@ export interface User {
 export interface Page {
   id: string;
   title?: string | null;
-  layout?: (HomeBlock | QuoteBlock | LogoCloudBlock)[] | null;
+  layout?: (HomeBlock | QuoteBlock | LogoCloudBlock | FeatureWithImageBlock)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -134,6 +134,56 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FeatureWithImageBlock".
+ */
+export interface FeatureWithImageBlock {
+  alignment?: ('leftToRight' | 'rightToLeft') | null;
+  sectionTitleAndDescription?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  section_title_and_description_html?: string | null;
+  features?:
+    | {
+        icon?: string | null;
+        featureContent?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        feature_content_html?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  showImage?: boolean | null;
+  image?: string | Media | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'feature-with-image-block';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
