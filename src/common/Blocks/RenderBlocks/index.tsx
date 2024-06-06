@@ -2,6 +2,7 @@ import { Page } from '@/payload-types';
 import QuoteBlock from '../QuoteBlock';
 import { LogoCloudBlock } from '../LogoCloudBlock';
 import { FeatureWithImageBlock } from '../FeatureWithImageBlock';
+import { FeatureWithThreeColumnBlock } from '../FeatureWithThreeColumnBlock';
 
 export type RenderBlocks = Page['layout'];
 
@@ -19,6 +20,8 @@ const blocks = (block: NonNullable<RenderBlocks>[number], index: number) => {
       return <LogoCloudBlock key={index} data={block} />;
     case 'feature-with-image-block':
       return <FeatureWithImageBlock key={index} data={block} />;
+    case 'feature-with-three-column-block':
+      return <FeatureWithThreeColumnBlock key={index} data={block} />;
     default:
       return null;
   }

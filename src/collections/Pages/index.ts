@@ -1,6 +1,7 @@
 import { adminsAndUsers } from '@/access/adminsAndUsers';
 import {
   FeatureWithImageBlock,
+  FeatureWithThreeColumnBlock,
   HomeBlock,
   LogoCloudBlock,
   QuoteBlock,
@@ -31,7 +32,13 @@ export const Pages: CollectionConfig = {
       admin: {
         initCollapsed: true,
       },
-      blocks: [HomeBlock, QuoteBlock, LogoCloudBlock, FeatureWithImageBlock],
+      blocks: [
+        HomeBlock,
+        QuoteBlock,
+        LogoCloudBlock,
+        FeatureWithImageBlock,
+        FeatureWithThreeColumnBlock,
+      ],
     },
   ],
 };

@@ -46,7 +46,15 @@ export interface User {
 export interface Page {
   id: string;
   title?: string | null;
-  layout?: (HomeBlock | QuoteBlock | LogoCloudBlock | FeatureWithImageBlock)[] | null;
+  layout?:
+    | (
+        | HomeBlock
+        | QuoteBlock
+        | LogoCloudBlock
+        | FeatureWithImageBlock
+        | FeatureWithThreeColumnBlock
+      )[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -184,6 +192,63 @@ export interface FeatureWithImageBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'feature-with-image-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FeatureWithThreeColumnBlock".
+ */
+export interface FeatureWithThreeColumnBlock {
+  sectionTitleAndDescription?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  section_title_and_description_html?: string | null;
+  features?:
+    | {
+        icon?: string | null;
+        featureContent?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        feature_content_html?: string | null;
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          url?: string | null;
+          label: string;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'feature-with-three-column-block';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
