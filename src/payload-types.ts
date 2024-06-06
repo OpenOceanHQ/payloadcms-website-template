@@ -53,6 +53,7 @@ export interface Page {
         | CTACenteredBlock
         | CTAWithSplitContentAndButtonBlock
         | CTAWithSplitContentAndImageBlock
+        | TestimonialBlock
       )[]
     | null;
   updatedAt: string;
@@ -243,6 +244,23 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TestimonialBlock".
+ */
+export interface TestimonialBlock {
+  title: string;
+  reviews: {
+    rating?: number | null;
+    heading: string;
+    text: string;
+    customerName?: string | null;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'testimonial-block';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

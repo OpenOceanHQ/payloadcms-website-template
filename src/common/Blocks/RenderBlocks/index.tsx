@@ -3,6 +3,7 @@ import QuoteBlock from '../QuoteBlock';
 import { CTACenteredBlock } from '../CTACenteredBlock';
 import { CTAWithSplitContentAndButtonBlock } from '../CTAWithSplitContentAndButtonBlock';
 import { CTAWithSplitContentAndImageBlock } from '../CTAWithSplitContentAndImageBlock';
+import { Testimonial } from '../Testimonial';
 
 export type RenderBlocks = Page['layout'];
 
@@ -22,6 +23,8 @@ const blocks = (block: NonNullable<RenderBlocks>[number], index: number) => {
       return <CTAWithSplitContentAndButtonBlock key={index} data={block} />;
     case 'cta-with-split-content-and-image-block':
       return <CTAWithSplitContentAndImageBlock key={index} data={block} />;
+    case 'testimonial-block':
+      return <Testimonial key={index} data={block} />;
     default:
       return null;
   }
