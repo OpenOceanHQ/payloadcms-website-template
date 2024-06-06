@@ -45,7 +45,7 @@ export interface User {
 export interface Page {
   id: string;
   title?: string | null;
-  layout?: (HomeBlock | QuoteBlock)[] | null;
+  layout?: (HomeBlock | QuoteBlock | TestimonialBlock)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -69,6 +69,23 @@ export interface QuoteBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'quote-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TestimonialBlock".
+ */
+export interface TestimonialBlock {
+  title: string;
+  reviews: {
+    rating?: number | null;
+    heading: string;
+    text: string;
+    customerName?: string | null;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'testimonial-block';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
