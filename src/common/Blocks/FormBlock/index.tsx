@@ -1,17 +1,15 @@
-import type { Form, FormBlock as FormBlockType } from '@/payload-types';
-// import { useForm } from 'react-hook-form'
-
-// ./src/common/Blocks/FormBlock/index.tsx
-// Attempted import error: 'useForm' is not exported from 'react-hook-form' (imported as 'useForm').
+'use client';
+import type { FormBlock as FormBlockType } from '@/payload-types';
+import { useForm } from 'react-hook-form';
 
 const FormBlock = ({ data }: { data: FormBlockType }) => {
-  // const form = useForm();
-  // const {register} = form
-  // const {name, onChange, onBlur, ref} = register('username')
-  // console.log('data ', data);
-  const form = data.form as Form;
+  const { register } = useForm();
 
-  const renderField = (field: any, index: number) => {
+  const form = data.form;
+  if (typeof form === 'string') {
+    return null;
+  }
+  const renderField = (field: NonNullable<typeof form.fields>[number], index: number) => {
     switch (field.blockType) {
       case 'text':
         return (
@@ -20,9 +18,8 @@ const FormBlock = ({ data }: { data: FormBlockType }) => {
             <input
               type="text"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              // name={field.name}
-              defaultValue={field.defaultValue}
-              // {...register(field.name)}
+              defaultValue={field.defaultValue ? field.defaultValue : ''}
+              {...register(field.name)}
             />
           </div>
         );
