@@ -10,6 +10,7 @@ export interface Config {
   collections: {
     users: User;
     pages: Page;
+    media: Media;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
@@ -45,7 +46,7 @@ export interface User {
 export interface Page {
   id: string;
   title?: string | null;
-  layout?: (HomeBlock | QuoteBlock)[] | null;
+  layout?: (HomeBlock | QuoteBlock | IncentiveBlock)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -69,6 +70,61 @@ export interface QuoteBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'quote-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "IncentiveBlock".
+ */
+export interface IncentiveBlock {
+  title: string;
+  description: string;
+  image: string | Media;
+  features?:
+    | {
+        icon?: string | null;
+        title: string;
+        description: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'incentive-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+  id: string;
+  alt: string;
+  caption?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  caption_html?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -104,7 +160,6 @@ export interface PayloadMigration {
   updatedAt: string;
   createdAt: string;
 }
-
 
 declare module 'payload' {
   export interface GeneratedTypes extends Config {}

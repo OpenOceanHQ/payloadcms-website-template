@@ -2,6 +2,11 @@ import { HTMLConverterFeature, lexicalEditor, lexicalHTML } from '@payloadcms/ri
 import path from 'path';
 import type { CollectionConfig } from 'payload/types';
 import { adminsAndUsers } from '@/access/adminsAndUsers';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 export const Media: CollectionConfig = {
   slug: 'media',
