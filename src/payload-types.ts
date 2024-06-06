@@ -46,7 +46,7 @@ export interface User {
 export interface Page {
   id: string;
   title?: string | null;
-  layout?: (HomeBlock | QuoteBlock)[] | null;
+  layout?: (HomeBlock | QuoteBlock | MediaBlock)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -70,6 +70,17 @@ export interface QuoteBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'quote-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MediaBlock".
+ */
+export interface MediaBlock {
+  position?: ('default' | 'fullscreen') | null;
+  media: string | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'media-block';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
