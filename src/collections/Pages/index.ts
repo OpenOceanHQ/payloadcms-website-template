@@ -1,6 +1,6 @@
 import { adminsAndUsers } from '@/access/adminsAndUsers';
 import { anyone } from '@/access/anyone';
-import { HomeBlock, QuoteBlock, StatsBlock } from '@/app/(payload)/Blocks';
+import { HomeBlock, QuoteBlock, StatsBlock, Testimonial } from '@/app/(payload)/Blocks';
 
 import { CollectionConfig } from 'payload/types';
 
@@ -27,7 +27,7 @@ export const Pages: CollectionConfig = {
       admin: {
         initCollapsed: true,
       },
-      blocks: [HomeBlock, QuoteBlock, StatsBlock],
+      blocks: [HomeBlock, QuoteBlock, StatsBlock, Testimonial],
     },
   ],
 };

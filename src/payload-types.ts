@@ -45,7 +45,7 @@ export interface User {
 export interface Page {
   id: string;
   title?: string | null;
-  layout?: (HomeBlock | QuoteBlock | StatsBlock)[] | null;
+  layout?: (HomeBlock | QuoteBlock | StatsBlock | TestimonialBlock)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -102,6 +102,23 @@ export interface StatsBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TestimonialBlock".
+ */
+export interface TestimonialBlock {
+  title: string;
+  reviews: {
+    rating?: number | null;
+    heading: string;
+    text: string;
+    customerName?: string | null;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'testimonial-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-preferences".
  */
 export interface PayloadPreference {
@@ -134,7 +151,6 @@ export interface PayloadMigration {
   updatedAt: string;
   createdAt: string;
 }
-
 
 declare module 'payload' {
   export interface GeneratedTypes extends Config {}

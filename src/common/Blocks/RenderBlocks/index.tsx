@@ -1,6 +1,7 @@
 import { Page } from '@/payload-types';
 import QuoteBlock from '../QuoteBlock';
 import { StatsBlock } from '../StatsBlock';
+import { Testimonial } from '../Testimonial';
 
 export type RenderBlocks = Page['layout'];
 
@@ -15,6 +16,8 @@ const blocks = (block: NonNullable<RenderBlocks>[number], index: number) => {
       return <QuoteBlock key={index} data={block} />;
     case 'stats-block':
       return <StatsBlock key={index} data={block} />;
+    case 'testimonial-block':
+      return <Testimonial key={index} data={block} />;
     default:
       return null;
   }

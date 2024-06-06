@@ -27,6 +27,7 @@
     "@typescript-eslint/parser": "^7.11.0",
     "cross-env": "^7.0.3",
     "graphql": "^16.8.1",
+    "keen-slider": "^6.8.6",
     "next": "15.0.0-rc.0",
     "payload": "beta",
     "react": "^19.0.0-rc-f994737d14-20240522",
