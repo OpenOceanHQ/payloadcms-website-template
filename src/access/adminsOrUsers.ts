@@ -1,7 +1,7 @@
 import type { AccessArgs, FieldAccess } from 'payload/types';
 import { checkRole } from './checkRole';
 
-type isAdminAndUser = (args: AccessArgs) => boolean | {};
+type isAdminAndUser = (args: AccessArgs) => boolean;
 
 export const adminsOrUsers: isAdminAndUser = ({ req: { user } }) => {
   if (user) {

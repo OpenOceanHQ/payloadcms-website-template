@@ -1,6 +1,17 @@
 import { adminsOrUsers } from '@/access/adminsOrUsers';
+
+import {
+  CTACenteredBlock,
+  CTAWithSplitContentAndButtonBlock,
+  CTAWithSplitContentAndImageBlock,
+  HomeBlock,
+  QuoteBlock,
+  StatsBlock,
+  Testimonial,
+  LogoCloudBlock,
+} from '@/app/(payload)/Blocks';
+
 import { CollectionConfig } from 'payload/types';
-import { HomeBlock, QuoteBlock } from '@/app/(payload)/Blocks';
 import { admins } from '@/access/admins';
 
 export const Pages: CollectionConfig = {
@@ -17,6 +28,12 @@ export const Pages: CollectionConfig = {
   },
   fields: [
     {
+      name: 'slug',
+      type: 'text',
+      required: true,
+      unique: true,
+    },
+    {
       name: 'title',
       type: 'text',
     },
@@ -26,7 +43,16 @@ export const Pages: CollectionConfig = {
       admin: {
         initCollapsed: true,
       },
-      blocks: [HomeBlock, QuoteBlock],
+      blocks: [
+        HomeBlock,
+        QuoteBlock,
+        CTACenteredBlock,
+        CTAWithSplitContentAndButtonBlock,
+        CTAWithSplitContentAndImageBlock,
+        StatsBlock,
+        Testimonial,
+        LogoCloudBlock,
+      ],
     },
   ],
 };

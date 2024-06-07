@@ -22,14 +22,18 @@
     "@payloadcms/next": "beta",
     "@payloadcms/plugin-cloud": "beta",
     "@payloadcms/richtext-lexical": "beta",
+    "@payloadcms/richtext-slate": "^1.5.2",
+    "@tailwindcss/typography": "^0.5.13",
     "@typescript-eslint/eslint-plugin": "^7.11.0",
     "@typescript-eslint/parser": "^7.11.0",
     "cross-env": "^7.0.3",
     "graphql": "^16.8.1",
+    "keen-slider": "^6.8.6",
     "next": "15.0.0-rc.0",
     "payload": "beta",
     "react": "^19.0.0-rc-f994737d14-20240522",
     "react-dom": "^19.0.0-rc-f994737d14-20240522",
+    "react-icons": "^5.2.1",
     "sharp": "0.32.6"
   },
   "devDependencies": {
