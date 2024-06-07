@@ -1,5 +1,6 @@
 export * from './QuoteBlock';
 export * from './Home';
+export * from './IncentiveBlock';
 export * from './StatsBlock';
 export * from './Testimonial';
 export * from './CTAs/CTACentered';

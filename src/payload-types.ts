@@ -59,6 +59,7 @@ export interface Page {
         | CTAWithSplitContentAndButtonBlock
         | CTAWithSplitContentAndImageBlock
         | StatsBlock
+        | IncentiveBlock
         | TestimonialBlock
         | LogoCloudBlock
         | HeroWithBackgroundBlock
@@ -283,6 +284,26 @@ export interface StatsBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'stats-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "IncentiveBlock".
+ */
+export interface IncentiveBlock {
+  title: string;
+  description: string;
+  image: string | Media;
+  features?:
+    | {
+        icon?: string | null;
+        title: string;
+        description: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'incentive-block';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
