@@ -6,6 +6,7 @@ import {
   HomeBlock,
   QuoteBlock,
   MediaBlock,
+  ContentBlock,
   StatsBlock,
   Testimonial,
 } from '@/app/(payload)/Blocks';
@@ -45,6 +46,7 @@ export const Pages: CollectionConfig = {
         HomeBlock,
         QuoteBlock,
         MediaBlock,
+        ContentBlock,
         CTACenteredBlock,
         CTAWithSplitContentAndButtonBlock,
         CTAWithSplitContentAndImageBlock,
