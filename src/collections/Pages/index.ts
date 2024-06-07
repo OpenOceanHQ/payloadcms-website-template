@@ -7,6 +7,7 @@ import {
   QuoteBlock,
   StatsBlock,
   Testimonial,
+  LogoCloudBlock,
 } from '@/app/(payload)/Blocks';
 
 import { CollectionConfig } from 'payload/types';
@@ -48,6 +49,7 @@ export const Pages: CollectionConfig = {
         CTAWithSplitContentAndImageBlock,
         StatsBlock,
         Testimonial,
+        LogoCloudBlock,
       ],
     },
   ],

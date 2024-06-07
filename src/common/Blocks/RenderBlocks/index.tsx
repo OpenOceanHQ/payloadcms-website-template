@@ -5,6 +5,7 @@ import { CTACenteredBlock } from '../CTACenteredBlock';
 import { CTAWithSplitContentAndButtonBlock } from '../CTAWithSplitContentAndButtonBlock';
 import { CTAWithSplitContentAndImageBlock } from '../CTAWithSplitContentAndImageBlock';
 import { Testimonial } from '../Testimonial';
+import { LogoCloudBlock } from '../LogoCloudBlock';
 
 export type RenderBlocks = Page['layout'];
 
@@ -27,6 +28,8 @@ const blocks = (block: NonNullable<RenderBlocks>[number], index: number) => {
       return <CTAWithSplitContentAndImageBlock key={index} data={block} />;
     case 'testimonial-block':
       return <Testimonial key={index} data={block} />;
+    case 'logo-cloud-block':
+      return <LogoCloudBlock key={index} data={block} />;
     default:
       return null;
   }
