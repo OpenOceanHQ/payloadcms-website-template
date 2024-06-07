@@ -1,10 +1,12 @@
 import { adminsAndUsers } from '@/access/adminsAndUsers';
 import {
+  HomeBlock,
+  QuoteBlock,
+  HeroWithBackgroundBlock,
+  HeroWithSplitContentAndImageBlock,
   CTACenteredBlock,
   CTAWithSplitContentAndButtonBlock,
   CTAWithSplitContentAndImageBlock,
-  HomeBlock,
-  QuoteBlock,
   StatsBlock,
   Testimonial,
   LogoCloudBlock,
@@ -50,6 +52,8 @@ export const Pages: CollectionConfig = {
         StatsBlock,
         Testimonial,
         LogoCloudBlock,
+        HeroWithBackgroundBlock,
+        HeroWithSplitContentAndImageBlock,
       ],
     },
   ],
