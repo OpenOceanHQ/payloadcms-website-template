@@ -9,8 +9,7 @@ const Settings: GlobalConfig = {
       type: 'text',
     },
     {
-      name: 'reference',
-      label: 'Page to Edit',
+      name: 'page',
       type: 'relationship',
       relationTo: ['pages'],
     },
