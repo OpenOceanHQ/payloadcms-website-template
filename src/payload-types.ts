@@ -57,6 +57,10 @@ export interface Page {
         | QuoteBlock
         | MediaBlock
         | ContentBlock
+        | HeroWithBackgroundBlock
+        | HeroWithSplitContentAndImageBlock
+        | FeatureWithImageBlock
+        | FeatureWithThreeColumnBlock
         | CTACenteredBlock
         | CTAWithSplitContentAndButtonBlock
         | CTAWithSplitContentAndImageBlock
@@ -64,8 +68,6 @@ export interface Page {
         | IncentiveBlock
         | TestimonialBlock
         | LogoCloudBlock
-        | HeroWithBackgroundBlock
-        | HeroWithSplitContentAndImageBlock
       )[]
     | null;
   updatedAt: string;
@@ -186,6 +188,204 @@ export interface ContentBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'content-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroWithBackgroundBlock".
+ */
+export interface HeroWithBackgroundBlock {
+  size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
+  alignment?: ('left' | 'right' | 'center') | null;
+  heroContent?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  links?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          url?: string | null;
+          label: string;
+          appearance?: ('primary' | 'secondary') | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  backgroundType?: ('backgroundImage' | 'backgroundColor') | null;
+  backgroundImage?: string | Media | null;
+  backgroundColor?: string | null;
+  textColor: string;
+  heroContent_html?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hero-with-background-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroWithSplitContentAndImageBlock".
+ */
+export interface HeroWithSplitContentAndImageBlock {
+  alignment?: ('leftToRight' | 'rightToLeft' | 'topToBottom' | 'bottomToTop') | null;
+  heroContent: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  links?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          url?: string | null;
+          label: string;
+          appearance?: ('primary' | 'secondary') | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  showImage?: boolean | null;
+  image?: string | Media | null;
+  heroContent_html?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hero-with-split-content-and-image-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FeatureWithImageBlock".
+ */
+export interface FeatureWithImageBlock {
+  alignment?: ('leftToRight' | 'rightToLeft') | null;
+  sectionTitleAndDescription?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  section_title_and_description_html?: string | null;
+  features?:
+    | {
+        icon?: string | null;
+        featureContent?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        feature_content_html?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  showImage?: boolean | null;
+  image?: string | Media | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'feature-with-image-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FeatureWithThreeColumnBlock".
+ */
+export interface FeatureWithThreeColumnBlock {
+  sectionTitleAndDescription?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  section_title_and_description_html?: string | null;
+  features?:
+    | {
+        icon?: string | null;
+        featureContent?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        feature_content_html?: string | null;
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          url?: string | null;
+          label: string;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'feature-with-three-column-block';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -412,97 +612,6 @@ export interface LogoCloudBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'logo-cloud-block';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "HeroWithBackgroundBlock".
- */
-export interface HeroWithBackgroundBlock {
-  size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
-  alignment?: ('left' | 'right' | 'center') | null;
-  heroContent?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  links?:
-    | {
-        link: {
-          type?: ('reference' | 'custom') | null;
-          newTab?: boolean | null;
-          reference?: {
-            relationTo: 'pages';
-            value: string | Page;
-          } | null;
-          url?: string | null;
-          label: string;
-          appearance?: ('primary' | 'secondary') | null;
-        };
-        id?: string | null;
-      }[]
-    | null;
-  backgroundType?: ('backgroundImage' | 'backgroundColor') | null;
-  backgroundImage?: string | Media | null;
-  backgroundColor?: string | null;
-  textColor: string;
-  heroContent_html?: string | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'hero-with-background-block';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "HeroWithSplitContentAndImageBlock".
- */
-export interface HeroWithSplitContentAndImageBlock {
-  alignment?: ('leftToRight' | 'rightToLeft' | 'topToBottom' | 'bottomToTop') | null;
-  heroContent: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
-  links?:
-    | {
-        link: {
-          type?: ('reference' | 'custom') | null;
-          newTab?: boolean | null;
-          reference?: {
-            relationTo: 'pages';
-            value: string | Page;
-          } | null;
-          url?: string | null;
-          label: string;
-          appearance?: ('primary' | 'secondary') | null;
-        };
-        id?: string | null;
-      }[]
-    | null;
-  showImage?: boolean | null;
-  image?: string | Media | null;
-  heroContent_html?: string | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'hero-with-split-content-and-image-block';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

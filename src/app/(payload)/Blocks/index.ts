@@ -8,6 +8,8 @@ export * from './Testimonial';
 export * from './CTAs/CTACentered';
 export * from './CTAs/CTAWithSplitContentAndButton';
 export * from './CTAs/CTAWithSplitContentAndImage';
+export * from './FeatureSections/FeatureWithImage';
+export * from './FeatureSections/FeatureWithThreeColumn';
 export * from './LogoCloudBlock';
 export * from './HeroWithBackground';
 export * from './HeroWithSplitContentAndImage';

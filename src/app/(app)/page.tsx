@@ -1,7 +1,7 @@
-import Header from '@/common/Components/Header/Header';
-import Footer from '@/common/Components/Footer/Footer';
+import Header from '../../common/components/Header';
+import Footer from '../../common/components/Footer';
 import React from 'react';
-import { RenderBlocks } from '@/common/Blocks/RenderBlocks';
+import { RenderBlocks } from '../../common/Blocks/RenderBlocks';
 import configPromise from '@payload-config';
 import { notFound } from 'next/navigation';
 import { getPayload } from 'payload';

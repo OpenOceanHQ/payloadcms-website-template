@@ -1,4 +1,6 @@
-import { RenderBlocks } from '@/common/Blocks/RenderBlocks';
+import Header from '../../../common/components/Header';
+import Footer from '../../../common/components/Footer';
+import { RenderBlocks } from '../../../common/Blocks/RenderBlocks';
 import configPromise from '@payload-config';
 import { notFound } from 'next/navigation';
 import { getPayload } from 'payload';
@@ -18,7 +20,11 @@ const page = async ({ params }: { params: ParsedUrlQuery }) => {
       throw new Error();
     }
 
-    return <RenderBlocks data={docs[0].layout} />;
+    return (
+      <>
+        <Header /> <RenderBlocks data={docs[0].layout} /> <Footer />
+      </>
+    );
   } catch (error) {
     return notFound();
   }
