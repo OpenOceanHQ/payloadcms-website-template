@@ -1,6 +1,6 @@
 import React from 'react';
 import { LogoCloudBlock as LogoCloudBlockType } from '@/payload-types';
-import { MediaImage } from '@/common/MediaImage';
+import { MediaImage } from '../../Mediaimage';
 
 export const LogoCloudBlock = ({ data }: { data: LogoCloudBlockType | null | undefined }) => {
   return (

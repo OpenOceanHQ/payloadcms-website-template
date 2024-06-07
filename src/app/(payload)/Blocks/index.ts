@@ -1,5 +1,7 @@
 export * from './QuoteBlock';
 export * from './Home';
+export * from './Misc/Media';
+export * from './Misc/Content';
 export * from './IncentiveBlock';
 export * from './StatsBlock';
 export * from './Testimonial';

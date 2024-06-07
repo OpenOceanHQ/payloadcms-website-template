@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { HeroWithBackgroundBlock as HeroWithBackgroundBlockType } from '@/payload-types';
-import { MediaImage } from '@/common/MediaImage';
+import { MediaImage } from '../../Mediaimage';
 
 export const HeroWithBackgroundBlock = ({
   data,

@@ -7,6 +7,8 @@ import {
   CTACenteredBlock,
   CTAWithSplitContentAndButtonBlock,
   CTAWithSplitContentAndImageBlock,
+  MediaBlock,
+  ContentBlock,
   IncentiveBlock,
   StatsBlock,
   Testimonial,
@@ -48,6 +50,8 @@ export const Pages: CollectionConfig = {
       blocks: [
         HomeBlock,
         QuoteBlock,
+        MediaBlock,
+        ContentBlock,
         CTACenteredBlock,
         CTAWithSplitContentAndButtonBlock,
         CTAWithSplitContentAndImageBlock,
