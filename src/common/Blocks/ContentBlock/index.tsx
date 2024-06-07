@@ -1,5 +1,5 @@
+import { LinkButton } from '../../components/LinkButtons';
 import { ContentBlock as ContentBlockType } from '@/payload-types';
-import Link from 'next/link';
 
 export const ContentBlock = ({ data }: { data: ContentBlockType | null | undefined }) => {
   if (!data) return null;
@@ -27,20 +27,7 @@ export const ContentBlock = ({ data }: { data: ContentBlockType | null | undefin
             {richText_html && <div dangerouslySetInnerHTML={{ __html: richText_html }} />}
             {enableLink &&
               links &&
-              links.map(({ link }, index) => (
-                <Link
-                  key={index}
-                  href={link.url ? link.url : ''}
-                  target={link.newTab ? '_blank' : '_self'}
-                  className={`mr-2 mt-2 inline-block rounded border border-indigo-600 ${
-                    link.appearance === 'primary' && 'bg-indigo-600'
-                  } px-12 py-3 text-sm font-medium ${
-                    link.appearance === 'primary' ? 'text-white' : 'text-indigo-600'
-                  } transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400`}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              links.map(({ link }, index) => <LinkButton link={link} key={index} />)}
           </div>
         ))}
       </div>
