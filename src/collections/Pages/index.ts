@@ -1,5 +1,14 @@
 import { adminsAndUsers } from '@/access/adminsAndUsers';
-import { HomeBlock, QuoteBlock, MediaBlock } from '@/app/(payload)/Blocks';
+import {
+  CTACenteredBlock,
+  CTAWithSplitContentAndButtonBlock,
+  CTAWithSplitContentAndImageBlock,
+  HomeBlock,
+  QuoteBlock,
+  MediaBlock,
+  StatsBlock,
+  Testimonial,
+} from '@/app/(payload)/Blocks';
 
 import { CollectionConfig } from 'payload/types';
 
@@ -17,6 +26,12 @@ export const Pages: CollectionConfig = {
   },
   fields: [
     {
+      name: 'slug',
+      type: 'text',
+      required: true,
+      unique: true,
+    },
+    {
       name: 'title',
       type: 'text',
     },
@@ -26,7 +41,16 @@ export const Pages: CollectionConfig = {
       admin: {
         initCollapsed: true,
       },
-      blocks: [HomeBlock, QuoteBlock, MediaBlock],
+      blocks: [
+        HomeBlock,
+        QuoteBlock,
+        MediaBlock,
+        CTACenteredBlock,
+        CTAWithSplitContentAndButtonBlock,
+        CTAWithSplitContentAndImageBlock,
+        StatsBlock,
+        Testimonial,
+      ],
     },
   ],
 };
