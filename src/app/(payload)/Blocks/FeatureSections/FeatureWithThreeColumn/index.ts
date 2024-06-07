@@ -1,6 +1,6 @@
 import type { Block } from 'payload/types';
 import { HTMLConverterFeature, lexicalEditor, lexicalHTML } from '@payloadcms/richtext-lexical';
-import { IconSelector } from '@/common/components/IconSelector';
+import { IconSelector } from '../../ui/IconSelector';
 import link from '@/app/(payload)/fields/link';
 
 export const FeatureWithThreeColumnBlock: Block = {

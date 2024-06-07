@@ -1,7 +1,7 @@
 import type { Block } from 'payload/types';
 
 import { HTMLConverterFeature, lexicalEditor, lexicalHTML } from '@payloadcms/richtext-lexical';
-import { IconSelector } from '@/common/components/IconSelector';
+import { IconSelector } from '../../ui/IconSelector';
 
 export const FeatureWithImageBlock: Block = {
   slug: 'feature-with-image-block',

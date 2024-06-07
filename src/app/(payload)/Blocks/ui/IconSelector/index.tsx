@@ -10,6 +10,7 @@ type Props = {
   path: string;
   label: string;
   required: boolean;
+  description: () => any;
 };
 
 export const IconSelector: React.FC<Props> = ({ path, required }) => {

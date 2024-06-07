@@ -1,7 +1,7 @@
 import { HTMLConverterFeature, lexicalEditor, lexicalHTML } from '@payloadcms/richtext-lexical';
 import path from 'path';
 import type { CollectionConfig } from 'payload/types';
-import { adminsAndUsers } from '@/access/adminsAndUsers';
+import { adminsOrUsers } from '@/access/adminsOrUsers';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
@@ -12,16 +12,15 @@ export const Media: CollectionConfig = {
   slug: 'media',
   upload: {
     staticDir: path.resolve(__dirname, '../../../media'),
-    // I think will be nice to save all the images of a store in its own folder. thinking {storeId}/store_logo.png
   },
   admin: {
     hideAPIURL: true,
   },
   access: {
-    create: adminsAndUsers,
-    read: adminsAndUsers,
-    update: adminsAndUsers,
-    delete: adminsAndUsers,
+    create: adminsOrUsers,
+    read: adminsOrUsers,
+    update: adminsOrUsers,
+    delete: adminsOrUsers,
   },
   fields: [
     {
@@ -37,12 +36,7 @@ export const Media: CollectionConfig = {
       name: 'caption',
       type: 'richText',
       editor: lexicalEditor({
-        features: ({ defaultFeatures }) => [
-          ...defaultFeatures,
-          // The HTMLConverter Feature is the feature which manages the HTML serializers.
-          // If you do not pass any arguments to it, it will use the default serializers.
-          HTMLConverterFeature({}),
-        ],
+        features: ({ defaultFeatures }) => [...defaultFeatures, HTMLConverterFeature({})],
       }),
     },
 
