@@ -1,6 +1,13 @@
 import { adminsAndUsers } from '@/access/adminsAndUsers';
-import { anyone } from '@/access/anyone';
-import { HomeBlock, QuoteBlock, StatsBlock, Testimonial } from '@/app/(payload)/Blocks';
+import {
+  CTACenteredBlock,
+  CTAWithSplitContentAndButtonBlock,
+  CTAWithSplitContentAndImageBlock,
+  HomeBlock,
+  QuoteBlock,
+  StatsBlock,
+  Testimonial,
+} from '@/app/(payload)/Blocks';
 
 import { CollectionConfig } from 'payload/types';
 
@@ -12,11 +19,17 @@ export const Pages: CollectionConfig = {
   },
   access: {
     create: adminsAndUsers,
-    read: anyone,
+    read: adminsAndUsers,
     update: adminsAndUsers,
     delete: adminsAndUsers,
   },
   fields: [
+    {
+      name: 'slug',
+      type: 'text',
+      required: true,
+      unique: true,
+    },
     {
       name: 'title',
       type: 'text',
@@ -27,7 +40,15 @@ export const Pages: CollectionConfig = {
       admin: {
         initCollapsed: true,
       },
-      blocks: [HomeBlock, QuoteBlock, StatsBlock, Testimonial],
+      blocks: [
+        HomeBlock,
+        QuoteBlock,
+        CTACenteredBlock,
+        CTAWithSplitContentAndButtonBlock,
+        CTAWithSplitContentAndImageBlock,
+        StatsBlock,
+        Testimonial,
+      ],
     },
   ],
 };
