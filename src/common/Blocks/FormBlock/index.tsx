@@ -7,6 +7,11 @@ import { Checkbox } from './Checkbox';
 import { submitForm } from './submitForm';
 import { TextArea } from './TextArea';
 import { Number } from './Number';
+import { Select } from './Select';
+import { Email } from './Email';
+import { State } from './State';
+import { Country } from './Country';
+import { Message } from './Message';
 
 type formValues = {
   username: string;
@@ -64,6 +69,16 @@ const FormBlock = ({ data }: { data: FormBlockType }) => {
         return <Number field={field} register={register} errors={errors} key={index} />;
       case 'checkbox':
         return <Checkbox field={field} register={register} errors={errors} key={index} />;
+      case 'select':
+        return <Select field={field} register={register} errors={errors} key={index} />;
+      case 'email':
+        return <Email field={field} register={register} errors={errors} key={index} />;
+      case 'state':
+        return <State field={field} register={register} errors={errors} key={index} />;
+      case 'country':
+        return <Country field={field} register={register} errors={errors} key={index} />;
+      case 'message':
+        return <Message field={field} key={index} />;
       default:
         return null;
     }
