@@ -5,6 +5,7 @@ import {
   CTAWithSplitContentAndImageBlock,
   HomeBlock,
   QuoteBlock,
+  StatsBlock,
   Testimonial,
 } from '@/app/(payload)/Blocks';
 
@@ -45,6 +46,7 @@ export const Pages: CollectionConfig = {
         CTACenteredBlock,
         CTAWithSplitContentAndButtonBlock,
         CTAWithSplitContentAndImageBlock,
+        StatsBlock,
         Testimonial,
       ],
     },

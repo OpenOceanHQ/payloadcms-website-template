@@ -45,6 +45,7 @@ export interface User {
  */
 export interface Page {
   id: string;
+  slug: string;
   title?: string | null;
   layout?:
     | (
@@ -53,6 +54,7 @@ export interface Page {
         | CTACenteredBlock
         | CTAWithSplitContentAndButtonBlock
         | CTAWithSplitContentAndImageBlock
+        | StatsBlock
         | TestimonialBlock
       )[]
     | null;
@@ -247,6 +249,36 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "StatsBlock".
+ */
+export interface StatsBlock {
+  sectionTitleAndDescription: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  yourMetrics: {
+    metric: string;
+    value: string;
+    id?: string | null;
+  }[];
+  sectionTitleAndDescription_html?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'stats-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "TestimonialBlock".
  */
 export interface TestimonialBlock {
@@ -261,41 +293,6 @@ export interface TestimonialBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'testimonial-block';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
- */
-export interface Media {
-  id: string;
-  alt: string;
-  caption?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  caption_html?: string | null;
-  updatedAt: string;
-  createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -331,7 +328,6 @@ export interface PayloadMigration {
   updatedAt: string;
   createdAt: string;
 }
-
 
 declare module 'payload' {
   export interface GeneratedTypes extends Config {}
