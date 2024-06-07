@@ -1,5 +1,6 @@
 import { Page } from '@/payload-types';
 import QuoteBlock from '../QuoteBlock';
+import FormBlock from '../FormBlock';
 import { MediaBlock } from '../MediaBlock';
 import { IncentiveBlock } from '../IncentiveBlock';
 import { HeroWithBackgroundBlock } from '../HeroWithBackgroundBlock';
@@ -25,6 +26,8 @@ const blocks = (block: NonNullable<RenderBlocks>[number], index: number) => {
   switch (block.blockType) {
     case 'quote-block':
       return <QuoteBlock key={index} data={block} />;
+    case 'form-block':
+      return <FormBlock key={index} data={block} />;
     case 'media-block':
       return <MediaBlock key={index} data={block} />;
     case 'content-block':

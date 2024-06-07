@@ -15,6 +15,7 @@ import {
   StatsBlock,
   Testimonial,
   LogoCloudBlock,
+  FormBlock,
 } from '@/app/(payload)/Blocks';
 
 import { CollectionConfig } from 'payload/types';
@@ -65,6 +66,7 @@ export const Pages: CollectionConfig = {
         IncentiveBlock,
         Testimonial,
         LogoCloudBlock,
+        FormBlock,
       ],
     },
   ],

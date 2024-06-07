@@ -1,5 +1,5 @@
-import Header from '../../common/components/Header';
-import Footer from '../../common/components/Footer';
+import Header from '../../common/Components/Header';
+import Footer from '../../common/Components/Footer';
 import React from 'react';
 import { RenderBlocks } from '../../common/Blocks/RenderBlocks';
 import configPromise from '@payload-config';

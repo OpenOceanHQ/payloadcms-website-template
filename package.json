@@ -21,6 +21,7 @@
     "@payloadcms/db-mongodb": "beta",
     "@payloadcms/next": "beta",
     "@payloadcms/plugin-cloud": "beta",
+    "@payloadcms/plugin-form-builder": "beta",
     "@payloadcms/richtext-lexical": "beta",
     "@payloadcms/richtext-slate": "^1.5.2",
     "@tailwindcss/typography": "^0.5.13",
@@ -33,6 +34,7 @@
     "payload": "beta",
     "react": "^19.0.0-rc-f994737d14-20240522",
     "react-dom": "^19.0.0-rc-f994737d14-20240522",
+    "react-hook-form": "^7.51.5",
     "react-icons": "^5.2.1",
     "sharp": "0.32.6"
   },
