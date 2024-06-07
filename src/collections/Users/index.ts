@@ -1,6 +1,6 @@
 import type { CollectionConfig } from 'payload/types';
 import { admins } from '@/access/admins';
-import { adminsAndUsers, adminsAndUsersFieldAccess } from '@/access/adminsAndUsers';
+import { adminsOrUsers, adminsOrUsersFieldAccess } from '@/access/adminsOrUsers';
 import { ensureFirstUserIsAdmin } from './hooks/ensureFirstUserIsAdmin';
 // import { loginAfterCreate } from './hooks/loginAfterCreate';
 
@@ -14,9 +14,9 @@ export const Users: CollectionConfig = {
   //   afterChange: [loginAfterCreate],
   // },
   access: {
-    read: adminsAndUsers,
+    read: adminsOrUsers,
     create: admins,
-    update: adminsAndUsers,
+    update: admins,
     delete: admins,
   },
   auth: true,
@@ -44,7 +44,7 @@ export const Users: CollectionConfig = {
         beforeChange: [ensureFirstUserIsAdmin],
       },
       access: {
-        read: adminsAndUsersFieldAccess,
+        read: adminsOrUsersFieldAccess,
         create: admins,
         update: admins,
       },
