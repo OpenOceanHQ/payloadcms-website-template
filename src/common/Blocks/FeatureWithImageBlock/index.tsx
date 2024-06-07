@@ -16,7 +16,7 @@ export const FeatureWithImageBlock = ({
             data.alignment === 'leftToRight' ? 'lg:ml-auto lg:pl-4' : ''
           }`}
         >
-          <div className="lg:max-w-lg">
+          <div className="lg:max-w-lg prose lg:prose-lg xl:prose-xl prose-headings:text-inherit">
             {data && data.section_title_and_description_html && (
               <div dangerouslySetInnerHTML={{ __html: data.section_title_and_description_html }} />
             )}
@@ -24,7 +24,7 @@ export const FeatureWithImageBlock = ({
               {data.features?.map(({ icon, feature_content_html }, index) => (
                 <div key={index} className="flex flex-col">
                   {icon && <CustomIcon name={icon} className="h-6 w-6 text-indigo-600" />}
-                  <dd className="mt-4 flex flex-auto flex-col text-base leading-7">
+                  <dd className="mt-4 flex flex-auto flex-col text-base leading-7 prose lg:prose-lg xl:prose-xl prose-headings:text-inherit">
                     {feature_content_html && (
                       <div dangerouslySetInnerHTML={{ __html: feature_content_html }} />
                     )}
