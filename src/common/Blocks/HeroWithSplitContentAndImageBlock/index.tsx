@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { HeroWithSplitContentAndImageBlock as HeroWithSplitContentAndImageBlockType } from '@/payload-types';
-import Image from 'next/image';
+import { MediaImage } from '@/common/MediaImage';
 
 export const HeroWithSplitContentAndImageBlock = ({
   data,
@@ -21,21 +21,10 @@ export const HeroWithSplitContentAndImageBlock = ({
       >
         {data.showImage && data.image && (
           <div className="flex-1 relative min-h-80">
-            <Image
-              src={typeof data.image !== 'string' && data.image.url ? data.image.url : ''}
-              width={typeof data.image !== 'string' && data.image.width ? data.image.width : 500}
-              height={typeof data.image !== 'string' && data.image.height ? data.image.height : 500}
-              alt={
-                typeof data.image !== 'string' && data.image.alt
-                  ? data.image.alt
-                  : 'CTA section Image'
-              }
-              className="absolute inset-0 h-full w-full object-cover rounded-lg"
-            />
-            {/* <MediaImage
+            <MediaImage
               media={data.image}
               className="absolute inset-0 h-full w-full object-cover rounded-lg"
-            /> */}
+            />
           </div>
         )}
 

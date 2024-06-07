@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { HeroWithBackgroundBlock as HeroWithBackgroundBlockType } from '@/payload-types';
-import Image from 'next/image';
+import { MediaImage } from '@/common/MediaImage';
 
 export const HeroWithBackgroundBlock = ({
   data,
@@ -10,13 +10,13 @@ export const HeroWithBackgroundBlock = ({
   if (!data) return null;
 
   return (
-    <section className="container mx-auto px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
+    <section className="container mx-auto px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16 text-wrap rounded-lg">
       <div
         className={`relative flex flex-col 
         ${data.alignment === 'left' ? 'items-start' : ''}
         ${data.alignment === 'center' ? 'items-center' : ''}
         ${data.alignment === 'right' ? 'items-end' : ''}
-         gap-10 px-10 py-16`}
+         gap-10 px-10 py-16 `}
         style={
           data.backgroundType === 'backgroundColor'
             ? { backgroundColor: data.backgroundColor || '#FFFFFF' }
@@ -58,33 +58,10 @@ export const HeroWithBackgroundBlock = ({
         </div>
         {data.backgroundType === 'backgroundImage' && data.backgroundImage && (
           <>
-            <Image
-              src={
-                typeof data.backgroundImage !== 'string' && data.backgroundImage.url
-                  ? data.backgroundImage.url
-                  : ''
-              }
-              width={
-                typeof data.backgroundImage !== 'string' && data.backgroundImage.width
-                  ? data.backgroundImage.width
-                  : 500
-              }
-              height={
-                typeof data.backgroundImage !== 'string' && data.backgroundImage.height
-                  ? data.backgroundImage.height
-                  : 500
-              }
-              alt={
-                typeof data.backgroundImage !== 'string' && data.backgroundImage.alt
-                  ? data.backgroundImage.alt
-                  : 'CTA section Image'
-              }
+            <MediaImage
+              media={data.backgroundImage}
               className="absolute inset-0 h-full w-full object-cover rounded-lg"
             />
-            {/* <MediaImage
-            media={data.backgroundImage}
-            className="absolute inset-0 h-full w-full object-cover rounded-lg"
-          /> */}
           </>
         )}
         {data.backgroundType === 'backgroundImage' && (
