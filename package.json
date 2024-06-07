@@ -23,6 +23,7 @@
     "@payloadcms/plugin-cloud": "beta",
     "@payloadcms/richtext-lexical": "beta",
     "@payloadcms/richtext-slate": "^1.5.2",
+    "@tailwindcss/typography": "^0.5.13",
     "@typescript-eslint/eslint-plugin": "^7.11.0",
     "@typescript-eslint/parser": "^7.11.0",
     "cross-env": "^7.0.3",
