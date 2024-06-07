@@ -14,7 +14,11 @@ export interface Config {
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
-  globals: {};
+  globals: {
+    header: Header;
+    footer: Footer;
+    settings: Setting;
+  };
   locale: null;
   user: User & {
     collection: 'users';
@@ -357,6 +361,70 @@ export interface PayloadMigration {
   batch?: number | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "header".
+ */
+export interface Header {
+  id: string;
+  logo?: string | Media | null;
+  storeName: string;
+  navLinks: {
+    title: string;
+    reference?: {
+      relationTo: 'pages';
+      value: string | Page;
+    } | null;
+    id?: string | null;
+  }[];
+  showLoginButton: boolean;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer".
+ */
+export interface Footer {
+  id: string;
+  logo?: string | Media | null;
+  socialProfiles?: {
+    facebook?: string | null;
+    twitter?: string | null;
+    instagram?: string | null;
+    youtube?: string | null;
+    email?: string | null;
+    phone?: string | null;
+  };
+  footerLinks: {
+    title: string;
+    links: {
+      title: string;
+      reference?: {
+        relationTo: 'pages';
+        value: string | Page;
+      } | null;
+      id?: string | null;
+    }[];
+    id?: string | null;
+  }[];
+  copyright: string;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "settings".
+ */
+export interface Setting {
+  id: string;
+  homePage?: {
+    relationTo: 'pages';
+    value: string | Page;
+  } | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
 }
 
 declare module 'payload' {
