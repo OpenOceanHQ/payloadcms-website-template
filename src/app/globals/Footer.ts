@@ -4,7 +4,6 @@ const Footer: GlobalConfig = {
   slug: 'footer',
   fields: [
     { name: 'logo', type: 'upload', relationTo: 'media' },
-    { name: 'storeName', type: 'text', required: true },
     {
       name: 'socialProfiles',
       label: 'Social profiles',
@@ -38,26 +37,10 @@ const Footer: GlobalConfig = {
           type: 'text',
         },
         {
-          name: 'linkedIn',
-          label: 'LinkedIn URL',
-          admin: {
-            placeholder: 'Enter LinkedIn URL',
-          },
-          type: 'text',
-        },
-        {
           name: 'youtube',
           label: 'Youtube URL',
           admin: {
             placeholder: 'Enter Youtube URL',
-          },
-          type: 'text',
-        },
-        {
-          name: 'pinterest',
-          label: 'Pinterest URL',
-          admin: {
-            placeholder: 'Enter Pinterest URL',
           },
           type: 'text',
         },
@@ -88,10 +71,22 @@ const Footer: GlobalConfig = {
           required: true,
         },
         {
-          name: 'reference',
-          label: 'Page to link',
-          type: 'relationship',
-          relationTo: ['pages'],
+          name: 'links',
+          type: 'array',
+          required: true,
+          fields: [
+            {
+              name: 'title',
+              type: 'text',
+              required: true,
+            },
+            {
+              name: 'reference',
+              label: 'Page to link',
+              type: 'relationship',
+              relationTo: ['pages'],
+            },
+          ],
         },
       ],
     },

@@ -1,4 +1,5 @@
 import Header from '@/common/Components/Header/Header';
+import Footer from '@/common/Components/Footer/Footer';
 import React from 'react';
 import { RenderBlocks } from '@/common/Blocks/RenderBlocks';
 import configPromise from '@payload-config';
@@ -20,7 +21,7 @@ const Home = async () => {
 
     return (
       <>
-        <Header /> <RenderBlocks data={docs[0].layout} />{' '}
+        <Header /> <RenderBlocks data={docs[0].layout} /> <Footer />
       </>
     );
   } catch (error) {
