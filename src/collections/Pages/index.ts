@@ -1,5 +1,12 @@
 import { adminsAndUsers } from '@/access/adminsAndUsers';
-import { HomeBlock, QuoteBlock, Testimonial } from '@/app/(payload)/Blocks';
+import {
+  CTACenteredBlock,
+  CTAWithSplitContentAndButtonBlock,
+  CTAWithSplitContentAndImageBlock,
+  HomeBlock,
+  QuoteBlock,
+  Testimonial,
+} from '@/app/(payload)/Blocks';
 
 import { CollectionConfig } from 'payload/types';
 
@@ -26,7 +33,14 @@ export const Pages: CollectionConfig = {
       admin: {
         initCollapsed: true,
       },
-      blocks: [HomeBlock, QuoteBlock, Testimonial],
+      blocks: [
+        HomeBlock,
+        QuoteBlock,
+        CTACenteredBlock,
+        CTAWithSplitContentAndButtonBlock,
+        CTAWithSplitContentAndImageBlock,
+        Testimonial,
+      ],
     },
   ],
 };

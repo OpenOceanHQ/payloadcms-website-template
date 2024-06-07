@@ -1,6 +1,6 @@
-import type { QuoteBlock } from '@/payload-types';
+import type { QuoteBlock as QuoteBlockType } from '@/payload-types';
 
-const QuoteBlock = ({ data }: { data: QuoteBlock }) => {
+const QuoteBlock = ({ data }: { data: QuoteBlockType }) => {
   return (
     <div className="container mx-auto bg-gray-300 px-4">
       <h1 className="text-3xl font-bold py-4">{data.quoteHeader}</h1>
