@@ -358,7 +358,7 @@ export interface Footer {
  */
 export interface Setting {
   id: string;
-  reference?: {
+  homePage?: {
     relationTo: 'pages';
     value: string | Page;
   } | null;

@@ -4,12 +4,7 @@ const Settings: GlobalConfig = {
   slug: 'settings',
   fields: [
     {
-      name: 'title',
-      label: 'Title',
-      type: 'text',
-    },
-    {
-      name: 'page',
+      name: 'homePage',
       type: 'relationship',
       relationTo: ['pages'],
     },
