@@ -14,7 +14,11 @@ export interface Config {
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
-  globals: {};
+  globals: {
+    header: Header;
+    footer: Footer;
+    settings: Setting;
+  };
   locale: null;
   user: User & {
     collection: 'users';
@@ -45,8 +49,23 @@ export interface User {
  */
 export interface Page {
   id: string;
+  slug: string;
   title?: string | null;
-  layout?: (HomeBlock | QuoteBlock | IncentiveBlock | TestimonialBlock)[] | null;
+  layout?:
+    | (
+        | HomeBlock
+        | QuoteBlock
+        | CTACenteredBlock
+        | CTAWithSplitContentAndButtonBlock
+        | CTAWithSplitContentAndImageBlock
+        | StatsBlock
+        | IncentiveBlock
+        | TestimonialBlock
+        | LogoCloudBlock
+        | HeroWithBackgroundBlock
+        | HeroWithSplitContentAndImageBlock
+      )[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -73,23 +92,133 @@ export interface QuoteBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "IncentiveBlock".
+ * via the `definition` "CTACenteredBlock".
  */
-export interface IncentiveBlock {
-  title: string;
-  description: string;
-  image: string | Media;
-  features?:
+export interface CTACenteredBlock {
+  sectionTitleAndDescription: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  links?:
     | {
-        icon?: string | null;
-        title: string;
-        description: string;
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          url?: string | null;
+          label: string;
+          appearance?: ('primary' | 'secondary') | null;
+        };
         id?: string | null;
       }[]
     | null;
+  backgroundColor: string;
+  textColor: string;
+  sectionTitleAndDescription_html?: string | null;
   id?: string | null;
   blockName?: string | null;
-  blockType: 'incentive-block';
+  blockType: 'cta-centered-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CTAWithSplitContentAndButtonBlock".
+ */
+export interface CTAWithSplitContentAndButtonBlock {
+  sectionTitleAndDescription: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  links?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          url?: string | null;
+          label: string;
+          appearance?: ('primary' | 'secondary') | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  backgroundColor: string;
+  textColor: string;
+  sectionTitleAndDescription_html?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'cta-with-split-content-and-button-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CTAWithSplitContentAndImageBlock".
+ */
+export interface CTAWithSplitContentAndImageBlock {
+  sectionTitleAndDescription: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  links?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          url?: string | null;
+          label: string;
+          appearance?: ('primary' | 'secondary') | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  backgroundColor: string;
+  textColor: string;
+  image: string | Media;
+  sectionTitleAndDescription_html?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'cta-with-split-content-and-image-block';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -128,6 +257,56 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "StatsBlock".
+ */
+export interface StatsBlock {
+  sectionTitleAndDescription: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  yourMetrics: {
+    metric: string;
+    value: string;
+    id?: string | null;
+  }[];
+  sectionTitleAndDescription_html?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'stats-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "IncentiveBlock".
+ */
+export interface IncentiveBlock {
+  title: string;
+  description: string;
+  image: string | Media;
+  features?:
+    | {
+        icon?: string | null;
+        title: string;
+        description: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'incentive-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "TestimonialBlock".
  */
 export interface TestimonialBlock {
@@ -142,6 +321,126 @@ export interface TestimonialBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'testimonial-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "LogoCloudBlock".
+ */
+export interface LogoCloudBlock {
+  sectionTitleAndDescription?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  section_title_and_description_html?: string | null;
+  logos: {
+    storeLogo: string | Media;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'logo-cloud-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroWithBackgroundBlock".
+ */
+export interface HeroWithBackgroundBlock {
+  size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
+  alignment?: ('left' | 'right' | 'center') | null;
+  heroContent?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  links?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          url?: string | null;
+          label: string;
+          appearance?: ('primary' | 'secondary') | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  backgroundType?: ('backgroundImage' | 'backgroundColor') | null;
+  backgroundImage?: string | Media | null;
+  backgroundColor?: string | null;
+  textColor: string;
+  heroContent_html?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hero-with-background-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroWithSplitContentAndImageBlock".
+ */
+export interface HeroWithSplitContentAndImageBlock {
+  alignment?: ('leftToRight' | 'rightToLeft' | 'topToBottom' | 'bottomToTop') | null;
+  heroContent: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  links?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          url?: string | null;
+          label: string;
+          appearance?: ('primary' | 'secondary') | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  showImage?: boolean | null;
+  image?: string | Media | null;
+  heroContent_html?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hero-with-split-content-and-image-block';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -176,6 +475,70 @@ export interface PayloadMigration {
   batch?: number | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "header".
+ */
+export interface Header {
+  id: string;
+  logo?: string | Media | null;
+  storeName: string;
+  navLinks: {
+    title: string;
+    reference?: {
+      relationTo: 'pages';
+      value: string | Page;
+    } | null;
+    id?: string | null;
+  }[];
+  showLoginButton: boolean;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer".
+ */
+export interface Footer {
+  id: string;
+  logo?: string | Media | null;
+  socialProfiles?: {
+    facebook?: string | null;
+    twitter?: string | null;
+    instagram?: string | null;
+    youtube?: string | null;
+    email?: string | null;
+    phone?: string | null;
+  };
+  footerLinks: {
+    title: string;
+    links: {
+      title: string;
+      reference?: {
+        relationTo: 'pages';
+        value: string | Page;
+      } | null;
+      id?: string | null;
+    }[];
+    id?: string | null;
+  }[];
+  copyright: string;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "settings".
+ */
+export interface Setting {
+  id: string;
+  homePage?: {
+    relationTo: 'pages';
+    value: string | Page;
+  } | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
 }
 
 declare module 'payload' {
