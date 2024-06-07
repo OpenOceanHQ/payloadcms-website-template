@@ -33,6 +33,8 @@ export default buildConfig({
     formBuilderPlugin({
       fields: {
         text: true,
+        textarea: true,
+        number: true,
         checkbox: true,
       },
     }),

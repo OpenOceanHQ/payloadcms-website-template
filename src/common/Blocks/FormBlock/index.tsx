@@ -1,29 +1,69 @@
 'use client';
-import type { FormBlock as FormBlockType } from '@/payload-types';
+import type { Form, FormBlock as FormBlockType } from '@/payload-types';
 import { useForm } from 'react-hook-form';
+import { useState } from 'react';
+import { Text } from './Text';
+import { Checkbox } from './Checkbox';
+import { submitForm } from './submitForm';
+import { TextArea } from './TextArea';
+import { Number } from './Number';
+
+type formValues = {
+  username: string;
+};
 
 const FormBlock = ({ data }: { data: FormBlockType }) => {
-  const { register } = useForm();
-
+  // form from props
   const form = data.form;
+  const { id: formID, confirmationType, redirect } = form as Form;
+
+  // hook form controls
+  const { register, handleSubmit, formState } = useForm<formValues>();
+  const { errors } = formState;
+
+  const [hasSubmitted, setHasSubmitted] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<{ status?: string; message: string } | undefined>();
+
   if (typeof form === 'string') {
     return null;
   }
+
+  const submitHandler = (data: formValues) => {
+    // format the user data
+    const dataToSend = Object.entries(data).map(([name, value]) => ({
+      field: name,
+      value,
+    }));
+    setError(undefined);
+    setIsLoading(true);
+
+    submitForm(formID, dataToSend, confirmationType, redirect)
+      .then((error) => {
+        setIsLoading(false);
+        if (error) {
+          setError(error);
+        } else {
+          setHasSubmitted(true);
+        }
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        setError(err);
+      });
+  };
+
+  // render fields by blockType
   const renderField = (field: NonNullable<typeof form.fields>[number], index: number) => {
     switch (field.blockType) {
       case 'text':
-        return (
-          <div key={index} className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">{field.label}</label>
-            <input
-              type="text"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              defaultValue={field.defaultValue ? field.defaultValue : ''}
-              {...register(field.name)}
-            />
-          </div>
-        );
-      // Add more cases for different field types
+        return <Text field={field} register={register} errors={errors} key={index} />;
+      case 'textarea':
+        return <TextArea field={field} register={register} errors={errors} key={index} />;
+      case 'number':
+        return <Number field={field} register={register} errors={errors} key={index} />;
+      case 'checkbox':
+        return <Checkbox field={field} register={register} errors={errors} key={index} />;
       default:
         return null;
     }
@@ -31,12 +71,23 @@ const FormBlock = ({ data }: { data: FormBlockType }) => {
 
   return (
     <div className="container mx-auto bg-gray-300 px-4">
-      <form>
-        {form.fields && form.fields.map((field, index: number) => renderField(field, index))}
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-          {form.submitButtonLabel}
-        </button>
-      </form>
+      {!isLoading && hasSubmitted && confirmationType === 'message' && (
+        <div>Confirmation message here</div>
+      )}
+      {isLoading && !hasSubmitted && <p>Loading, please wait...</p>}
+      {error && <div>{`${error.status || '500'}: ${error.message || ''}`}</div>}
+      {!hasSubmitted && (
+        <form id={formID} onSubmit={handleSubmit(submitHandler)}>
+          {/* render fields based on blockType */}
+          {form.fields && form.fields.map((field, index: number) => renderField(field, index))}
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            form={formID}
+          >
+            {form.submitButtonLabel}
+          </button>
+        </form>
+      )}
     </div>
   );
 };
