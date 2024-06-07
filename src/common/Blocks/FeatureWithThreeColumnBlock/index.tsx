@@ -1,4 +1,5 @@
-import { CustomIcon } from '@/common/components/CustomIcon';
+import Link from 'next/link';
+import { CustomIcon } from '../../Components/CustomIcon';
 import type { FeatureWithThreeColumnBlock as FeatureWithThreeColumnBlockType } from '@/payload-types';
 import { LinkButton } from '../../components/LinkButtons';
 

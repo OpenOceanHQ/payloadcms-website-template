@@ -10,6 +10,7 @@ import Header from './app/globals/Header';
 import Footer from './app/globals/Footer';
 import Settings from './app/globals/Settings';
 import { Pages } from './collections/Pages';
+import { formBuilderPlugin } from '@payloadcms/plugin-form-builder';
 import { Media } from './collections/Media';
 
 const filename = fileURLToPath(import.meta.url);
@@ -33,6 +34,21 @@ export default buildConfig({
   graphQL: {
     disablePlaygroundInProduction: false,
   },
+  plugins: [
+    formBuilderPlugin({
+      fields: {
+        text: true,
+        textarea: true,
+        number: true,
+        checkbox: true,
+        select: true,
+        email: true,
+        country: true,
+        message: true,
+        payment: false,
+      },
+    }),
+  ],
 
   // Sharp is now an optional dependency -
   // if you want to resize images, crop, set focal point, etc.
