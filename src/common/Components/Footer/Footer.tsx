@@ -11,7 +11,7 @@ import { MdEmail, MdPhone } from 'react-icons/md';
 
 import Image from 'next/image';
 
-function Footer({
+async function Footer({
   items,
   socialProfiles,
   logo,

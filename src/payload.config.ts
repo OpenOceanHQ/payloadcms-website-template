@@ -10,6 +10,7 @@ import Header from './app/globals/Header';
 import Footer from './app/globals/Footer';
 import Settings from './app/globals/Settings';
 import { Pages } from './collections/Pages';
+import { Media } from './collections/Media';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -18,7 +19,7 @@ export default buildConfig({
   admin: {
     user: Users.slug,
   },
-  collections: [Users, Pages],
+  collections: [Users, Pages, Media],
   editor: lexicalEditor({}),
   // plugins: [payloadCloud()], // TODO: Re-enable when cloud supports 3.0
   secret: process.env.PAYLOAD_SECRET || 'this is best',

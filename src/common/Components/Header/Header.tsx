@@ -1,6 +1,30 @@
+import { getPayload } from 'payload';
 import React from 'react';
+import configPromise from '@payload-config';
 
-function Header({ items, storeName }: { items: string[]; storeName: any }) {
+async function Header() {
+  const payload = await getPayload({ config: configPromise });
+
+  // const { docs } = await payload.findGlobal({
+  //   slug: 'header',
+  // });
+
+  const doc = await payload.findGlobal({
+    slug: 'header' as never,
+  });
+
+  // const { docs } = await payload.find({
+  //   collection: 'users',
+  // });
+
+  console.log(doc);
+
+  // if (docs.length === 0) {
+  //   throw new Error();
+  // }
+
+  // return <RenderBlocks data={docs[0].layout} />;
+
   return (
     <div>
       <header className="bg-white">
@@ -8,17 +32,17 @@ function Header({ items, storeName }: { items: string[]; storeName: any }) {
           <div className="flex h-16 items-center justify-between">
             <div className="md:flex md:items-center md:gap-12">
               <a className="block text-teal-600" href="#">
-                <span className="sr-only">{storeName}</span>
+                <span className="sr-only">{doc.storeName}</span>
               </a>
             </div>
 
             <div className="hidden md:block">
               <nav aria-label="Global">
                 <ul className="flex items-center gap-6 text-sm">
-                  {items.map((item, idx) => (
+                  {doc.navLinks.map((item, idx) => (
                     <li key={idx}>
                       <a className="text-gray-500 transition hover:text-gray-500/75" href="#">
-                        {item}
+                        {item.title}
                       </a>
                     </li>
                   ))}
