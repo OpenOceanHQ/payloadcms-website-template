@@ -3,7 +3,7 @@ import { checkRole } from './checkRole';
 
 type isAdminAndUser = (args: AccessArgs) => boolean;
 
-export const adminsAndUsers: isAdminAndUser = ({ req: { user } }) => {
+export const adminsOrUsers: isAdminAndUser = ({ req: { user } }) => {
   if (user) {
     if (checkRole(['admin'], user) || checkRole(['user'], user)) {
       return true;
@@ -13,7 +13,7 @@ export const adminsAndUsers: isAdminAndUser = ({ req: { user } }) => {
   return false;
 };
 
-export const adminsAndUsersFieldAccess: FieldAccess = ({ req: { user } }) => {
+export const adminsOrUsersFieldAccess: FieldAccess = ({ req: { user } }) => {
   if (user) {
     if (checkRole(['admin'], user) || checkRole(['user'], user)) {
       return true;

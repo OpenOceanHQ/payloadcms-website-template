@@ -1,7 +1,7 @@
 import { HTMLConverterFeature, lexicalEditor, lexicalHTML } from '@payloadcms/richtext-lexical';
 import path from 'path';
 import type { CollectionConfig } from 'payload/types';
-import { adminsAndUsers } from '@/access/adminsAndUsers';
+import { adminsOrUsers } from '@/access/adminsOrUsers';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
@@ -17,10 +17,10 @@ export const Media: CollectionConfig = {
     hideAPIURL: true,
   },
   access: {
-    create: adminsAndUsers,
-    read: adminsAndUsers,
-    update: adminsAndUsers,
-    delete: adminsAndUsers,
+    create: adminsOrUsers,
+    read: adminsOrUsers,
+    update: adminsOrUsers,
+    delete: adminsOrUsers,
   },
   fields: [
     {

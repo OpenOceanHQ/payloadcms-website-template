@@ -31,6 +31,7 @@ export const ContentBlock = ({ data }: { data: ContentBlockType | null | undefin
                 <Link
                   key={index}
                   href={link.url ? link.url : ''}
+                  target={link.newTab ? '_blank' : '_self'}
                   className={`mr-2 mt-2 inline-block rounded border border-indigo-600 ${
                     link.appearance === 'primary' && 'bg-indigo-600'
                   } px-12 py-3 text-sm font-medium ${

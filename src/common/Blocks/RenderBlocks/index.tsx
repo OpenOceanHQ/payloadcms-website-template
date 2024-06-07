@@ -1,12 +1,16 @@
 import { Page } from '@/payload-types';
 import QuoteBlock from '../QuoteBlock';
 import { MediaBlock } from '../MediaBlock';
+import { IncentiveBlock } from '../IncentiveBlock';
+import { HeroWithBackgroundBlock } from '../HeroWithBackgroundBlock';
+import { HeroWithSplitContentAndImageBlock } from '../HeroWithSplitContentAndImageBlock';
 import { StatsBlock } from '../StatsBlock';
 import { CTACenteredBlock } from '../CTACenteredBlock';
 import { CTAWithSplitContentAndButtonBlock } from '../CTAWithSplitContentAndButtonBlock';
 import { CTAWithSplitContentAndImageBlock } from '../CTAWithSplitContentAndImageBlock';
 import { Testimonial } from '../Testimonial';
 import { ContentBlock } from '../ContentBlock';
+import { LogoCloudBlock } from '../LogoCloudBlock';
 
 export type RenderBlocks = Page['layout'];
 
@@ -23,6 +27,12 @@ const blocks = (block: NonNullable<RenderBlocks>[number], index: number) => {
       return <MediaBlock key={index} data={block} />;
     case 'content-block':
       return <ContentBlock key={index} data={block} />;
+    case 'incentive-block':
+      return <IncentiveBlock key={index} data={block} />;
+    case 'hero-with-background-block':
+      return <HeroWithBackgroundBlock key={index} data={block} />;
+    case 'hero-with-split-content-and-image-block':
+      return <HeroWithSplitContentAndImageBlock key={index} data={block} />;
     case 'stats-block':
       return <StatsBlock key={index} data={block} />;
     case 'cta-centered-block':
@@ -33,6 +43,8 @@ const blocks = (block: NonNullable<RenderBlocks>[number], index: number) => {
       return <CTAWithSplitContentAndImageBlock key={index} data={block} />;
     case 'testimonial-block':
       return <Testimonial key={index} data={block} />;
+    case 'logo-cloud-block':
+      return <LogoCloudBlock key={index} data={block} />;
     default:
       return null;
   }

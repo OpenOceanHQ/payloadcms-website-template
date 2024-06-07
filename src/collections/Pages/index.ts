@@ -1,17 +1,22 @@
-import { adminsAndUsers } from '@/access/adminsAndUsers';
+import { adminsOrUsers } from '@/access/adminsOrUsers';
 import {
+  HomeBlock,
+  QuoteBlock,
+  HeroWithBackgroundBlock,
+  HeroWithSplitContentAndImageBlock,
   CTACenteredBlock,
   CTAWithSplitContentAndButtonBlock,
   CTAWithSplitContentAndImageBlock,
-  HomeBlock,
-  QuoteBlock,
   MediaBlock,
   ContentBlock,
+  IncentiveBlock,
   StatsBlock,
   Testimonial,
+  LogoCloudBlock,
 } from '@/app/(payload)/Blocks';
 
 import { CollectionConfig } from 'payload/types';
+import { admins } from '@/access/admins';
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -20,10 +25,10 @@ export const Pages: CollectionConfig = {
     defaultColumns: ['title', 'slug', 'updatedAt'],
   },
   access: {
-    create: adminsAndUsers,
-    read: adminsAndUsers,
-    update: adminsAndUsers,
-    delete: adminsAndUsers,
+    create: adminsOrUsers,
+    read: adminsOrUsers,
+    update: adminsOrUsers,
+    delete: admins,
   },
   fields: [
     {
@@ -51,7 +56,11 @@ export const Pages: CollectionConfig = {
         CTAWithSplitContentAndButtonBlock,
         CTAWithSplitContentAndImageBlock,
         StatsBlock,
+        IncentiveBlock,
         Testimonial,
+        LogoCloudBlock,
+        HeroWithBackgroundBlock,
+        HeroWithSplitContentAndImageBlock,
       ],
     },
   ],
