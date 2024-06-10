@@ -1,0 +1,23 @@
+.remove-header-margin .group-field__header {
+  margin-bottom: 0;
+}
+
+.card-appearance .card__actions {
+  display: none;
+}
+
+.blocks-drawer__blocks {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media (min-width: 768px) {
+  .blocks-drawer__blocks {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1440px) {
+  .blocks-drawer__blocks {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

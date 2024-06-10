@@ -55,8 +55,6 @@ export interface Page {
   title?: string | null;
   layout?:
     | (
-        | HomeBlock
-        | QuoteBlock
         | MediaBlock
         | ContentBlock
         | HeroWithBackgroundBlock
@@ -75,27 +73,6 @@ export interface Page {
     | null;
   updatedAt: string;
   createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "HomeBlock".
- */
-export interface HomeBlock {
-  displayText?: string | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'home-block';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "QuoteBlock".
- */
-export interface QuoteBlock {
-  quoteHeader: string;
-  quoteText?: string | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'quote-block';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -906,6 +883,7 @@ export interface Setting {
   updatedAt?: string | null;
   createdAt?: string | null;
 }
+
 
 declare module 'payload' {
   export interface GeneratedTypes extends Config {}
