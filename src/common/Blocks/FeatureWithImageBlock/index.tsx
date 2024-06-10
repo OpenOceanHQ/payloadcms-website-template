@@ -1,6 +1,6 @@
 import type { FeatureWithImageBlock as FeatureWithImageBlockType } from '@/payload-types';
-import { MediaImage } from '../../Components/MediaImage';
-import { CustomIcon } from '../../Components/CustomIcon';
+import { MediaImage } from '../../components/MediaImage';
+import { CustomIcon } from '../../components/CustomIcon';
 
 export const FeatureWithImageBlock = ({
   data,
