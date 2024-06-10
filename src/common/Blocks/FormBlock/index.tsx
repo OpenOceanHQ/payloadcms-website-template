@@ -9,7 +9,6 @@ import { TextArea } from './TextArea';
 import { Number } from './Number';
 import { Select } from './Select';
 import { Email } from './Email';
-import { State } from './State';
 import { Country } from './Country';
 import { Message } from './Message';
 
@@ -73,8 +72,6 @@ const FormBlock = ({ data }: { data: FormBlockType }) => {
         return <Select field={field} register={register} errors={errors} key={index} />;
       case 'email':
         return <Email field={field} register={register} errors={errors} key={index} />;
-      case 'state':
-        return <State field={field} register={register} errors={errors} key={index} />;
       case 'country':
         return <Country field={field} register={register} errors={errors} key={index} />;
       case 'message':

@@ -45,6 +45,7 @@ export default buildConfig({
         email: true,
         country: true,
         message: true,
+        state: false,
         payment: false,
       },
     }),
