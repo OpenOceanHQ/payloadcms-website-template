@@ -85,22 +85,28 @@ const FormBlock = ({ data }: { data: FormBlockType }) => {
   };
 
   return (
-    <div className="container mx-auto bg-gray-300 px-4">
+    <div className="container mx-auto py-4 bg-white px-4">
       {!isLoading && hasSubmitted && confirmationType === 'message' && (
         <div>Confirmation message here</div>
       )}
       {isLoading && !hasSubmitted && <p>Loading, please wait...</p>}
       {error && <div>{`${error.status || '500'}: ${error.message || ''}`}</div>}
       {!hasSubmitted && (
-        <form id={formID} onSubmit={handleSubmit(submitHandler)}>
+        <form
+          id={formID}
+          onSubmit={handleSubmit(submitHandler)}
+          className="flex flex-wrap gap-x-2 items-start"
+        >
           {/* render fields based on blockType */}
           {form.fields && form.fields.map((field, index: number) => renderField(field, index))}
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            form={formID}
-          >
-            {form.submitButtonLabel}
-          </button>
+          <div className="w-full">
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              form={formID}
+            >
+              {form.submitButtonLabel}
+            </button>
+          </div>
         </form>
       )}
     </div>
