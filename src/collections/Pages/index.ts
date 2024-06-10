@@ -26,6 +26,12 @@ export const Pages: CollectionConfig = {
   admin: {
     useAsTitle: 'title',
     defaultColumns: ['title', 'slug', 'updatedAt'],
+    livePreview: {
+      url: ({ data }) => {
+        let url = 'http://localhost:3000/';
+        return url + data.slug;
+      },
+    },
   },
   access: {
     create: adminsOrUsers,
