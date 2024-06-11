@@ -1,7 +1,5 @@
 import { adminsOrUsers } from '@/access/adminsOrUsers';
 import {
-  HomeBlock,
-  QuoteBlock,
   HeroWithBackgroundBlock,
   HeroWithSplitContentAndImageBlock,
   FeatureWithImageBlock,
@@ -17,6 +15,7 @@ import {
   LogoCloudBlock,
   FormBlock,
 } from '@/app/(payload)/Blocks';
+import './style.css';
 
 import { CollectionConfig } from 'payload/types';
 import { admins } from '@/access/admins';
@@ -71,8 +70,6 @@ export const Pages: CollectionConfig = {
         initCollapsed: true,
       },
       blocks: [
-        HomeBlock,
-        QuoteBlock,
         MediaBlock,
         ContentBlock,
         HeroWithBackgroundBlock,
