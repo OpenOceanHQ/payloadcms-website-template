@@ -4,7 +4,13 @@ import { IoCloseOutline } from 'react-icons/io5';
 import type { Header as HeaderBlock } from '@/payload-types';
 import React, { useState } from 'react';
 
-function HeaderMD({ navLinks }: { navLinks: HeaderBlock['navLinks'] }) {
+function HeaderMD({
+  navLinks,
+  buttons,
+}: {
+  navLinks: HeaderBlock['navLinks'];
+  buttons: HeaderBlock['links'];
+}) {
   const [show, setShow] = useState(false);
 
   return (
@@ -14,6 +20,9 @@ function HeaderMD({ navLinks }: { navLinks: HeaderBlock['navLinks'] }) {
           className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
           onClick={() => {
             setShow((pre) => !pre);
+            if (typeof window != 'undefined' && window.document) {
+              document.body.style.overflow = 'hidden';
+            }
           }}
         >
           <svg
@@ -51,11 +60,33 @@ function HeaderMD({ navLinks }: { navLinks: HeaderBlock['navLinks'] }) {
                 </div>
               );
             })}
+
+            {buttons &&
+              buttons.length > 0 &&
+              buttons.map(({ link }) => {
+                return link.appearance === 'primary' ? (
+                  <a
+                    className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
+                    href={link.url ? link.url : ''}
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <a
+                    className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
+                    href={link.url ? link.url : ''}
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
           </div>
+
           <button
             className="absolute right-10 top-10"
             onClick={() => {
               setShow((pre: boolean) => !pre);
+              document.body.style.overflow = 'unset';
             }}
           >
             <IoCloseOutline className="w-7 h-7" />

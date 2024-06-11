@@ -51,7 +51,7 @@ async function Header() {
             <div className="flex items-center gap-4">
               {doc.links && doc.links.length > 0 && (
                 <>
-                  <div className="sm:flex sm:gap-4">
+                  <div className="hidden md:flex md:gap-4">
                     {doc.links.map(({ link }) => {
                       return link.appearance === 'primary' ? (
                         <a
@@ -73,7 +73,7 @@ async function Header() {
                 </>
               )}
 
-              <HeaderMD navLinks={doc.navLinks} />
+              <HeaderMD navLinks={doc.navLinks} buttons={doc.links} />
             </div>
           </div>
         </div>
