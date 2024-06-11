@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import type { HeroWithBackgroundBlock as HeroWithBackgroundBlockType } from '@/payload-types';
 import { MediaImage } from '../../Mediaimage';
+import { LinkButton } from '../../Components/LinkButtons';
 
 export const HeroWithBackgroundBlock = ({
   data,
@@ -41,19 +41,7 @@ export const HeroWithBackgroundBlock = ({
           </div>
 
           <div className="mt-6">
-            {data.links?.map(({ link }, index) => (
-              <Link
-                href={link.url ? link.url : ''}
-                key={index}
-                className={`mr-2 mt-2 inline-block rounded border border-indigo-600 ${
-                  link.appearance === 'primary' && 'bg-indigo-600'
-                } px-12 py-3 text-sm font-medium ${
-                  link.appearance === 'primary' ? 'text-white' : 'text-indigo-600'
-                } transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {data.links?.map(({ link }, index) => <LinkButton link={link} key={index} />)}
           </div>
         </div>
         {data.backgroundType === 'backgroundImage' && data.backgroundImage && (

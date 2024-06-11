@@ -1,7 +1,6 @@
-import Link from 'next/link';
 import type { CTAWithSplitContentAndImageBlock as CTAWithSplitContentAndImageBlockType } from '@/payload-types';
-
 import Image from 'next/image';
+import { LinkButton } from '../../Components/LinkButtons';
 
 export const CTAWithSplitContentAndImageBlock = ({
   data,
@@ -48,20 +47,7 @@ export const CTAWithSplitContentAndImageBlock = ({
           </div>
 
           <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
-            {data.links?.map(({ link }, index) => (
-              <Link
-                href={link.url ? link.url : ''}
-                key={index}
-                className={`rounded-md px-3.5 py-2.5 text-sm font-semibold shadow-sm ${
-                  link.appearance === 'primary'
-                    ? 'bg-indigo-600 text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
-                    : 'text-gray-900 bg-white'
-                }`}
-                target={link.newTab ? '_blank' : '_self'}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {data.links?.map(({ link }, index) => <LinkButton link={link} key={index} />)}
           </div>
         </div>
         <div className="relative mt-16 h-80 lg:mt-8">
