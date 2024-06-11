@@ -38,7 +38,6 @@ export const LinkButton = ({ link, className }: { link: Link; className?: string
           href={link.url ? link.url : ''}
           className={`${className} text-sm font-semibold leading-6 text-indigo-600`}
         >
-          {JSON.stringify(link)}
           {link.label}
         </Link>
       )
