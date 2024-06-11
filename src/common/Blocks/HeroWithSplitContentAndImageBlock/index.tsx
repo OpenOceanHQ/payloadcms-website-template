@@ -1,6 +1,6 @@
 import type { HeroWithSplitContentAndImageBlock as HeroWithSplitContentAndImageBlockType } from '@/payload-types';
 import { MediaImage } from '../../Mediaimage';
-import { LinkButton } from '../../components/LinkButtons';
+import { LinkButton } from '../../Components/LinkButtons';
 
 export const HeroWithSplitContentAndImageBlock = ({
   data,

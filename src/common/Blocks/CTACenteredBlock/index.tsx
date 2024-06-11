@@ -1,5 +1,5 @@
 import type { CTACenteredBlock as CTACenteredBlockType } from '@/payload-types';
-import { LinkButton } from '../../components/LinkButtons';
+import { LinkButton } from '../../Components/LinkButtons';
 
 export const CTACenteredBlock = ({ data }: { data: CTACenteredBlockType | null | undefined }) => {
   if (!data) return null;
