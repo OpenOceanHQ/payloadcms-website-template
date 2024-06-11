@@ -7,22 +7,25 @@ type LexicalNode = {
   format?: number;
   mode?: string;
   style?: string;
+  tag?: string;
   [key: string]: unknown;
 };
 
-export function convertLexicalToHTML(node: LexicalNode) {
+export function convertLexicalToHTML(node: LexicalNode): string {
   if (!node) return '';
 
   // Handle text nodes
   if (node.type === 'text') {
-    return node.text;
+    return node.text ?? '';
   }
 
-  // Handle paragraph and other nodes
   let html = '';
 
+  // Handle paragraph, heading, and other nodes
   if (node.type === 'paragraph') {
     html += '<p>';
+  } else if (node.type === 'heading' && node.tag) {
+    html += `<${node.tag}>`;
   }
 
   // Recursively process child nodes
@@ -34,6 +37,8 @@ export function convertLexicalToHTML(node: LexicalNode) {
 
   if (node.type === 'paragraph') {
     html += '</p>';
+  } else if (node.type === 'heading' && node.tag) {
+    html += `</${node.tag}>`;
   }
 
   return html;
