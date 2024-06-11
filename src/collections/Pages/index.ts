@@ -28,7 +28,7 @@ export const Pages: CollectionConfig = {
     defaultColumns: ['title', 'slug', 'updatedAt'],
     livePreview: {
       url: ({ data }) => {
-        let url = 'http://localhost:3000/';
+        let url = process.env.SERVER_URL ? process.env.SERVER_URL : 'http://localhost:3000/';
         return url + data.slug;
       },
       breakpoints: [

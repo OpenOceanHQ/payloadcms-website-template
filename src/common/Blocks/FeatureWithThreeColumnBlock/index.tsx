@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { CustomIcon } from '../../components/CustomIcon';
+import { CustomIcon } from '../../Components/CustomIcon';
 import type { FeatureWithThreeColumnBlock as FeatureWithThreeColumnBlockType } from '@/payload-types';
 
 export const FeatureWithThreeColumnBlock = ({
