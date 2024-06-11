@@ -23,7 +23,7 @@ export const Email: React.FC<{
         {...register(field.name, { required: field.required, pattern: /^\S+@\S+$/i })}
       />
       {field.required && errors[field.name] && (
-        <div className="text-red-600">This field is required</div>
+        <div className="text-red-600 text-sm">This field is required</div>
       )}
     </Width>
   );

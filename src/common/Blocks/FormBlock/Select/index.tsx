@@ -26,7 +26,7 @@ export const Select: React.FC<{
         ))}
       </select>
       {field.required && errors[field.name] && (
-        <div className="text-red-600">This field is required</div>
+        <div className="text-red-600 text-sm">This field is required</div>
       )}
     </Width>
   );

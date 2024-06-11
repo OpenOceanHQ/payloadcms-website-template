@@ -86,7 +86,6 @@ const FormBlock = ({ data }: { data: FormBlockType }) => {
   };
   const confirmationMessageHtml =
     confirmationMessage?.root && convertLexicalToHTML({ ...confirmationMessage.root, format: 0 });
-
   return (
     <div className="container mx-auto py-4 bg-white px-4">
       {!isLoading && hasSubmitted && confirmationType === 'message' && confirmationMessageHtml && (
@@ -96,7 +95,7 @@ const FormBlock = ({ data }: { data: FormBlockType }) => {
       {error && <div>{`${error.status || '500'}: ${error.message || ''}`}</div>}
       {!hasSubmitted && (
         <form id={formID} onSubmit={handleSubmit(submitHandler)} className="flex flex-col">
-          <div className="sm:flex sm:flex-wrap ml-[-0.5*var(--base)] mr-[-0.5*var(--base)] w-[calc(100% + var(--base))]">
+          <div className="sm:flex sm:flex-wrap gap-x-2 ml-[-0.5*var(--base)] mr-[-0.5*var(--base)] w-[calc(100% + var(--base))]">
             {/* render fields based on blockType */}
             {form.fields && form.fields.map((field, index: number) => renderField(field, index))}
           </div>

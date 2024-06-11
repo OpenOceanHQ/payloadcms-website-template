@@ -21,7 +21,7 @@ export const Checkbox: React.FC<{
         {...register(field.name, { required: field.required })}
       />
       {field.required && errors[field.name] && (
-        <div className="text-red-600">This field is required</div>
+        <div className="text-red-600 text-sm">This field is required</div>
       )}
     </Width>
   );
