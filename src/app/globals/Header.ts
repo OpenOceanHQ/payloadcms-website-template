@@ -1,4 +1,5 @@
 import { GlobalConfig } from 'payload/types';
+import linkGroup from '../(payload)/fields/linkGroup';
 
 const Header: GlobalConfig = {
   slug: 'header',
@@ -24,11 +25,13 @@ const Header: GlobalConfig = {
         },
       ],
     },
-    {
-      name: 'showLoginButton',
-      type: 'checkbox',
-      required: true,
-    },
+
+    linkGroup({
+      appearances: ['primary', 'secondary'],
+      overrides: {
+        maxRows: 2,
+      },
+    }),
   ],
 };
 

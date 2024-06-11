@@ -48,29 +48,33 @@ async function Header() {
               </nav>
             </div>
 
-            {doc.showLoginButton && (
-              <div className="flex items-center gap-4">
-                <div className="sm:flex sm:gap-4">
-                  <a
-                    className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
-                    href="#"
-                  >
-                    Login
-                  </a>
-
-                  <div className="hidden sm:flex">
-                    <a
-                      className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
-                      href="#"
-                    >
-                      Register
-                    </a>
+            <div className="flex items-center gap-4">
+              {doc.links && doc.links.length > 0 && (
+                <>
+                  <div className="sm:flex sm:gap-4">
+                    {doc.links.map(({ link }) => {
+                      return link.appearance === 'primary' ? (
+                        <a
+                          className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
+                          href={link.url ? link.url : ''}
+                        >
+                          {link.label}
+                        </a>
+                      ) : (
+                        <a
+                          className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
+                          href={link.url ? link.url : ''}
+                        >
+                          {link.label}
+                        </a>
+                      );
+                    })}
                   </div>
-                </div>
-              </div>
-            )}
+                </>
+              )}
 
-            <HeaderMD navLinks={doc.navLinks} />
+              <HeaderMD navLinks={doc.navLinks} />
+            </div>
           </div>
         </div>
       </header>
