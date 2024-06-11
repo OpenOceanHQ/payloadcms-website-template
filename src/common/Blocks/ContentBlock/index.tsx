@@ -1,4 +1,4 @@
-import { LinkButton } from '../../components/LinkButtons';
+import { LinkButton } from '../../Components/LinkButtons';
 import { ContentBlock as ContentBlockType } from '@/payload-types';
 
 export const ContentBlock = ({ data }: { data: ContentBlockType | null | undefined }) => {

@@ -3,6 +3,7 @@ import React from 'react';
 import configPromise from '@payload-config';
 import type { Header as HeaderBlock } from '@/payload-types';
 import HeaderMD from '../HeaderMD';
+import HeaderButtons from '../HeaderButtons';
 
 async function Header() {
   const payload = await getPayload({ config: configPromise });
@@ -52,23 +53,9 @@ async function Header() {
               {doc.links && doc.links.length > 0 && (
                 <>
                   <div className="hidden md:flex md:gap-4">
-                    {doc.links.map(({ link }) => {
-                      return link.appearance === 'primary' ? (
-                        <a
-                          className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
-                          href={link.url ? link.url : ''}
-                        >
-                          {link.label}
-                        </a>
-                      ) : (
-                        <a
-                          className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
-                          href={link.url ? link.url : ''}
-                        >
-                          {link.label}
-                        </a>
-                      );
-                    })}
+                    {doc.links.map(({ link }, idx) => (
+                      <HeaderButtons link={link} key={idx + link.label} />
+                    ))}
                   </div>
                 </>
               )}

@@ -3,6 +3,7 @@
 import { IoCloseOutline } from 'react-icons/io5';
 import type { Header as HeaderBlock } from '@/payload-types';
 import React, { useState } from 'react';
+import HeaderButtons from '../HeaderButtons';
 
 function HeaderMD({
   navLinks,
@@ -63,23 +64,7 @@ function HeaderMD({
 
             {buttons &&
               buttons.length > 0 &&
-              buttons.map(({ link }) => {
-                return link.appearance === 'primary' ? (
-                  <a
-                    className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
-                    href={link.url ? link.url : ''}
-                  >
-                    {link.label}
-                  </a>
-                ) : (
-                  <a
-                    className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
-                    href={link.url ? link.url : ''}
-                  >
-                    {link.label}
-                  </a>
-                );
-              })}
+              buttons.map(({ link }, idx) => <HeaderButtons link={link} key={idx + link.label} />)}
           </div>
 
           <button

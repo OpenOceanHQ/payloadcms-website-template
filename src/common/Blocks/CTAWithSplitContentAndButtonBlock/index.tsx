@@ -1,4 +1,4 @@
-import { LinkButton } from '../../components/LinkButtons';
+import { LinkButton } from '../../Components/LinkButtons';
 import type { CTAWithSplitContentAndButtonBlock as CTAWithSplitContentAndButtonBlockType } from '@/payload-types';
 
 export const CTAWithSplitContentAndButtonBlock = ({
