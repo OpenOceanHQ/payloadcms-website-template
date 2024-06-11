@@ -12,6 +12,7 @@ import { Email } from './Email';
 import { State } from './State';
 import { Country } from './Country';
 import { Message } from './Message';
+import { convertLexicalToHTML } from './convertLexicalToHtml';
 
 type formValues = {
   username: string;
@@ -20,7 +21,7 @@ type formValues = {
 const FormBlock = ({ data }: { data: FormBlockType }) => {
   // form from props
   const form = data.form;
-  const { id: formID, confirmationType, redirect } = form as Form;
+  const { id: formID, confirmationType, redirect, confirmationMessage } = form as Form;
 
   // hook form controls
   const { register, handleSubmit, formState } = useForm<formValues>();
@@ -83,22 +84,22 @@ const FormBlock = ({ data }: { data: FormBlockType }) => {
         return null;
     }
   };
+  const confirmationMessageHtml =
+    confirmationMessage?.root && convertLexicalToHTML({ ...confirmationMessage.root, format: 0 });
 
   return (
     <div className="container mx-auto py-4 bg-white px-4">
-      {!isLoading && hasSubmitted && confirmationType === 'message' && (
-        <div>Confirmation message here</div>
+      {!isLoading && hasSubmitted && confirmationType === 'message' && confirmationMessageHtml && (
+        <div dangerouslySetInnerHTML={{ __html: confirmationMessageHtml }}></div>
       )}
       {isLoading && !hasSubmitted && <p>Loading, please wait...</p>}
       {error && <div>{`${error.status || '500'}: ${error.message || ''}`}</div>}
       {!hasSubmitted && (
-        <form
-          id={formID}
-          onSubmit={handleSubmit(submitHandler)}
-          className="flex flex-wrap gap-x-2 items-start"
-        >
-          {/* render fields based on blockType */}
-          {form.fields && form.fields.map((field, index: number) => renderField(field, index))}
+        <form id={formID} onSubmit={handleSubmit(submitHandler)} className="flex flex-col">
+          <div className="sm:flex sm:flex-wrap ml-[-0.5*var(--base)] mr-[-0.5*var(--base)] w-[calc(100% + var(--base))]">
+            {/* render fields based on blockType */}
+            {form.fields && form.fields.map((field, index: number) => renderField(field, index))}
+          </div>
           <div className="w-full">
             <button
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"

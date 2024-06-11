@@ -16,7 +16,7 @@ export const Checkbox: React.FC<{
       <label className="block text-gray-700 text-sm font-bold mb-2">{field.label}</label>
       <input
         type="checkbox"
-        className="shadow border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        className="shadow border rounded py-2 px-3 text-gray-700 leading-tight focus:border-black"
         defaultValue={field.defaultValue ? field.defaultValue : ''}
         {...register(field.name, { required: field.required })}
       />

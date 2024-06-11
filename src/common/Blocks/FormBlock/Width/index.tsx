@@ -5,15 +5,9 @@ export const Width: React.FC<{
   width?: string;
   children: React.ReactNode;
 }> = ({ className, width, children }) => {
-  let widthToApply;
-  if (width) {
-    widthToApply = parseInt(width) - 2;
-  }
+  // width will be 100% by default
   return (
-    <div
-      className={className}
-      style={{ width: widthToApply ? `${widthToApply.toString()}%` : undefined }}
-    >
+    <div className={className} style={{ width: width ? `${width}%` : '100%' }}>
       {children}
     </div>
   );
