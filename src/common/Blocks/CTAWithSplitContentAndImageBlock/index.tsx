@@ -1,6 +1,6 @@
 import type { CTAWithSplitContentAndImageBlock as CTAWithSplitContentAndImageBlockType } from '@/payload-types';
-import Image from 'next/image';
 import { LinkButton } from '../../Components/LinkButtons';
+import { MediaImage } from '../../Components/MediaImage';
 
 export const CTAWithSplitContentAndImageBlock = ({
   data,
@@ -37,7 +37,7 @@ export const CTAWithSplitContentAndImageBlock = ({
           </defs>
         </svg>
         <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
-          <div className="prose xl:prose-xl">
+          <div className="prose lg:prose-lg xl:prose-xl prose-headings:text-inherit">
             {data.sectionTitleAndDescription_html && (
               <div
                 style={data.textColor ? { color: data.textColor || '#000000' } : undefined}
@@ -53,17 +53,8 @@ export const CTAWithSplitContentAndImageBlock = ({
         <div className="relative mt-16 h-80 lg:mt-8">
           {data.image && (
             <>
-              <Image
-                src={typeof data.image !== 'string' && data.image.url ? data.image.url : ''}
-                width={typeof data.image !== 'string' && data.image.width ? data.image.width : 500}
-                height={
-                  typeof data.image !== 'string' && data.image.height ? data.image.height : 500
-                }
-                alt={
-                  typeof data.image !== 'string' && data.image.alt
-                    ? data.image.alt
-                    : 'CTA section Image'
-                }
+              <MediaImage
+                media={data.image}
                 className="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10"
               />
             </>

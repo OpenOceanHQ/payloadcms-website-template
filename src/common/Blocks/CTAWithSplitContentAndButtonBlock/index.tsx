@@ -17,7 +17,7 @@ export const CTAWithSplitContentAndButtonBlock = ({
         }
       >
         <div className="mx-auto max-w-7xl px-6 py-24 lg:flex lg:items-center lg:justify-between lg:px-8">
-          <div className="prose xl:prose-xl">
+          <div className="prose lg:prose-lg xl:prose-xl prose-headings:text-inherit">
             {data.sectionTitleAndDescription_html && (
               <div
                 style={data.textColor ? { color: data.textColor || '#000000' } : undefined}

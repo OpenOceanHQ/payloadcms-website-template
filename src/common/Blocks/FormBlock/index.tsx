@@ -22,6 +22,8 @@ const FormBlock = ({ data }: { data: FormBlockType }) => {
   const form = data.form;
   const { id: formID, confirmationType, redirect, confirmationMessage } = form as Form;
 
+  const { enableIntro, introContent, intro_content_html } = data;
+
   // hook form controls
   const { register, handleSubmit, formState } = useForm<formValues>();
   const { errors } = formState;
@@ -81,12 +83,23 @@ const FormBlock = ({ data }: { data: FormBlockType }) => {
         return null;
     }
   };
+
   const confirmationMessageHtml =
     confirmationMessage?.root && convertLexicalToHTML({ ...confirmationMessage.root, format: 0 });
+
   return (
     <div className="container mx-auto py-4 bg-white px-4">
+      {enableIntro && introContent && !hasSubmitted && intro_content_html && (
+        <div
+          className={`mt-4 mb-4 flex leading-relaxed text-gray-700 prose lg:prose-lg xl:prose-xl prose-headings:text-inherit`}
+          dangerouslySetInnerHTML={{ __html: intro_content_html }}
+        />
+      )}
       {!isLoading && hasSubmitted && confirmationType === 'message' && confirmationMessageHtml && (
-        <div dangerouslySetInnerHTML={{ __html: confirmationMessageHtml }}></div>
+        <div
+          className={`mt-4 mb-4 flex leading-relaxed text-gray-700 prose lg:prose-lg xl:prose-xl prose-headings:text-inherit`}
+          dangerouslySetInnerHTML={{ __html: confirmationMessageHtml }}
+        />
       )}
       {isLoading && !hasSubmitted && <p>Loading, please wait...</p>}
       {error && <div>{`${error.status || '500'}: ${error.message || ''}`}</div>}
