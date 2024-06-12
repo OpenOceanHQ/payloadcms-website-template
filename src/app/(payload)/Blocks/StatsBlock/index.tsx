@@ -4,6 +4,8 @@ import type { Block } from 'payload/types';
 export const StatsBlock: Block = {
   slug: 'stats-block',
   interfaceName: 'StatsBlock',
+  imageURL: process.env.SERVER_URL + 'blocks/stats-block.png',
+  imageAltText: 'Stats Block',
   labels: {
     singular: 'Stats Block',
     plural: 'Statss Block',

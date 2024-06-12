@@ -6,7 +6,7 @@ import { HTMLConverterFeature, lexicalEditor, lexicalHTML } from '@payloadcms/ri
 export const CTAWithSplitContentAndImageBlock: Block = {
   slug: 'cta-with-split-content-and-image-block',
   interfaceName: 'CTAWithSplitContentAndImageBlock',
-  imageURL: 'https://cornerrr.com/blocks/cta-with-split-content-and-image-block.png',
+  imageURL: process.env.SERVER_URL + 'blocks/cta-with-split-content-and-image-block.png',
   imageAltText: 'CTA With Split Content And Image Block',
   labels: {
     singular: 'CTA With Split Content And Image',
