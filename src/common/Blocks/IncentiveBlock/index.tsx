@@ -1,4 +1,4 @@
-import { MediaImage } from '../../Mediaimage';
+import { MediaImage } from '../../Components/MediaImage';
 import { CustomIcon } from '../CustomIcon';
 import type { IncentiveBlock as IncentiveBlockType } from '@/payload-types';
 

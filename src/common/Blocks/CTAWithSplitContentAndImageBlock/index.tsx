@@ -1,6 +1,6 @@
 import type { CTAWithSplitContentAndImageBlock as CTAWithSplitContentAndImageBlockType } from '@/payload-types';
 import { LinkButton } from '../../Components/LinkButtons';
-import { MediaImage } from '../../../common/Mediaimage';
+import { MediaImage } from '../../Components/MediaImage';
 
 export const CTAWithSplitContentAndImageBlock = ({
   data,
