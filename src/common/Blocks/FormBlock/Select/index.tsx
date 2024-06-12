@@ -12,7 +12,7 @@ export const Select: React.FC<{
   >;
 }> = ({ field, register, errors }) => {
   return (
-    <Width className="mb-4" width={field.width}>
+    <Width className="mb-4 px-4" width={field.width}>
       <label className="block text-gray-700 text-sm font-bold mb-2">{field.label}</label>
       <select
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:border-black"
