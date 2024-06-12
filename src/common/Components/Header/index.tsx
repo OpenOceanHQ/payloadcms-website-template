@@ -25,7 +25,7 @@ async function Header() {
           <div className="flex h-16 items-center justify-between">
             <div className="md:flex md:items-center md:gap-12">
               <Link className="text-teal-600 flex gap-3 justify-center items-center" href="/">
-                {doc.showStoreLogo && <MediaImage className="h-16 w-auto" media={doc.logo} />}
+                {doc.showStoreLogo && <MediaImage className="h-14 w-auto p-2" media={doc.logo} />}
                 <span className="">{doc.storeName}</span>
               </Link>
             </div>
