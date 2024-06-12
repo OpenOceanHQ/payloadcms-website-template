@@ -23,7 +23,7 @@ async function Footer() {
             <div className="text-teal-600">
               {doc.logo && (
                 <>
-                  <MediaImage className="w-40 h-20" media={doc.logo} />
+                  <MediaImage className="h-20 w-auto" media={doc.logo} />
                 </>
               )}
             </div>

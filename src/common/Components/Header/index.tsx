@@ -3,6 +3,7 @@ import React from 'react';
 import configPromise from '@payload-config';
 import type { Header as HeaderBlock } from '@/payload-types';
 import HeaderMD from '../HeaderMD';
+import { MediaImage } from '../MediaImage';
 import HeaderButtons from '../HeaderButtons';
 import Link from 'next/link';
 
@@ -23,7 +24,8 @@ async function Header() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <div className="md:flex md:items-center md:gap-12">
-              <Link className="block text-teal-600" href="\">
+              <Link className="text-teal-600 flex gap-3 justify-center items-center" href="/">
+                {doc.showStoreLogo && <MediaImage className="h-14 w-auto p-2" media={doc.logo} />}
                 <span className="">{doc.storeName}</span>
               </Link>
             </div>

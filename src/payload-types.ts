@@ -708,15 +708,6 @@ export interface Form {
             name: string;
             label?: string | null;
             width?: number | null;
-            required?: boolean | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'state';
-          }
-        | {
-            name: string;
-            label?: string | null;
-            width?: number | null;
             defaultValue?: string | null;
             required?: boolean | null;
             id?: string | null;
@@ -841,6 +832,7 @@ export interface PayloadMigration {
  */
 export interface Header {
   id: string;
+  showStoreLogo?: boolean | null;
   logo?: string | Media | null;
   storeName: string;
   navLinks: {
