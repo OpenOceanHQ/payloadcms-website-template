@@ -1,6 +1,6 @@
 import type { HeroWithBackgroundBlock as HeroWithBackgroundBlockType } from '@/payload-types';
-import { MediaImage } from '../../Mediaimage';
 import { LinkButton } from '../../Components/LinkButtons';
+import { MediaImage } from '../../Components/MediaImage';
 
 export const HeroWithBackgroundBlock = ({
   data,

@@ -1,4 +1,4 @@
-import { MediaImage } from '@/common/Mediaimage';
+import { MediaImage } from '../../Components/MediaImage';
 import { MediaBlock as MediaBlockType } from '@/payload-types';
 
 export const MediaBlock = ({ data }: { data: MediaBlockType | null | undefined }) => {

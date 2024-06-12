@@ -1,6 +1,6 @@
+import { MediaImage } from '../../Components/MediaImage';
 import { CustomIcon } from '../CustomIcon';
 import type { IncentiveBlock as IncentiveBlockType } from '@/payload-types';
-import Image from 'next/image';
 
 export const IncentiveBlock = ({ data }: { data: IncentiveBlockType | null | undefined }) => {
   return (
@@ -12,22 +12,11 @@ export const IncentiveBlock = ({ data }: { data: IncentiveBlockType | null | und
         </div>
         <div className="w-full sm:w-3/4 basis-1/2">
           {data && (
-            <Image
-              src={typeof data.image !== 'string' && data.image.url ? data.image.url : ''}
-              width={typeof data.image !== 'string' && data.image.width ? data.image.width : 500}
-              height={typeof data.image !== 'string' && data.image.height ? data.image.height : 500}
-              alt={
-                typeof data.image !== 'string' && data.image.alt
-                  ? data.image.alt
-                  : 'CTA section Image'
-              }
+            <MediaImage
+              media={data?.image}
               className="h-full w-full object-cover aspect-[8/6] rounded-lg shadow-xl ring-1 ring-gray-400/10 md:-ml-4 lg:-ml-0"
             />
           )}
-          {/* <MediaImage
-            media={data?.image}
-            className="h-full w-full object-cover aspect-[8/6] rounded-lg shadow-xl ring-1 ring-gray-400/10 md:-ml-4 lg:-ml-0"
-          /> */}
         </div>
       </div>
       <div className="grid grid-cols-1 mt-16 lg:grid-cols-3 gap-y-10 gap-x-8">
