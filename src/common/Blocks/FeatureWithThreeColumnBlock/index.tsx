@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import { CustomIcon } from '../../Components/CustomIcon';
 import type { FeatureWithThreeColumnBlock as FeatureWithThreeColumnBlockType } from '@/payload-types';
+import { LinkButton } from '../../Components/LinkButtons';
 
 export const FeatureWithThreeColumnBlock = ({
   data,
@@ -27,12 +27,10 @@ export const FeatureWithThreeColumnBlock = ({
                 )}
                 <p className="mt-6">
                   {link && (
-                    <Link
-                      href={link.url ? link.url : ''}
+                    <LinkButton
+                      link={link}
                       className={`text-sm font-semibold leading-6 text-indigo-600`}
-                    >
-                      {link.label}
-                    </Link>
+                    />
                   )}
                 </p>
               </dd>

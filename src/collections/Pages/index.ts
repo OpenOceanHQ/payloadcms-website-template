@@ -1,7 +1,5 @@
 import { adminsOrUsers } from '@/access/adminsOrUsers';
 import {
-  HomeBlock,
-  QuoteBlock,
   HeroWithBackgroundBlock,
   HeroWithSplitContentAndImageBlock,
   FeatureWithImageBlock,
@@ -17,6 +15,7 @@ import {
   LogoCloudBlock,
   FormBlock,
 } from '@/app/(payload)/Blocks';
+import './style.css';
 
 import { CollectionConfig } from 'payload/types';
 import { admins } from '@/access/admins';
@@ -26,6 +25,26 @@ export const Pages: CollectionConfig = {
   admin: {
     useAsTitle: 'title',
     defaultColumns: ['title', 'slug', 'updatedAt'],
+    livePreview: {
+      url: ({ data }) => {
+        let url = process.env.SERVER_URL ? process.env.SERVER_URL : 'http://localhost:3000/';
+        return url + data.slug;
+      },
+      breakpoints: [
+        {
+          label: 'Mobile',
+          name: 'mobile',
+          width: 375,
+          height: 667,
+        },
+        {
+          label: 'Desktop',
+          name: 'desktop',
+          width: 1440,
+          height: 900,
+        },
+      ],
+    },
   },
   access: {
     create: adminsOrUsers,
@@ -51,8 +70,6 @@ export const Pages: CollectionConfig = {
         initCollapsed: true,
       },
       blocks: [
-        HomeBlock,
-        QuoteBlock,
         MediaBlock,
         ContentBlock,
         HeroWithBackgroundBlock,
