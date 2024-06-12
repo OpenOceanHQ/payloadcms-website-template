@@ -21,8 +21,8 @@ export const IncentiveBlock = ({ data }: { data: IncentiveBlockType | null | und
       </div>
       <div className="grid grid-cols-1 mt-16 lg:grid-cols-3 gap-y-10 gap-x-8">
         {data?.features &&
-          data.features?.map((item) => (
-            <div className="sm:flex lg:block" key={item.title}>
+          data.features?.map((item, index) => (
+            <div className="sm:flex lg:block" key={index}>
               <div className="bzt">
                 {item.icon && (
                   <CustomIcon name={item.icon} className="flex-none text-gray-900 w-14 h-14" />
