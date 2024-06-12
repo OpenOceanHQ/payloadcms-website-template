@@ -4,6 +4,8 @@ import configPromise from '@payload-config';
 import type { Header as HeaderBlock } from '@/payload-types';
 import HeaderMD from '../HeaderMD';
 import { MediaImage } from '../MediaImage';
+import HeaderButtons from '../HeaderButtons';
+import Link from 'next/link';
 
 async function Header() {
   const payload = await getPayload({ config: configPromise });
@@ -22,10 +24,10 @@ async function Header() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <div className="md:flex md:items-center md:gap-12">
-              <a className="text-teal-600 flex gap-3 justify-center items-center" href="#">
+              <Link className="text-teal-600 flex gap-3 justify-center items-center" href="/">
                 {doc.showStoreLogo && <MediaImage className="h-16 w-auto" media={doc.logo} />}
                 <span className="">{doc.storeName}</span>
-              </a>
+              </Link>
             </div>
 
             <div className="hidden md:block">
@@ -40,9 +42,12 @@ async function Header() {
 
                     return (
                       <li key={idx}>
-                        <a className="text-gray-500 transition hover:text-gray-500/75" href={link}>
+                        <Link
+                          className="text-gray-500 transition hover:text-gray-500/75"
+                          href={link}
+                        >
                           {item.title}
-                        </a>
+                        </Link>
                       </li>
                     );
                   })}
@@ -54,23 +59,9 @@ async function Header() {
               {doc.links && doc.links.length > 0 && (
                 <>
                   <div className="hidden md:flex md:gap-4">
-                    {doc.links.map(({ link }) => {
-                      return link.appearance === 'primary' ? (
-                        <a
-                          className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
-                          href={link.url ? link.url : ''}
-                        >
-                          {link.label}
-                        </a>
-                      ) : (
-                        <a
-                          className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
-                          href={link.url ? link.url : ''}
-                        >
-                          {link.label}
-                        </a>
-                      );
-                    })}
+                    {doc.links.map(({ link }, idx) => (
+                      <HeaderButtons link={link} key={idx + link.label} />
+                    ))}
                   </div>
                 </>
               )}

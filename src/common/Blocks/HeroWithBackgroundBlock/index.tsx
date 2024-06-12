@@ -1,6 +1,6 @@
 import type { HeroWithBackgroundBlock as HeroWithBackgroundBlockType } from '@/payload-types';
-import { MediaImage } from '../../Mediaimage';
 import { LinkButton } from '../../Components/LinkButtons';
+import { MediaImage } from '../../Components/MediaImage';
 
 export const HeroWithBackgroundBlock = ({
   data,
@@ -34,7 +34,7 @@ export const HeroWithBackgroundBlock = ({
           ${data.alignment === 'right' ? 'text-right' : ''}`}
           style={data.textColor ? { color: data.textColor || '#000000' } : undefined}
         >
-          <div className="prose xl:prose-xl">
+          <div className="prose lg:prose-lg xl:prose-xl prose-headings:text-inherit">
             {data.heroContent_html && (
               <div dangerouslySetInnerHTML={{ __html: data.heroContent_html }} />
             )}

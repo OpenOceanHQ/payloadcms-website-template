@@ -7,7 +7,7 @@ export function StatsBlock({ data }: { data: StatsBlockType | null | undefined }
     <section className="bg-white">
       <div className="container mx-auto px-4 py-8 sm:px-6 md:py-12 lg:py-16 lg:px-8">
         {data && data.sectionTitleAndDescription_html && (
-          <div className="max-w-3xl mx-auto text-center prose xl:prose-xl">
+          <div className="max-w-3xl mx-auto text-center prose lg:prose-lg xl:prose-xl prose-headings:text-inherit">
             {<div dangerouslySetInnerHTML={{ __html: data.sectionTitleAndDescription_html }} />}
           </div>
         )}

@@ -21,7 +21,7 @@ export const ContentBlock = ({ data }: { data: ContentBlockType | null | undefin
           ${size === 'twoThirds' ? 'w-2/3' : ''}
           ${size === 'half' ? 'w-1/2' : ''}
           ${size === 'full' ? 'w-full' : ''}
-          prose lg:prose-lg xl:prose-xl`}
+          prose lg:prose-lg xl:prose-xl prose-headings:text-inherit`}
             key={index}
           >
             {richText_html && <div dangerouslySetInnerHTML={{ __html: richText_html }} />}
