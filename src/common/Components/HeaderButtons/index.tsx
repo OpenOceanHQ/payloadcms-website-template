@@ -1,3 +1,4 @@
+'use client';
 import type { Header as HeaderBlock } from '@/payload-types';
 import Link from 'next/link';
 
@@ -11,6 +12,9 @@ function HeaderButtons({ link }: { link: LinkType }) {
           <>
             <Link
               href={link.url ? link.url : ''}
+              onClick={() => {
+                document.body.style.overflow = 'unset';
+              }}
               target={link.newTab ? '_blank' : '_self'}
               className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
             >
@@ -25,6 +29,9 @@ function HeaderButtons({ link }: { link: LinkType }) {
       link && (
         <Link
           className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
+          onClick={() => {
+            document.body.style.overflow = 'unset';
+          }}
           href={link.url ? link.url : ''}
         >
           {link.label}
@@ -41,6 +48,9 @@ function HeaderButtons({ link }: { link: LinkType }) {
           link && (
             <Link
               className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
+              onClick={() => {
+                document.body.style.overflow = 'unset';
+              }}
               target={link.newTab ? '_blank' : '_self'}
               href={doc.slug}
             >
@@ -53,6 +63,9 @@ function HeaderButtons({ link }: { link: LinkType }) {
       return (
         <Link
           href={doc.slug}
+          onClick={() => {
+            document.body.style.overflow = 'unset';
+          }}
           className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
         >
           {link.label ? link.label : doc.title}

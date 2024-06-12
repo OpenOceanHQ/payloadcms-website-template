@@ -56,7 +56,13 @@ function HeaderMD({
 
               return (
                 <div key={idx}>
-                  <Link className="text-gray-500 transition hover:text-gray-500/75" href={link}>
+                  <Link
+                    className="text-gray-500 transition hover:text-gray-500/75"
+                    onClick={() => {
+                      document.body.style.overflow = 'unset';
+                    }}
+                    href={link}
+                  >
                     {item.title}
                   </Link>
                 </div>
