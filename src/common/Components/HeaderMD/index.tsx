@@ -4,6 +4,7 @@ import { IoCloseOutline } from 'react-icons/io5';
 import type { Header as HeaderBlock } from '@/payload-types';
 import React, { useState } from 'react';
 import HeaderButtons from '../HeaderButtons';
+import Link from 'next/link';
 
 function HeaderMD({
   navLinks,
@@ -55,9 +56,9 @@ function HeaderMD({
 
               return (
                 <div key={idx}>
-                  <a className="text-gray-500 transition hover:text-gray-500/75" href={link}>
+                  <Link className="text-gray-500 transition hover:text-gray-500/75" href={link}>
                     {item.title}
-                  </a>
+                  </Link>
                 </div>
               );
             })}

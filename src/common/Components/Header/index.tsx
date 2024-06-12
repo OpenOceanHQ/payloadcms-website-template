@@ -4,6 +4,7 @@ import configPromise from '@payload-config';
 import type { Header as HeaderBlock } from '@/payload-types';
 import HeaderMD from '../HeaderMD';
 import HeaderButtons from '../HeaderButtons';
+import Link from 'next/link';
 
 async function Header() {
   const payload = await getPayload({ config: configPromise });
@@ -22,9 +23,9 @@ async function Header() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <div className="md:flex md:items-center md:gap-12">
-              <a className="block text-teal-600" href="#">
+              <Link className="block text-teal-600" href="\">
                 <span className="">{doc.storeName}</span>
-              </a>
+              </Link>
             </div>
 
             <div className="hidden md:block">
@@ -39,9 +40,12 @@ async function Header() {
 
                     return (
                       <li key={idx}>
-                        <a className="text-gray-500 transition hover:text-gray-500/75" href={link}>
+                        <Link
+                          className="text-gray-500 transition hover:text-gray-500/75"
+                          href={link}
+                        >
                           {item.title}
-                        </a>
+                        </Link>
                       </li>
                     );
                   })}
