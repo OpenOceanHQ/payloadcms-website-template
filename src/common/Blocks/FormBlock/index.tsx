@@ -11,6 +11,7 @@ import { Select } from './Select';
 import { Email } from './Email';
 import { Country } from './Country';
 import { Message } from './Message';
+import { RichText } from './RichText';
 import { convertLexicalToHTML } from './convertLexicalToHtml';
 
 type formValues = {
@@ -21,6 +22,8 @@ const FormBlock = ({ data }: { data: FormBlockType }) => {
   // form from props
   const form = data.form;
   const { id: formID, confirmationType, redirect, confirmationMessage } = form as Form;
+
+  const { enableIntro, introContent, intro_content_html } = data;
 
   // hook form controls
   const { register, handleSubmit, formState } = useForm<formValues>();
@@ -81,12 +84,23 @@ const FormBlock = ({ data }: { data: FormBlockType }) => {
         return null;
     }
   };
+
   const confirmationMessageHtml =
     confirmationMessage?.root && convertLexicalToHTML({ ...confirmationMessage.root, format: 0 });
+
   return (
     <div className="container mx-auto py-4 bg-white px-4">
+      {enableIntro && introContent && !hasSubmitted && intro_content_html && (
+        <RichText
+          className="mt-4 mb-4 flex leading-relaxed text-gray-700"
+          html={intro_content_html}
+        />
+      )}
       {!isLoading && hasSubmitted && confirmationType === 'message' && confirmationMessageHtml && (
-        <div dangerouslySetInnerHTML={{ __html: confirmationMessageHtml }}></div>
+        <RichText
+          className="mt-4 mb-4 flex leading-relaxed text-gray-700"
+          html={confirmationMessageHtml}
+        />
       )}
       {isLoading && !hasSubmitted && <p>Loading, please wait...</p>}
       {error && <div>{`${error.status || '500'}: ${error.message || ''}`}</div>}

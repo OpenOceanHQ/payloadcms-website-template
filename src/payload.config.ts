@@ -12,6 +12,8 @@ import Settings from './app/globals/Settings';
 import { Pages } from './collections/Pages';
 import { formBuilderPlugin } from '@payloadcms/plugin-form-builder';
 import { Media } from './collections/Media';
+import { admins } from './access/admins';
+import { adminsOrUsers } from './access/adminsOrUsers';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -36,6 +38,24 @@ export default buildConfig({
   },
   plugins: [
     formBuilderPlugin({
+      /*@ts-ignore*/
+      formOverrides: {
+        access: {
+          create: adminsOrUsers,
+          read: adminsOrUsers,
+          update: adminsOrUsers,
+          delete: admins,
+        },
+      },
+      /*@ts-ignore*/
+      formSubmissionOverrides: {
+        access: {
+          create: adminsOrUsers,
+          read: adminsOrUsers,
+          update: adminsOrUsers,
+          delete: admins,
+        },
+      },
       fields: {
         text: true,
         textarea: true,
