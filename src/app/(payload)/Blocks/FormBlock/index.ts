@@ -1,3 +1,4 @@
+import { HTMLConverterFeature, lexicalEditor, lexicalHTML } from '@payloadcms/richtext-lexical';
 import { Block } from 'payload/types';
 
 export const FormBlock: Block = {
@@ -22,5 +23,15 @@ export const FormBlock: Block = {
       label: 'Enable Intro Content',
       type: 'checkbox',
     },
+    {
+      name: 'introContent',
+      label: 'Intro Content',
+      type: 'richText',
+      required: true,
+      editor: lexicalEditor({
+        features: ({ defaultFeatures }) => [...defaultFeatures, HTMLConverterFeature({})],
+      }),
+    },
+    lexicalHTML('introContent', { name: 'intro_content_html' }),
   ],
 };

@@ -24,7 +24,7 @@ export const LinkButton = ({ link, className }: { link: Link; className?: string
               link.appearance === 'primary' && 'bg-indigo-600'
             } px-12 py-3 text-sm font-medium ${
               link.appearance === 'primary' ? 'text-white' : 'text-indigo-600'
-            } transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400`}
+            } transition hover:bg-indigo-700 hover:text-white focus:outline-none focus:ring focus:ring-yellow-400`}
             target={link.newTab ? '_blank' : '_self'}
           >
             {link.label}
@@ -56,7 +56,7 @@ export const LinkButton = ({ link, className }: { link: Link; className?: string
                 link.appearance === 'primary' && 'bg-indigo-600'
               } px-12 py-3 text-sm font-medium ${
                 link.appearance === 'primary' ? 'text-white' : 'text-indigo-600'
-              } transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400`}
+              } transition hover:bg-indigo-700 hover:text-white focus:outline-none focus:ring focus:ring-yellow-400`}
               target={link.newTab ? '_blank' : '_self'}
               href={doc.slug}
             >
