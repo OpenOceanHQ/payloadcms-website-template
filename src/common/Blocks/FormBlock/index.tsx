@@ -11,7 +11,6 @@ import { Select } from './Select';
 import { Email } from './Email';
 import { Country } from './Country';
 import { Message } from './Message';
-import { RichText } from './RichText';
 import { convertLexicalToHTML } from './convertLexicalToHtml';
 
 type formValues = {
@@ -91,15 +90,15 @@ const FormBlock = ({ data }: { data: FormBlockType }) => {
   return (
     <div className="container mx-auto py-4 bg-white px-4">
       {enableIntro && introContent && !hasSubmitted && intro_content_html && (
-        <RichText
-          className="mt-4 mb-4 flex leading-relaxed text-gray-700"
-          html={intro_content_html}
+        <div
+          className={`mt-4 mb-4 flex leading-relaxed text-gray-700 prose lg:prose-lg xl:prose-xl prose-headings:text-inherit`}
+          dangerouslySetInnerHTML={{ __html: intro_content_html }}
         />
       )}
       {!isLoading && hasSubmitted && confirmationType === 'message' && confirmationMessageHtml && (
-        <RichText
-          className="mt-4 mb-4 flex leading-relaxed text-gray-700"
-          html={confirmationMessageHtml}
+        <div
+          className={`mt-4 mb-4 flex leading-relaxed text-gray-700 prose lg:prose-lg xl:prose-xl prose-headings:text-inherit`}
+          dangerouslySetInnerHTML={{ __html: confirmationMessageHtml }}
         />
       )}
       {isLoading && !hasSubmitted && <p>Loading, please wait...</p>}

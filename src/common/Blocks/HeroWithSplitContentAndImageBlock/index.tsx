@@ -35,7 +35,7 @@ export const HeroWithSplitContentAndImageBlock = ({
               : 'md:py-10'
           } sm:max-w-[70%]`}
         >
-          <div className="prose xl:prose-xl">
+          <div className="prose lg:prose-lg xl:prose-xl prose-headings:text-inherit">
             {data.heroContent_html && (
               <div dangerouslySetInnerHTML={{ __html: data.heroContent_html }} />
             )}

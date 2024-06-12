@@ -37,7 +37,7 @@ export const CTAWithSplitContentAndImageBlock = ({
           </defs>
         </svg>
         <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
-          <div className="prose xl:prose-xl">
+          <div className="prose lg:prose-lg xl:prose-xl prose-headings:text-inherit">
             {data.sectionTitleAndDescription_html && (
               <div
                 style={data.textColor ? { color: data.textColor || '#000000' } : undefined}
