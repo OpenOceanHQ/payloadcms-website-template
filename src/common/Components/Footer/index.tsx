@@ -2,7 +2,7 @@ import { getPayload } from 'payload';
 import React from 'react';
 import configPromise from '@payload-config';
 import type { Footer as FooterBlock } from '@/payload-types';
-import Image from 'next/image';
+import { MediaImage } from '../MediaImage';
 
 async function Footer() {
   const payload = await getPayload({ config: configPromise });
@@ -23,17 +23,7 @@ async function Footer() {
             <div className="text-teal-600">
               {doc.logo && (
                 <>
-                  <Image
-                    src={typeof doc.logo !== 'string' && doc.logo.url ? doc.logo.url : ''}
-                    width={typeof doc.logo !== 'string' && doc.logo.width ? doc.logo.width : 500}
-                    height={typeof doc.logo !== 'string' && doc.logo.height ? doc.logo.height : 500}
-                    alt={
-                      typeof doc.logo !== 'string' && doc.logo.alt
-                        ? doc.logo.alt
-                        : 'CTA section Image'
-                    }
-                    className="w-40 h-20"
-                  />
+                  <MediaImage className="h-20 w-auto" media={doc.logo} />
                 </>
               )}
             </div>

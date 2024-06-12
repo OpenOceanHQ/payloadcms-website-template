@@ -4,7 +4,15 @@ import linkGroup from '../(payload)/fields/linkGroup';
 const Header: GlobalConfig = {
   slug: 'header',
   fields: [
-    { name: 'logo', type: 'upload', relationTo: 'media' },
+    { name: 'showStoreLogo', type: 'checkbox', defaultValue: false },
+    {
+      name: 'logo',
+      type: 'upload',
+      relationTo: 'media',
+      admin: {
+        condition: (_, siblingData) => siblingData.showStoreLogo,
+      },
+    },
     { name: 'storeName', type: 'text', required: true },
 
     {
