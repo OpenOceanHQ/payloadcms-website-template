@@ -11,22 +11,28 @@ const Home = async () => {
   const payload = await getPayload({ config: configPromise });
 
   try {
-    const doc: SettingBlock = await payload.findGlobal({
+    const settingGlobal: SettingBlock = await payload.findGlobal({
       slug: 'settings' as never,
     });
 
-    if (!doc) {
+    if (!settingGlobal) {
       throw new Error();
     }
 
-    let layout;
-    if (doc.homePage?.value && typeof doc.homePage?.value !== 'string') {
-      layout = doc.homePage?.value.layout;
-    }
+    const pageId =
+      typeof settingGlobal.homePage?.value !== 'string' && settingGlobal.homePage?.value.id;
 
+    const { docs } = await payload.find({
+      collection: 'pages',
+      where: { id: { equals: pageId } },
+    });
+
+    if (docs.length === 0) {
+      throw new Error();
+    }
     return (
       <>
-        <Header /> <RenderBlocks data={layout} /> <Footer />
+        <Header /> <RenderBlocks data={docs[0].layout} /> <Footer />
       </>
     );
   } catch (error) {
