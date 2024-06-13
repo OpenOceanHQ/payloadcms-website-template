@@ -4,6 +4,8 @@ import { IconSelector } from '../ui/IconSelector';
 export const IncentiveBlock: Block = {
   slug: 'incentive-block',
   interfaceName: 'IncentiveBlock',
+  imageURL: process.env.SERVER_URL + 'blocks/incentive-block.png',
+  imageAltText: 'Incentive Block',
   fields: [
     {
       name: 'title',

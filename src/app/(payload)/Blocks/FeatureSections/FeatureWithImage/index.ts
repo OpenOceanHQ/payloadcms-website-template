@@ -7,6 +7,7 @@ export const FeatureWithImageBlock: Block = {
   slug: 'feature-with-image-block',
   interfaceName: 'FeatureWithImageBlock',
   imageAltText: 'Feature With Image Block',
+  imageURL: process.env.SERVER_URL + 'blocks/feature-with-image-block.png',
   labels: {
     singular: 'Feature With Image',
     plural: 'Feature With Image',

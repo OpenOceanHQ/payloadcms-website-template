@@ -3,6 +3,7 @@ import type { Block } from 'payload/types';
 export const Testimonial: Block = {
   slug: 'testimonial-block',
   interfaceName: 'TestimonialBlock',
+  imageURL: process.env.SERVER_URL + 'blocks/testimonial-block.png',
   imageAltText: 'Testimonial Block',
   labels: {
     singular: 'Testimonial',

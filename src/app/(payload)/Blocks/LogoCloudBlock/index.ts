@@ -4,6 +4,7 @@ import type { Block } from 'payload/types';
 export const LogoCloudBlock: Block = {
   slug: 'logo-cloud-block',
   interfaceName: 'LogoCloudBlock',
+  imageURL: process.env.SERVER_URL + 'blocks/logo-cloud-block.png',
   imageAltText: 'Logo Cloud Block',
   labels: {
     singular: 'Logo Cloud Block',
