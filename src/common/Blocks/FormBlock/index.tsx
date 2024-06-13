@@ -88,7 +88,7 @@ const FormBlock = ({ data }: { data: FormBlockType }) => {
     confirmationMessage?.root && convertLexicalToHTML({ ...confirmationMessage.root, format: 0 });
 
   return (
-    <div className="container mx-auto py-4 bg-white px-4">
+    <section className="container mx-auto px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16 bg-white">
       {enableIntro && introContent && !hasSubmitted && intro_content_html && (
         <div
           className={`mt-4 mb-4 flex leading-relaxed text-gray-700 prose lg:prose-lg xl:prose-xl prose-headings:text-inherit`}
@@ -119,7 +119,7 @@ const FormBlock = ({ data }: { data: FormBlockType }) => {
           </div>
         </form>
       )}
-    </div>
+    </section>
   );
 };
 
