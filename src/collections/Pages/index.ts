@@ -25,6 +25,11 @@ export const Pages: CollectionConfig = {
   admin: {
     useAsTitle: 'title',
     defaultColumns: ['title', 'slug', 'updatedAt'],
+    preview: (doc) => {
+      let url = process.env.SERVER_URL ? process.env.SERVER_URL : 'http://localhost:3000/';
+      const previewUrl = doc?.slug ? url + doc.slug : url;
+      return previewUrl;
+    },
     livePreview: {
       url: ({ data }) => {
         let url = process.env.SERVER_URL ? process.env.SERVER_URL : 'http://localhost:3000/';
