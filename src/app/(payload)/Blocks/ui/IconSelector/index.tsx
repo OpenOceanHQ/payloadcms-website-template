@@ -14,7 +14,7 @@ type Props = {
 };
 
 export const IconSelector: React.FC<Props> = ({ path, required }) => {
-  const { value, setValue } = useField<string>({ path });
+  const { value, setValue } = useField<string>({});
 
   const onChange = (option: Option) => {
     if (typeof option !== 'string') {

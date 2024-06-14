@@ -20,13 +20,13 @@ async function Header() {
 
   return (
     <div>
-      <header className="bg-white relative">
+      <header className="bg-white relative py-5">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <div className="md:flex md:items-center md:gap-12">
-              <Link className="text-teal-600 flex gap-3 justify-center items-center" href="/">
-                {doc.showStoreLogo && <MediaImage className="h-14 w-auto p-2" media={doc.logo} />}
-                <span className="">{doc.storeName}</span>
+              <Link className="flex gap-3 justify-center items-center" href="/">
+                {doc.showStoreLogo && <MediaImage className="h-20 w-auto p-2" media={doc.logo} />}
+                <span className="sr-only">{doc.storeName}</span>
               </Link>
             </div>
 

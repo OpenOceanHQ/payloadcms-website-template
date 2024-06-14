@@ -16,7 +16,7 @@ function HeaderButtons({ link }: { link: LinkType }) {
                 document.body.style.overflow = 'unset';
               }}
               target={link.newTab ? '_blank' : '_self'}
-              className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
+              className="rounded-md bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white shadow"
             >
               {link.label}
             </Link>
@@ -28,7 +28,7 @@ function HeaderButtons({ link }: { link: LinkType }) {
     return (
       link && (
         <Link
-          className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
+          className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-indigo-600"
           onClick={() => {
             document.body.style.overflow = 'unset';
           }}
@@ -47,7 +47,7 @@ function HeaderButtons({ link }: { link: LinkType }) {
         return (
           link && (
             <Link
-              className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
+              className="rounded-md bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white shadow"
               onClick={() => {
                 document.body.style.overflow = 'unset';
               }}
@@ -66,7 +66,7 @@ function HeaderButtons({ link }: { link: LinkType }) {
           onClick={() => {
             document.body.style.overflow = 'unset';
           }}
-          className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
+          className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-indigo-600"
         >
           {link.label ? link.label : doc.title}
         </Link>
