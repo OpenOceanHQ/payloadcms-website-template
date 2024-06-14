@@ -7,7 +7,7 @@ export const FeatureWithThreeColumnBlock: Block = {
   slug: 'feature-with-three-column-block',
   interfaceName: 'FeatureWithThreeColumnBlock',
   imageAltText: 'Feature With Three Column Block',
-  imageURL: process.env.SERVER_URL + 'blocks/feature-with-three-column-block.png',
+  imageURL: '/blocks/feature-with-three-column-block.png',
   labels: {
     singular: 'Feature With Three Column',
     plural: 'Feature With Three Column',

@@ -106,6 +106,10 @@ To get a local copy of our template up and running follow these simple steps.
   PAYLOAD_SECRET=<your-payload-secret>
   ```
 
+### Deploy to vercel
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FOpenOceanHQ%2Fpayloadcms-website-template&env=MONGO_DATABASE_URI,PAYLOAD_SECRET&project-name=payload-website&repository-name=payload-website)
+
 ### Installation
 
 To spin up the project locally, follow these steps:
