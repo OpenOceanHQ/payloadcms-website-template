@@ -14,6 +14,7 @@ import { formBuilderPlugin } from '@payloadcms/plugin-form-builder';
 import { Media } from './collections/Media';
 import { admins } from './access/admins';
 import { adminsOrUsers } from './access/adminsOrUsers';
+import { PreviewPageButton } from './common/Components/PreviewPageButton';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -21,6 +22,9 @@ const dirname = path.dirname(filename);
 export default buildConfig({
   admin: {
     user: Users.slug,
+    components: {
+      actions: [PreviewPageButton],
+    },
   },
   collections: [Users, Pages, Media],
   editor: lexicalEditor({}),
