@@ -879,14 +879,21 @@ export interface Footer {
   };
   footerLinks: {
     title: string;
-    links: {
-      title: string;
-      reference?: {
-        relationTo: 'pages';
-        value: string | Page;
-      } | null;
-      id?: string | null;
-    }[];
+    links?:
+      | {
+          link: {
+            type?: ('reference' | 'custom') | null;
+            newTab?: boolean | null;
+            reference?: {
+              relationTo: 'pages';
+              value: string | Page;
+            } | null;
+            url?: string | null;
+            label: string;
+          };
+          id?: string | null;
+        }[]
+      | null;
     id?: string | null;
   }[];
   copyright: string;
