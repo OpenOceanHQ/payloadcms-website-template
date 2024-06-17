@@ -14,6 +14,7 @@ import {
   Testimonial,
   LogoCloudBlock,
   FormBlock,
+  BlogsBlock,
 } from '@/app/(payload)/Blocks';
 import './style.css';
 
@@ -84,6 +85,7 @@ export const Pages: CollectionConfig = {
         Testimonial,
         LogoCloudBlock,
         FormBlock,
+        BlogsBlock,
       ],
     },
   ],

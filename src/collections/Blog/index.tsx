@@ -6,6 +6,7 @@ export const Blog: CollectionConfig = {
   slug: 'blog',
   admin: {
     hideAPIURL: true,
+    useAsTitle: 'title',
   },
   access: {
     create: adminsOrUsers,
