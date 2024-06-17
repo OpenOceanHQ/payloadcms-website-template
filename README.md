@@ -102,7 +102,7 @@ To get a local copy of our template up and running follow these simple steps.
   ```
 - setup environment variables in your project's root directory
   ```sh
-  DATABASE_URI=<your-database-url>
+  MONGO_DATABASE_URI=<your-database-url>
   PAYLOAD_SECRET=<your-payload-secret>
   ```
 
