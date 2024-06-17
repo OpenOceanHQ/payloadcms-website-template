@@ -69,6 +69,7 @@ export interface Page {
         | TestimonialBlock
         | LogoCloudBlock
         | FormBlock
+        | PricingBlock
       )[]
     | null;
   updatedAt: string;
@@ -774,6 +775,25 @@ export interface Form {
     | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PricingBlock".
+ */
+export interface PricingBlock {
+  pricingPlans: {
+    title: string;
+    description: string;
+    monthlyPrice: number;
+    planPerks: {
+      perk: string;
+      id?: string | null;
+    }[];
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'pricing-block';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

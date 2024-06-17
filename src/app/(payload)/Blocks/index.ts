@@ -12,3 +12,4 @@ export * from './LogoCloudBlock';
 export * from './HeroWithBackground';
 export * from './HeroWithSplitContentAndImage';
 export * from './FormBlock';
+export * from './PricingBlock';
