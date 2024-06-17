@@ -1,6 +1,5 @@
 import { MediaImage } from '../../../common/Components/MediaImage';
 import type { BlogsBlock as BlogsBlockType } from '@/payload-types';
-// import { LinkButton } from '../../Components/LinkButtons';
 import Link from 'next/link';
 
 export const BlogsBlock = ({ data }: { data: BlogsBlockType | null | undefined }) => {
@@ -8,7 +7,7 @@ export const BlogsBlock = ({ data }: { data: BlogsBlockType | null | undefined }
 
   return (
     <section className="container mx-auto px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16 rounded-xl">
-      <div className="mx-auto text-center">
+      <div className="mx-auto ">
         <div className=" prose lg:prose-lg xl:prose-xl prose-headings:text-inherit">
           {data.titleAndDescription_html && (
             <div dangerouslySetInnerHTML={{ __html: data.titleAndDescription_html }} />
@@ -58,7 +57,10 @@ export const BlogsBlock = ({ data }: { data: BlogsBlockType | null | undefined }
                         )}
                       </div>
                       <div className="relative mt-8 flex items-center gap-x-4">
-                        <MediaImage className="h-5 w-5 rounded-full bg-gray-100" media={d.image} />
+                        <MediaImage
+                          className="h-5 w-5 rounded-full bg-gray-100"
+                          media={d.author_image}
+                        />
 
                         <div className="text-sm leading-6">
                           <p className="font-semibold text-gray-900">
