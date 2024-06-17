@@ -19,7 +19,7 @@ export const CardBlock = ({ data }: { data: CardBlockType }) => {
               className="h-52 w-full object-contain sm:h-72 lg:h-80 "
             />
 
-            <h3 className="mt-4 text-lg font-bold text-gray-900 sm:text-xl">{card.title}.</h3>
+            <h3 className="mt-4 text-lg font-bold text-gray-900 sm:text-xl">{card.title}</h3>
 
             <p className="mt-2 max-w-sm text-gray-700">{card.description}</p>
           </div>

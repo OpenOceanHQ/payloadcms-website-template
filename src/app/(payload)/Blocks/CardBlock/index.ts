@@ -3,6 +3,8 @@ import { Block } from 'payload/types';
 
 export const CardBlock: Block = {
   slug: 'card-block',
+  imageURL: process.env.SERVER_URL + 'blocks/card-block.png',
+  imageAltText: 'Card Block',
   interfaceName: 'CardBlock',
   labels: {
     singular: 'Card',
