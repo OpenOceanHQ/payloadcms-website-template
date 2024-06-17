@@ -1,5 +1,6 @@
 import React from 'react';
 import type { PricingBlock as PricingBlockType } from '@/payload-types';
+import { LinkButton } from '@/common/Components/LinkButtons';
 
 export function PricingBlock({ data }: { data: PricingBlockType | null | undefined }) {
   return (
@@ -29,12 +30,10 @@ export function PricingBlock({ data }: { data: PricingBlockType | null | undefin
                     <span className="text-sm font-medium text-gray-700">/month</span>
                   </p>
 
-                  <a
-                    className="mt-4 block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 sm:mt-6"
-                    href="#"
-                  >
-                    Get Started
-                  </a>
+                  <div>
+                    {plan.links &&
+                      plan.links?.map(({ link }, index) => <LinkButton link={link} key={index} />)}
+                  </div>
                 </div>
 
                 <div className="p-6 sm:px-8">

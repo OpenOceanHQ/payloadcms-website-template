@@ -785,6 +785,22 @@ export interface PricingBlock {
     title: string;
     description: string;
     monthlyPrice: number;
+    links?:
+      | {
+          link: {
+            type?: ('reference' | 'custom') | null;
+            newTab?: boolean | null;
+            reference?: {
+              relationTo: 'pages';
+              value: string | Page;
+            } | null;
+            url?: string | null;
+            label: string;
+            appearance?: ('primary' | 'secondary') | null;
+          };
+          id?: string | null;
+        }[]
+      | null;
     planPerks: {
       perk: string;
       id?: string | null;

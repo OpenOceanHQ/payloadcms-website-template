@@ -1,4 +1,5 @@
 import type { Block } from 'payload/types';
+import linkGroup from '../../fields/linkGroup';
 
 export const PricingBlock: Block = {
   slug: 'pricing-block',
@@ -33,6 +34,15 @@ export const PricingBlock: Block = {
           type: 'number',
           required: true,
         },
+        linkGroup({
+          appearances: ['primary', 'secondary'],
+          overrides: {
+            admin: {
+              description: 'Link to your payment page.',
+            },
+            maxRows: 2,
+          },
+        }),
         {
           name: 'planPerks',
           type: 'array',
