@@ -69,6 +69,7 @@ export interface Page {
         | TestimonialBlock
         | LogoCloudBlock
         | FormBlock
+        | FAQ
       )[]
     | null;
   updatedAt: string;
@@ -774,6 +775,22 @@ export interface Form {
     | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FAQ".
+ */
+export interface FAQ {
+  FAQ?:
+    | {
+        Question: string;
+        Answer: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'faq-block';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
