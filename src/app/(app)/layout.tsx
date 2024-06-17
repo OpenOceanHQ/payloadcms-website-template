@@ -26,7 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
     metadata = {
       title: {
-        template: '%s |' + docs.storeName,
+        template: '%s | ' + docs.storeName,
         default: docs.storeName,
       },
       openGraph: {

@@ -13,7 +13,7 @@ const getData = async (slug: string) => {
 
   const { docs } = await payload.find({
     collection: 'pages',
-    where: { id: { equals: slug } },
+    where: { slug: { equals: slug } },
   });
 
   return docs;
@@ -42,6 +42,7 @@ export async function generateMetadata({ params }: { params: ParsedUrlQuery }): 
     // eslint-disable-next-line no-console
     console.error(error);
   }
+
   return metadata;
 }
 const page = async ({ params }: { params: ParsedUrlQuery }) => {
@@ -57,6 +58,7 @@ const page = async ({ params }: { params: ParsedUrlQuery }) => {
     if (docs.length === 0) {
       throw new Error();
     }
+
     const jsonLdData = {
       url: serverUrl + docs[0].slug,
       name: docs[0].title ? docs[0].title : '',
