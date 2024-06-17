@@ -1,4 +1,4 @@
-import Header from '../../../../common/Components/Header';
+import Header, { siteName } from '../../../../common/Components/Header';
 import Footer from '../../../../common/Components/Footer';
 import configPromise from '@payload-config';
 import { notFound } from 'next/navigation';
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: { params: ParsedUrlQuery }) {
     description: docs[0].description,
     openGraph: {
       url: process.env.SERVER_URL + `blog/${slug}`,
-      siteName: 'Cornerrr',
+      siteName: siteName.siteName,
       images: [
         {
           url: url,
