@@ -32,7 +32,9 @@ export function PricingBlock({ data }: { data: PricingBlockType | null | undefin
 
                   <div>
                     {plan.links &&
-                      plan.links?.map(({ link }, index) => <LinkButton link={link} key={index} />)}
+                      plan.links?.map(({ link }, index) => (
+                        <LinkButton link={link} key={index} className="w-full text-center" />
+                      ))}
                   </div>
                 </div>
 

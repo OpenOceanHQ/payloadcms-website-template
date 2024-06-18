@@ -20,7 +20,7 @@ export const LinkButton = ({ link, className }: { link: Link; className?: string
         link && (
           <Link
             href={link.url ? link.url : ''}
-            className={`mr-2 mt-2 inline-block rounded border border-indigo-600 ${
+            className={`${className} mr-2 mt-2 inline-block rounded border border-indigo-600 ${
               link.appearance === 'primary' && 'bg-indigo-600'
             } px-12 py-3 text-sm font-medium ${
               link.appearance === 'primary' ? 'text-white' : 'text-indigo-600'
@@ -51,7 +51,7 @@ export const LinkButton = ({ link, className }: { link: Link; className?: string
         return (
           link && (
             <Link
-              className={`mr-2 mt-2 inline-block rounded border border-indigo-600 ${
+              className={`${className} mr-2 mt-2 inline-block rounded border border-indigo-600 ${
                 link.appearance === 'primary' && 'bg-indigo-600'
               } px-12 py-3 text-sm font-medium ${
                 link.appearance === 'primary' ? 'text-white' : 'text-indigo-600'
