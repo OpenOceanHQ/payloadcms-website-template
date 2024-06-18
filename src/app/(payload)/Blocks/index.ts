@@ -13,3 +13,4 @@ export * from './HeroWithBackground';
 export * from './HeroWithSplitContentAndImage';
 export * from './FormBlock';
 export * from './FAQBlock';
+export * from './CardBlock';
