@@ -69,6 +69,7 @@ export interface Page {
         | TestimonialBlock
         | LogoCloudBlock
         | FormBlock
+        | FAQ
         | CardBlock
       )[]
     | null;
@@ -778,6 +779,20 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FAQ".
+ */
+export interface FAQ {
+  FAQ: {
+    Question: string;
+    Answer: string;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'faq-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "CardBlock".
  */
 export interface CardBlock {
@@ -798,9 +813,9 @@ export interface CardBlock {
   } | null;
   titleAndDescription_html?: string | null;
   cards: {
-    title?: string | null;
-    description?: string | null;
-    image?: string | Media | null;
+    title: string;
+    description: string;
+    image: string | Media;
     id?: string | null;
   }[];
   id?: string | null;
@@ -938,6 +953,7 @@ export interface Setting {
   updatedAt?: string | null;
   createdAt?: string | null;
 }
+
 
 declare module 'payload' {
   export interface GeneratedTypes extends Config {}
