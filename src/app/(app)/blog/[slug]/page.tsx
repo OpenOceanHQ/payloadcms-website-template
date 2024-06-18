@@ -7,6 +7,7 @@ import { ParsedUrlQuery } from 'querystring';
 import type { Blog as BlogType } from '@/payload-types';
 import { MediaImage } from '../../../../common/Components/MediaImage';
 import { BlogBreadCrumbs } from '../../../../common/Components/BlogBreadCrumbs';
+import { ArticleJsonLd } from 'next-seo';
 
 export async function generateMetadata({ params }: { params: ParsedUrlQuery }) {
   const { slug } = params;
@@ -73,8 +74,41 @@ const page = async ({ params }: { params: ParsedUrlQuery }) => {
       throw new Error();
     }
 
+    let imageUrl = '';
+    let authorImageUrl = '';
+    if (docs[0].image && typeof docs[0].image !== 'string' && docs[0].image.url) {
+      imageUrl = docs[0].image.url;
+    }
+    if (
+      docs[0].author_image &&
+      typeof docs[0].author_image !== 'string' &&
+      docs[0].author_image.url
+    ) {
+      authorImageUrl = docs[0].author_image.url;
+    }
+
     return (
       <>
+        <ArticleJsonLd
+          useAppDir={true}
+          url={`${process.env.NEXT_PUBLIC_SERVER_URL}blog/${slug}`}
+          {...{ title: docs[0].title }}
+          {...{ images: [imageUrl] }}
+          {...{
+            datePublished: docs[0].createdAt,
+          }}
+          {...{
+            description: docs[0].description,
+          }}
+          authorName={[
+            {
+              name: docs[0].author ? docs[0].author : '',
+              url: authorImageUrl,
+            },
+          ]}
+          publisherName={docs[0].author ? docs[0].author : ''}
+          isAccessibleForFree={true}
+        />
         <Header /> <Blog blog={docs[0]} /> <Footer />
       </>
     );
