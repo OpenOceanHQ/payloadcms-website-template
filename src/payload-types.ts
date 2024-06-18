@@ -782,13 +782,11 @@ export interface Form {
  * via the `definition` "FAQ".
  */
 export interface FAQ {
-  FAQ?:
-    | {
-        Question: string;
-        Answer: string;
-        id?: string | null;
-      }[]
-    | null;
+  FAQ: {
+    Question: string;
+    Answer: string;
+    id?: string | null;
+  }[];
   id?: string | null;
   blockName?: string | null;
   blockType: 'faq-block';
