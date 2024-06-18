@@ -13,6 +13,8 @@ export const FAQBlock: Block = {
     {
       name: 'FAQ',
       type: 'array',
+      required: true,
+      minRows: 1,
       fields: [
         {
           type: 'text',
