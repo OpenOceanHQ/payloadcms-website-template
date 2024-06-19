@@ -4,7 +4,7 @@ import { Block } from 'payload/types';
 export const FormBlock: Block = {
   slug: 'form-block',
   interfaceName: 'FormBlock',
-  imageURL: process.env.SERVER_URL + 'blocks/form-block.png',
+  imageURL: '/blocks/form-block.png',
   imageAltText: 'Form Block',
   labels: {
     singular: 'Form Block',

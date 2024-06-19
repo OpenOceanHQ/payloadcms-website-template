@@ -7,6 +7,8 @@ import { MediaImage } from '../MediaImage';
 import HeaderButtons from '../HeaderButtons';
 import Link from 'next/link';
 
+export const siteName: { siteName: string } = { siteName: '' };
+
 async function Header() {
   const payload = await getPayload({ config: configPromise });
 
@@ -18,6 +20,7 @@ async function Header() {
     return null;
   }
 
+  siteName.siteName = doc.storeName;
   return (
     <div>
       <header className="bg-white relative">

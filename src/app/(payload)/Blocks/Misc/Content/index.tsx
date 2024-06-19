@@ -52,7 +52,7 @@ const columnFields: Field[] = [
 export const ContentBlock: Block = {
   slug: 'content-block',
   interfaceName: 'ContentBlock',
-  imageURL: process.env.SERVER_URL + 'blocks/content-block.png',
+  imageURL: '/blocks/content-block.png',
   imageAltText: 'Content Block',
   fields: [
     {
