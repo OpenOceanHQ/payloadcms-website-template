@@ -1,4 +1,4 @@
-import type { AccessArgs, FieldAccess } from 'payload/types';
+import { AccessArgs, FieldAccess } from 'payload';
 import { checkRole } from './checkRole';
 
 type isAdminAndUser = (args: AccessArgs) => boolean;

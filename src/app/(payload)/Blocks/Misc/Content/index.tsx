@@ -1,6 +1,6 @@
-import type { Block, Field } from 'payload/types';
 import { HTMLConverterFeature, lexicalEditor, lexicalHTML } from '@payloadcms/richtext-lexical';
 import linkGroup from '@/app/(payload)/fields/linkGroup';
+import { Block, Field } from 'payload';
 
 const columnFields: Field[] = [
   {
@@ -29,6 +29,7 @@ const columnFields: Field[] = [
   {
     name: 'richText',
     type: 'richText',
+
     editor: lexicalEditor({
       features: ({ defaultFeatures }) => [...defaultFeatures, HTMLConverterFeature({})],
     }),
@@ -43,7 +44,7 @@ const columnFields: Field[] = [
 
     overrides: {
       admin: {
-        condition: (_, { enableLink }) => Boolean(enableLink),
+        condition: (_: Partial<any>, siblingData: Partial<any>) => siblingData.enableLink,
       },
     },
   }),

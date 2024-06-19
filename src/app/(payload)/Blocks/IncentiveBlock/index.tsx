@@ -1,4 +1,4 @@
-import type { Block } from 'payload/types';
+import { Block } from 'payload';
 import { IconSelector } from '../ui/IconSelector';
 
 export const IncentiveBlock: Block = {

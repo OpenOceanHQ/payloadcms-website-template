@@ -1,5 +1,4 @@
-import Header, { siteName } from '../../../../common/Components/Header';
-import Footer from '../../../../common/Components/Footer';
+import { siteName } from '../../../../common/Components/Header';
 import configPromise from '@payload-config';
 import { notFound } from 'next/navigation';
 import { getPayload } from 'payload';
@@ -18,14 +17,14 @@ export async function generateMetadata({ params }: { params: ParsedUrlQuery }) {
     where: { slug: { equals: slug } },
   });
 
+  if (docs.length === 0) {
+    return notFound();
+  }
+
   const url =
     docs[0].image && typeof docs[0].image !== 'string' && docs[0].image.url
       ? docs[0].image.url
       : '/placeholder.jpg';
-
-  if (docs.length === 0) {
-    throw new Error();
-  }
 
   return {
     title: docs[0].title,
@@ -109,7 +108,7 @@ const page = async ({ params }: { params: ParsedUrlQuery }) => {
           publisherName={docs[0].author ? docs[0].author : ''}
           isAccessibleForFree={true}
         />
-        <Header /> <Blog blog={docs[0]} /> <Footer />
+        <Blog blog={docs[0]} />
       </>
     );
   } catch (error) {

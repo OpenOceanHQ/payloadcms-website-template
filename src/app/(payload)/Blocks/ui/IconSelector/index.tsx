@@ -1,7 +1,6 @@
 'use client';
 import { SelectInput } from '@payloadcms/ui/fields/Select';
 import { useField } from '@payloadcms/ui/forms/useField';
-import { Option } from 'payload/types';
 import React from 'react';
 import * as FontAwesomeIcons from 'react-icons/fa6';
 import { IconType } from 'react-icons/lib';
@@ -16,13 +15,9 @@ type Props = {
 export const IconSelector: React.FC<Props> = ({ path, required }) => {
   const { value, setValue } = useField<string>({ path });
 
-  const onChange = (option: Option) => {
-    if (typeof option !== 'string') {
-      setValue(option.value);
-    }
-  };
-
-  const IconComponent = (FontAwesomeIcons as { [key: string]: IconType })?.[value];
+  const IconComponent = value
+    ? (FontAwesomeIcons as { [key: string]: IconType })?.[value]
+    : undefined;
 
   return (
     <>
@@ -36,7 +31,11 @@ export const IconSelector: React.FC<Props> = ({ path, required }) => {
           label: value,
           value,
         }))}
-        onChange={onChange}
+        onChange={(value) => {
+          if (typeof value === 'string') {
+            setValue(value);
+          }
+        }}
       />
       <div
         style={{

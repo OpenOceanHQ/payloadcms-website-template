@@ -1,4 +1,4 @@
-import type { CollectionConfig } from 'payload/types';
+import { CollectionConfig } from 'payload';
 import { admins } from '@/access/admins';
 import { adminsOrUsers, adminsOrUsersFieldAccess } from '@/access/adminsOrUsers';
 import { ensureFirstUserIsAdmin } from './hooks/ensureFirstUserIsAdmin';

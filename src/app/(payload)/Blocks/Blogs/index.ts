@@ -1,10 +1,10 @@
-import type { Block } from 'payload/types';
+import { Block } from 'payload';
 import { HTMLConverterFeature, lexicalEditor, lexicalHTML } from '@payloadcms/richtext-lexical';
 
 export const BlogsBlock: Block = {
   slug: 'blogs-block',
   interfaceName: 'BlogsBlock',
-  imageURL: process.env.SERVER_URL + 'blocks/blogs-block.png',
+  imageURL: '/blocks/blogs-block.png',
   imageAltText: 'Blogs Block',
   labels: {
     singular: 'Blogs',

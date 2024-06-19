@@ -1,5 +1,3 @@
-import Header from '../../../common/Components/Header';
-import Footer from '../../../common/Components/Footer';
 import configPromise from '@payload-config';
 import { notFound } from 'next/navigation';
 import { getPayload } from 'payload';
@@ -38,7 +36,7 @@ const page = async () => {
 
     return (
       <>
-        <Header /> <Blogs blogs={docs} /> <Footer />
+        <Blogs blogs={docs} />
       </>
     );
   } catch (error) {
