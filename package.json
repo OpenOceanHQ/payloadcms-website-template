@@ -32,11 +32,14 @@
     "keen-slider": "^6.8.6",
     "next": "15.0.0-rc.0",
     "next-seo": "^6.5.0",
+    "nextjs-toploader": "^1.6.12",
     "payload": "3.0.0-beta.40",
+    "payload-admin-bar": "^1.0.6",
     "react": "^19.0.0-rc-f994737d14-20240522",
     "react-dom": "^19.0.0-rc-f994737d14-20240522",
     "react-hook-form": "^7.51.5",
     "react-icons": "^5.2.1",
+    "react-top-loading-bar": "^2.3.1",
     "sharp": "0.32.6"
   },
   "devDependencies": {

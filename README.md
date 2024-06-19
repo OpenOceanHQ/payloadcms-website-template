@@ -32,7 +32,7 @@
     <a href="https://github.com/OpenOceanHQ/payloadcms-website-template"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/OpenOceanHQ/payloadcms-website-template">View Demo</a>
+    <a href="https://payloadcms-template.vercel.app">View Demo</a>
     ·
     <a href="https://github.com/OpenOceanHQ/payloadcms-website-template/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·

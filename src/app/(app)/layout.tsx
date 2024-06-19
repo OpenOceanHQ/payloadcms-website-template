@@ -1,6 +1,7 @@
 import Header from '../../common/Components/Header';
 import Footer from '../../common/Components/Footer';
 import './global.css';
+import NextTopLoader from 'nextjs-toploader';
 import { getPayload } from 'payload';
 import configPromise from '@payload-config';
 import type { Header as HeaderBlock } from '@/payload-types';
@@ -55,7 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <head></head>
       <body>
-        {' '}
+        <NextTopLoader color="#f11946" showSpinner={false} />
         <Header /> {children}
         <Footer />
       </body>
