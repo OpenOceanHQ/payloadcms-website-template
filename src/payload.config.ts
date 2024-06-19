@@ -14,6 +14,7 @@ import { formBuilderPlugin } from '@payloadcms/plugin-form-builder';
 import { Media } from './collections/Media';
 import { admins } from './access/admins';
 import { adminsOrUsers } from './access/adminsOrUsers';
+import { Blog } from './collections/Blog';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -22,7 +23,7 @@ export default buildConfig({
   admin: {
     user: Users.slug,
   },
-  collections: [Users, Pages, Media],
+  collections: [Users, Blog, Pages, Media],
   editor: lexicalEditor({}),
   // plugins: [payloadCloud()], // TODO: Re-enable when cloud supports 3.0
   secret: process.env.PAYLOAD_SECRET || 'this is best',
