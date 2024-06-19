@@ -12,5 +12,6 @@ export * from './LogoCloudBlock';
 export * from './HeroWithBackground';
 export * from './HeroWithSplitContentAndImage';
 export * from './FormBlock';
+export * from './Blogs';
 export * from './FAQBlock';
 export * from './CardBlock';

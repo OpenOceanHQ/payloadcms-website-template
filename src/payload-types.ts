@@ -136,6 +136,7 @@ export interface Page {
         | TestimonialBlock
         | LogoCloudBlock
         | FormBlock
+        | BlogsBlock
         | FAQ
         | CardBlock
       )[]
@@ -808,6 +809,38 @@ export interface Form {
     | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BlogsBlock".
+ */
+export interface BlogsBlock {
+  titleAndDescription?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  blogs: {
+    blog?: {
+      relationTo: 'blog';
+      value: string | Blog;
+    } | null;
+    id?: string | null;
+  }[];
+  titleAndDescription_html?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'blogs-block';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

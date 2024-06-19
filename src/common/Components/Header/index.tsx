@@ -22,6 +22,7 @@ async function Header() {
   }
 
   siteName.siteName = doc.storeName;
+
   return (
     <div>
       <AdminBar />

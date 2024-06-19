@@ -168,8 +168,4 @@ function Blogs({ blogs }: { blogs: BlogType[] }) {
   );
 }
 
-// function BlogCard() {
-//   return
-// }
-
 export default page;

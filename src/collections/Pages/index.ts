@@ -14,6 +14,7 @@ import {
   Testimonial,
   LogoCloudBlock,
   FormBlock,
+  BlogsBlock,
   FAQBlock,
   CardBlock,
 } from '@/app/(payload)/Blocks';
@@ -93,6 +94,7 @@ export const Pages: CollectionConfig = {
         Testimonial,
         LogoCloudBlock,
         FormBlock,
+        BlogsBlock,
         FAQBlock,
         CardBlock,
       ],
