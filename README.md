@@ -29,16 +29,18 @@
   <p align="center">
     A website builder template built with Payloadcms 3.0
     <br />
-    <a href="./Tutorial"><strong>View Tutorial »</strong></a>
-    <br />
-    <br />
-    <a href="https://payloadcms-template.vercel.app">View Demo</a>
-    ·
-    <a href="https://github.com/OpenOceanHQ/payloadcms-website-template/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
-    ·
-    <a href="https://github.com/OpenOceanHQ/payloadcms-website-template/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
-    ·
-    <a href="mailto:info@openoceantechnologies.in">Contact Us</a>
+
+[**View Tutorial »**](./Tutorial.md)
+<br />
+<br />
+<a href="https://payloadcms-template.vercel.app">View Demo</a>
+·
+<a href="https://github.com/OpenOceanHQ/payloadcms-website-template/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+·
+<a href="https://github.com/OpenOceanHQ/payloadcms-website-template/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+·
+<a href="mailto:info@openoceantechnologies.in">Contact Us</a>
+
   </p>
 </div>
 
