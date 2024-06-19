@@ -29,7 +29,7 @@
   <p align="center">
     A website builder template built with Payloadcms 3.0
     <br />
-    <a href="https://github.com/OpenOceanHQ/payloadcms-website-template"><strong>Explore the docs »</strong></a>
+    <a href="./Tutorial"><strong>View Tutorial »</strong></a>
     <br />
     <br />
     <a href="https://payloadcms-template.vercel.app">View Demo</a>
@@ -180,10 +180,6 @@ We leverage the powerful Form builder plugin to give you the best form creation 
 
 Simply create your form and add it as a block in your page. Form submissions will be sent straight to your dashboard!
 
-<!-- <div style="display: flex">
-<img style="width: 50%; padding-right: 5px" src="public/images/forms.png">
-<img style="width: 50%" src="public/images/form-submissions.png">
-</div> -->
 <table>
   <tr>
     <td><img src="public/images/forms.png" alt="Forms" style="width: 100%;"></td>
