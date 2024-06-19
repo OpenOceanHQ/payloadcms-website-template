@@ -22,8 +22,8 @@ export const FeatureWithImageBlock = ({
             )}
             <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
               {data.features?.map(({ icon, feature_content_html }, index) => (
-                <div key={index} className="flex flex-col">
-                  {icon && <CustomIcon name={icon} className="h-6 w-6 text-indigo-600" />}
+                <div key={index} className="flex flex-row">
+                  {icon && <CustomIcon name={icon} className="h-14 w-14 text-indigo-600" />}
                   <dd className="mt-4 flex flex-auto flex-col text-base leading-7 prose lg:prose-lg xl:prose-xl prose-headings:text-inherit">
                     {feature_content_html && (
                       <div dangerouslySetInnerHTML={{ __html: feature_content_html }} />
