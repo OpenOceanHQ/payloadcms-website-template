@@ -6,7 +6,7 @@ import { validateHexColor } from '../../../../../utilities/validateHexColor';
 export const CTAWithSplitContentAndButtonBlock: Block = {
   slug: 'cta-with-split-content-and-button-block',
   interfaceName: 'CTAWithSplitContentAndButtonBlock',
-  imageURL: process.env.SERVER_URL + 'blocks/cta-with-split-content-and-button-block.png',
+  imageURL: '/blocks/cta-with-split-content-and-button-block.png',
   imageAltText: 'CTA With Split Content And Button Block',
   labels: {
     singular: 'CTA With Split Content And Button',

@@ -5,7 +5,7 @@ import { HTMLConverterFeature, lexicalEditor, lexicalHTML } from '@payloadcms/ri
 export const HeroWithSplitContentAndImageBlock: Block = {
   slug: 'hero-with-split-content-and-image-block',
   interfaceName: 'HeroWithSplitContentAndImageBlock',
-  imageURL: process.env.SERVER_URL + 'blocks/hero-with-split-content-and-image-block.png',
+  imageURL: '/blocks/hero-with-split-content-and-image-block.png',
   imageAltText: 'Hero With Split Content And Image Block',
   labels: {
     singular: 'Hero With Split Content And Image',

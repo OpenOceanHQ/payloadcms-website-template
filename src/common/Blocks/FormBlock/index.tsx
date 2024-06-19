@@ -91,13 +91,13 @@ const FormBlock = ({ data }: { data: FormBlockType }) => {
     <section className="container mx-auto px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16 bg-white">
       {enableIntro && introContent && !hasSubmitted && intro_content_html && (
         <div
-          className={`mt-4 mb-4 flex leading-relaxed text-gray-700 prose lg:prose-lg xl:prose-xl prose-headings:text-inherit`}
+          className={`mt-4 px-4 mb-4 flex leading-relaxed text-gray-700 prose lg:prose-lg xl:prose-xl prose-headings:text-inherit`}
           dangerouslySetInnerHTML={{ __html: intro_content_html }}
         />
       )}
       {!isLoading && hasSubmitted && confirmationType === 'message' && confirmationMessageHtml && (
         <div
-          className={`mt-4 mb-4 flex leading-relaxed text-gray-700 prose lg:prose-lg xl:prose-xl prose-headings:text-inherit`}
+          className={`mt-4 px-4 mb-4 flex leading-relaxed text-gray-700 prose lg:prose-lg xl:prose-xl prose-headings:text-inherit`}
           dangerouslySetInnerHTML={{ __html: confirmationMessageHtml }}
         />
       )}
@@ -105,11 +105,11 @@ const FormBlock = ({ data }: { data: FormBlockType }) => {
       {error && <div>{`${error.status || '500'}: ${error.message || ''}`}</div>}
       {!hasSubmitted && (
         <form id={formID} onSubmit={handleSubmit(submitHandler)} className="flex flex-col">
-          <div className="sm:flex sm:flex-wrap gap-x-2 ml-[-0.5*var(--base)] mr-[-0.5*var(--base)] w-[calc(100% + var(--base))]">
+          <div className="sm:flex sm:flex-wrap ml-[-0.5*var(--base)] mr-[-0.5*var(--base)] w-[calc(100% + var(--base))]">
             {/* render fields based on blockType */}
             {form.fields && form.fields.map((field, index: number) => renderField(field, index))}
           </div>
-          <div className="w-full">
+          <div className="w-full px-4">
             <button
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               form={formID}

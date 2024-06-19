@@ -7,7 +7,7 @@ export const Width: React.FC<{
 }> = ({ className, width, children }) => {
   // width will be 100% by default
   return (
-    <div className={className} style={{ width: width ? `${width}%` : '100%' }}>
+    <div className={className + ' max-sm:!w-full'} style={{ width: width ? `${width}%` : '100%' }}>
       {children}
     </div>
   );

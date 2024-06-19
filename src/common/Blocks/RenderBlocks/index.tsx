@@ -13,6 +13,8 @@ import { ContentBlock } from '../ContentBlock';
 import { LogoCloudBlock } from '../LogoCloudBlock';
 import { FeatureWithImageBlock } from '../FeatureWithImageBlock';
 import { FeatureWithThreeColumnBlock } from '../FeatureWithThreeColumnBlock';
+import { FAQ } from '../FaqBlock';
+import { CardBlock } from '../CardBlock';
 
 export type RenderBlocks = Page['layout'];
 
@@ -23,6 +25,8 @@ export const RenderBlocks = ({ data }: { data: RenderBlocks }) => {
 
 const blocks = (block: NonNullable<RenderBlocks>[number], index: number) => {
   switch (block.blockType) {
+    case 'card-block':
+      return <CardBlock key={index} data={block} />;
     case 'form-block':
       return <FormBlock key={index} data={block} />;
     case 'media-block':
@@ -51,6 +55,8 @@ const blocks = (block: NonNullable<RenderBlocks>[number], index: number) => {
       return <FeatureWithImageBlock key={index} data={block} />;
     case 'feature-with-three-column-block':
       return <FeatureWithThreeColumnBlock key={index} data={block} />;
+    case 'faq-block':
+      return <FAQ key={index} data={block} />;
     default:
       return null;
   }

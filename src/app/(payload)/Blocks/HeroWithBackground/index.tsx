@@ -6,7 +6,7 @@ import { HTMLConverterFeature, lexicalEditor, lexicalHTML } from '@payloadcms/ri
 export const HeroWithBackgroundBlock: Block = {
   slug: 'hero-with-background-block',
   interfaceName: 'HeroWithBackgroundBlock',
-  imageURL: process.env.SERVER_URL + 'blocks/hero-with-background-block.png',
+  imageURL: '/blocks/hero-with-background-block.png',
   imageAltText: 'Hero With Background Block',
   labels: {
     singular: 'Hero With Background',

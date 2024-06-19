@@ -7,7 +7,10 @@ export const Message: React.FC<{
 }> = ({ field }) => {
   const serializedMessageHtml = convertLexicalToHTML(field.message.root);
   return (
-    <Width className="mb-4 prose lg:prose-lg xl:prose-xl prose-headings:text-inherit" width={'100'}>
+    <Width
+      className="mb-4 px-4 max-w-full prose lg:prose-lg xl:prose-xl prose-headings:text-inherit"
+      width={'100'}
+    >
       {serializedMessageHtml && (
         <div dangerouslySetInnerHTML={{ __html: serializedMessageHtml }}></div>
       )}
