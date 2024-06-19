@@ -20,11 +20,14 @@ export function PricingBlock({ data }: { data: PricingBlockType | null | undefin
                   </h2>
 
                   <p className="mt-2 text-gray-700">{plan.description}</p>
+                  <p className="mt-2 text-gray-700">
+                    Valid for <strong>{plan.planDuration} months</strong>
+                  </p>
 
                   <p className="mt-2 sm:mt-4">
                     <strong className="text-3xl font-bold text-gray-900 sm:text-4xl">
                       {' '}
-                      {plan.monthlyPrice}${' '}
+                      {plan.monthlyPrice} {plan.currency}{' '}
                     </strong>
 
                     <span className="text-sm font-medium text-gray-700">/month</span>

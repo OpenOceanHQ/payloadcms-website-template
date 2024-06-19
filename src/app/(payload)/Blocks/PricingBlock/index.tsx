@@ -1,5 +1,6 @@
 import type { Block } from 'payload/types';
 import linkGroup from '../../fields/linkGroup';
+import { CURRENCIES } from './currencies';
 
 export const PricingBlock: Block = {
   slug: 'pricing-block',
@@ -30,8 +31,23 @@ export const PricingBlock: Block = {
           required: true,
         },
         {
+          name: 'currency',
+          label: 'Currency',
+          required: true,
+          type: 'select',
+          options: CURRENCIES,
+        },
+        {
           name: 'monthlyPrice',
           type: 'number',
+          required: true,
+        },
+        {
+          name: 'planDuration',
+          type: 'number',
+          admin: {
+            description: 'Number of months plan is valid for.',
+          },
           required: true,
         },
         linkGroup({
