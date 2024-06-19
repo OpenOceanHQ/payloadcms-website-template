@@ -4,7 +4,7 @@ import { MediaImage } from '../../Components/MediaImage';
 
 export const LogoCloudBlock = ({ data }: { data: LogoCloudBlockType | null | undefined }) => {
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="bg-white container mx-auto px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
       <div className="mx-auto flex flex-col w-full items-center justify-center max-w-7xl px-6 lg:px-8">
         {data && data.section_title_and_description_html && (
           <div className="max-w-3xl mx-auto text-center prose lg:prose-lg xl:prose-xl prose-headings:text-inherit">
