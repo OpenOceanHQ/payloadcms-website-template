@@ -9,6 +9,7 @@
 export interface Config {
   collections: {
     users: User;
+    blog: Blog;
     pages: Page;
     media: Media;
     forms: Form;
@@ -47,44 +48,34 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages".
+ * via the `definition` "blog".
  */
-export interface Page {
+export interface Blog {
   id: string;
+  title: string;
+  description: string;
   slug: string;
-  title?: string | null;
-  layout?:
-    | (
-        | MediaBlock
-        | ContentBlock
-        | HeroWithBackgroundBlock
-        | HeroWithSplitContentAndImageBlock
-        | FeatureWithImageBlock
-        | FeatureWithThreeColumnBlock
-        | CTACenteredBlock
-        | CTAWithSplitContentAndButtonBlock
-        | CTAWithSplitContentAndImageBlock
-        | StatsBlock
-        | IncentiveBlock
-        | TestimonialBlock
-        | LogoCloudBlock
-        | FormBlock
-        | BannerBlock
-      )[]
-    | null;
+  image?: string | Media | null;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  author?: string | null;
+  author_image?: string | Media | null;
+  content_html?: string | null;
   updatedAt: string;
   createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "MediaBlock".
- */
-export interface MediaBlock {
-  position?: ('default' | 'fullscreen') | null;
-  media: string | Media;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'media-block';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -120,6 +111,50 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: string;
+  slug: string;
+  title?: string | null;
+  layout?:
+    | (
+        | MediaBlock
+        | ContentBlock
+        | HeroWithBackgroundBlock
+        | HeroWithSplitContentAndImageBlock
+        | FeatureWithImageBlock
+        | FeatureWithThreeColumnBlock
+        | CTACenteredBlock
+        | CTAWithSplitContentAndButtonBlock
+        | CTAWithSplitContentAndImageBlock
+        | StatsBlock
+        | IncentiveBlock
+        | TestimonialBlock
+        | LogoCloudBlock
+        | FormBlock
+        | BannerBlock
+        | BlogsBlock
+        | FAQ
+        | CardBlock
+      )[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MediaBlock".
+ */
+export interface MediaBlock {
+  position?: ('default' | 'fullscreen') | null;
+  media: string | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'media-block';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -819,6 +854,83 @@ export interface BannerBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BlogsBlock".
+ */
+export interface BlogsBlock {
+  titleAndDescription?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  blogs: {
+    blog?: {
+      relationTo: 'blog';
+      value: string | Blog;
+    } | null;
+    id?: string | null;
+  }[];
+  titleAndDescription_html?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'blogs-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FAQ".
+ */
+export interface FAQ {
+  FAQ: {
+    Question: string;
+    Answer: string;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'faq-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CardBlock".
+ */
+export interface CardBlock {
+  titleAndDescription?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  titleAndDescription_html?: string | null;
+  cards: {
+    title: string;
+    description: string;
+    image: string | Media;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'card-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "form-submissions".
  */
 export interface FormSubmission {
@@ -921,14 +1033,21 @@ export interface Footer {
   };
   footerLinks: {
     title: string;
-    links: {
-      title: string;
-      reference?: {
-        relationTo: 'pages';
-        value: string | Page;
-      } | null;
-      id?: string | null;
-    }[];
+    links?:
+      | {
+          link: {
+            type?: ('reference' | 'custom') | null;
+            newTab?: boolean | null;
+            reference?: {
+              relationTo: 'pages';
+              value: string | Page;
+            } | null;
+            url?: string | null;
+            label: string;
+          };
+          id?: string | null;
+        }[]
+      | null;
     id?: string | null;
   }[];
   copyright: string;

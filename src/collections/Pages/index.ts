@@ -15,6 +15,9 @@ import {
   LogoCloudBlock,
   FormBlock,
   BannerBlock,
+  BlogsBlock,
+  FAQBlock,
+  CardBlock,
 } from '@/app/(payload)/Blocks';
 import './style.css';
 
@@ -26,9 +29,16 @@ export const Pages: CollectionConfig = {
   admin: {
     useAsTitle: 'title',
     defaultColumns: ['title', 'slug', 'updatedAt'],
+    preview: (doc) => {
+      let url = process.env.SERVER_URL ? process.env.SERVER_URL : 'http://localhost:3000/';
+      const previewUrl = doc?.slug ? url + doc.slug : url;
+      return previewUrl;
+    },
     livePreview: {
       url: ({ data }) => {
-        let url = process.env.SERVER_URL ? process.env.SERVER_URL : 'http://localhost:3000/';
+        let url = process.env.NEXT_PUBLIC_VERCEL_URL
+          ? process.env.NEXT_PUBLIC_VERCEL_URL
+          : 'http://localhost:3000/';
         return url + data.slug;
       },
       breakpoints: [
@@ -86,6 +96,9 @@ export const Pages: CollectionConfig = {
         LogoCloudBlock,
         FormBlock,
         BannerBlock,
+        BlogsBlock,
+        FAQBlock,
+        CardBlock,
       ],
     },
   ],

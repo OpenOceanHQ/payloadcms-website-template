@@ -6,6 +6,9 @@ import HeaderMD from '../HeaderMD';
 import { MediaImage } from '../MediaImage';
 import HeaderButtons from '../HeaderButtons';
 import Link from 'next/link';
+import { AdminBar } from '../PayloadAdminBar';
+
+export const siteName: { siteName: string } = { siteName: '' };
 
 async function Header() {
   const payload = await getPayload({ config: configPromise });
@@ -18,8 +21,11 @@ async function Header() {
     return null;
   }
 
+  siteName.siteName = doc.storeName;
+
   return (
     <div>
+      <AdminBar />
       <header className="bg-white relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
