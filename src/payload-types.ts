@@ -796,7 +796,7 @@ export interface BannerBlock {
     };
     [k: string]: unknown;
   } | null;
-  section_title_and_description_html?: string | null;
+  sectionTitleAndDescription_html?: string | null;
   links?:
     | {
         link: {

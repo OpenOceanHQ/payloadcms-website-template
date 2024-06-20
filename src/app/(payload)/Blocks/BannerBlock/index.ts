@@ -5,7 +5,7 @@ import linkGroup from '../../fields/linkGroup';
 export const BannerBlock: Block = {
   slug: 'banner-block',
   interfaceName: 'BannerBlock',
-  imageURL: process.env.SERVER_URL + 'blocks/banner-block.png',
+  imageURL: '/blocks/banner-block.png',
   imageAltText: 'Banner Block',
   labels: {
     singular: 'Banner Block',
@@ -19,12 +19,12 @@ export const BannerBlock: Block = {
         features: ({ defaultFeatures }) => [...defaultFeatures, HTMLConverterFeature({})],
       }),
     },
-    lexicalHTML('sectionTitleAndDescription', { name: 'section_title_and_description_html' }),
+    lexicalHTML('sectionTitleAndDescription', { name: 'sectionTitleAndDescription_html' }),
     linkGroup({
       appearances: ['primary', 'secondary'],
       overrides: {
         admin: {
-          description: 'Add you links here.',
+          description: 'Add links here.',
         },
         maxRows: 2,
       },

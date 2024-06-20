@@ -6,9 +6,9 @@ export const BannerBlock = ({ data }: { data: BannerBlockType | null | undefined
     <section className="bg-gray-900 text-white">
       <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
         <div className="mx-auto max-w-3xl text-center">
-          {data && data.section_title_and_description_html && (
+          {data && data.sectionTitleAndDescription_html && (
             <div className="max-w-3xl mx-auto text-center prose lg:prose-lg xl:prose-xl prose-headings:text-inherit">
-              <div dangerouslySetInnerHTML={{ __html: data.section_title_and_description_html }} />
+              <div dangerouslySetInnerHTML={{ __html: data.sectionTitleAndDescription_html }} />
             </div>
           )}
 
