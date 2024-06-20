@@ -6,7 +6,7 @@ import { HTMLConverterFeature, lexicalEditor, lexicalHTML } from '@payloadcms/ri
 export const CTACenteredBlock: Block = {
   slug: 'cta-centered-block',
   interfaceName: 'CTACenteredBlock',
-  imageURL: process.env.SERVER_URL + 'blocks/cta-centered-block.png',
+  imageURL: '/blocks/cta-centered-block.png',
   imageAltText: 'CTA Centered Block',
   labels: {
     singular: 'CTA Centered',

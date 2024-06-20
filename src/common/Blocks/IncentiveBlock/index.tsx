@@ -4,7 +4,7 @@ import type { IncentiveBlock as IncentiveBlockType } from '@/payload-types';
 
 export const IncentiveBlock = ({ data }: { data: IncentiveBlockType | null | undefined }) => {
   return (
-    <div className="container px-4 mx-auto">
+    <section className="container mx-auto px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
       <div className="flex flex-col items-center justify-center my-10 md:flex-row gap-x-16 gap-y-10">
         <div className="basis-1/2">
           <h1 className="text-4xl font-bold text-gray-900">{data?.title}</h1>
@@ -35,6 +35,6 @@ export const IncentiveBlock = ({ data }: { data: IncentiveBlockType | null | und
             </div>
           ))}
       </div>
-    </div>
+    </section>
   );
 };

@@ -3,6 +3,7 @@ import React from 'react';
 import configPromise from '@payload-config';
 import type { Footer as FooterBlock } from '@/payload-types';
 import { MediaImage } from '../MediaImage';
+import { Links } from '../Links';
 
 async function Footer() {
   const payload = await getPayload({ config: configPromise });
@@ -157,22 +158,9 @@ async function Footer() {
               <div key={data.title}>
                 <p className="font-medium text-gray-900">{data.title}</p>
 
-                <ul className="mt-6 space-y-4 text-sm">
-                  {data.links.map((li) => {
-                    const l = li.reference?.value;
-                    let link = '';
-                    if (typeof l !== 'string' && l?.slug) {
-                      link = l?.slug;
-                    }
-                    return (
-                      <li key={li.id}>
-                        <a href={link} className="text-gray-700 transition hover:opacity-75">
-                          {link}
-                        </a>
-                      </li>
-                    );
-                  })}
-                </ul>
+                <div className="mt-6 space-y-4 text-sm flex flex-col">
+                  {data.links && data.links.map((link) => <Links link={link.link} key={link.id} />)}
+                </div>
               </div>
             ))}
           </div>
