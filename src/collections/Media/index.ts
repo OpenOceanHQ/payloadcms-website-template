@@ -1,5 +1,4 @@
 import { HTMLConverterFeature, lexicalEditor, lexicalHTML } from '@payloadcms/richtext-lexical';
-import path from 'path';
 import type { CollectionConfig } from 'payload/types';
 import { adminsOrUsers } from '@/access/adminsOrUsers';
 import { fileURLToPath } from 'url';
@@ -11,7 +10,8 @@ const __dirname = dirname(__filename);
 export const Media: CollectionConfig = {
   slug: 'media',
   upload: {
-    staticDir: path.resolve(__dirname, '../../../media'),
+    // staticDir: path.resolve(__dirname, '../../../media'),
+    disableLocalStorage: true,
   },
   admin: {
     hideAPIURL: true,
