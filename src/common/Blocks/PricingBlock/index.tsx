@@ -1,6 +1,7 @@
 import React from 'react';
 import type { PricingBlock as PricingBlockType } from '@/payload-types';
 import { LinkButton } from '@/common/Components/LinkButtons';
+import { symbols } from './currencySymbols';
 
 export function PricingBlock({ data }: { data: PricingBlockType | null | undefined }) {
   return (
@@ -27,7 +28,8 @@ export function PricingBlock({ data }: { data: PricingBlockType | null | undefin
                   <p className="mt-2 sm:mt-4">
                     <strong className="text-3xl font-bold text-gray-900 sm:text-4xl">
                       {' '}
-                      {plan.monthlyPrice} {plan.currency}{' '}
+                      {symbols[plan.currency]}
+                      {plan.monthlyPrice}{' '}
                     </strong>
 
                     <span className="text-sm font-medium text-gray-700">/month</span>
