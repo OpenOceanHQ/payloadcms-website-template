@@ -12,6 +12,8 @@ export const Media: CollectionConfig = {
   slug: 'media',
   upload: {
     staticDir: path.resolve(__dirname, '../../../media'),
+    disableLocalStorage:
+      process.env.ALLOW_LOCAL_STORAGE && process.env.ALLOW_LOCAL_STORAGE === 'true' ? false : true,
   },
   admin: {
     hideAPIURL: true,
