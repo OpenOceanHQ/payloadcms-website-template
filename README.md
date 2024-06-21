@@ -29,16 +29,18 @@
   <p align="center">
     A website builder template built with Payloadcms 3.0
     <br />
-    <a href="https://github.com/OpenOceanHQ/payloadcms-website-template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://payloadcms-template.vercel.app">View Demo</a>
-    ·
-    <a href="https://github.com/OpenOceanHQ/payloadcms-website-template/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
-    ·
-    <a href="https://github.com/OpenOceanHQ/payloadcms-website-template/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
-    ·
-    <a href="mailto:info@openoceantechnologies.in">Contact Us</a>
+
+[**View Tutorial »**](./Tutorial.md)
+<br />
+<br />
+<a href="https://payloadcms-template.vercel.app">View Demo</a>
+·
+<a href="https://github.com/OpenOceanHQ/payloadcms-website-template/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+·
+<a href="https://github.com/OpenOceanHQ/payloadcms-website-template/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+·
+<a href="mailto:info@openoceantechnologies.in">Contact Us</a>
+
   </p>
 </div>
 
@@ -158,10 +160,12 @@ Manage your backend with the admin dashboard
 Build pages from your dashboard with layout and blocks from the pages collection.
 <br />
 
-<div style="display: flex">
-<img style="width: 50%; padding-right: 5px" src="public/images/page-builder-dashboard.jpeg">
-<img style="width: 50%" src="public/images/page-builder-frontend.jpeg">
-</div>
+<table>
+  <tr>
+    <td><img src="public/images/page-builder-dashboard.jpeg" alt="Dashboard" style="width: 100%;"></td>
+    <td><img src="public/images/page-builder-frontend.jpeg" alt="Frontend" style="width: 100%;"></td>
+  </tr>
+</table>
 
 <br />
 Build your page with our pre-built blocks or create your own!
@@ -178,16 +182,18 @@ We leverage the powerful Form builder plugin to give you the best form creation 
 
 Simply create your form and add it as a block in your page. Form submissions will be sent straight to your dashboard!
 
-<div style="display: flex">
-<img style="width: 50%; padding-right: 5px" src="public/images/forms.png">
-<img style="width: 50%" src="public/images/form-submissions.png">
-</div>
+<table>
+  <tr>
+    <td><img src="public/images/forms.png" alt="Forms" style="width: 100%;"></td>
+    <td><img src="public/images/form-submissions.png" alt="Form Submissions" style="width: 100%;"></td>
+  </tr>
+</table>
 <br />
 
 What your forms will look like
 
 <div>
-<img src="public/images/form-preview.png" style="width: 100%; max-width: 50%;">
+<img src="public/images/form-preview.png" style="width: 100;">
 </div>
 
 <!-- _For more examples, please refer to the [Documentation](https://example.com)_ -->

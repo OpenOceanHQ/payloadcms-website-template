@@ -137,6 +137,7 @@ export interface Page {
         | LogoCloudBlock
         | FormBlock
         | PricingBlock
+        | BannerBlock
         | BlogsBlock
         | FAQ
         | CardBlock
@@ -982,6 +983,47 @@ export interface PricingBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'pricing-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BannerBlock".
+ */
+export interface BannerBlock {
+  sectionTitleAndDescription?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  sectionTitleAndDescription_html?: string | null;
+  links?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          url?: string | null;
+          label: string;
+          appearance?: ('primary' | 'secondary') | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'banner-block';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
