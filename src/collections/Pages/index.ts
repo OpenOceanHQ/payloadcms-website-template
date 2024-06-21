@@ -23,9 +23,17 @@ import './style.css';
 
 import { CollectionConfig } from 'payload/types';
 import { admins } from '@/access/admins';
+import {
+  revalidateDeletedCollection,
+  revalidateUpdatedCollection,
+} from '../hooks/revalidateCollection';
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
+  hooks: {
+    afterChange: [revalidateUpdatedCollection],
+    afterDelete: [revalidateDeletedCollection],
+  },
   admin: {
     useAsTitle: 'title',
     defaultColumns: ['title', 'slug', 'updatedAt'],

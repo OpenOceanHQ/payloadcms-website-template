@@ -1,8 +1,12 @@
 import { GlobalConfig } from 'payload/types';
 import linkGroup from '../(payload)/fields/linkGroup';
+import revalidateGlobal from './hooks/revalidateGlobal';
 
 const Header: GlobalConfig = {
   slug: 'header',
+  hooks: {
+    afterChange: [revalidateGlobal],
+  },
   fields: [
     { name: 'showStoreLogo', type: 'checkbox', defaultValue: false },
     {

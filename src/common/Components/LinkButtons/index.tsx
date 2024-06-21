@@ -22,7 +22,7 @@ export const LinkButton = ({ link, className }: { link: Link; className?: string
             href={link.url ? link.url : ''}
             className={`mr-2 mt-2 inline-block rounded border border-indigo-600 ${
               link.appearance === 'primary' && 'bg-indigo-600'
-            } px-12 py-3 text-sm font-medium ${
+            } px-12 py-3 max-sm:px-6 max-sm:py-1 text-sm font-medium ${
               link.appearance === 'primary' ? 'text-white' : 'text-indigo-600'
             } transition hover:bg-indigo-700 hover:text-white focus:outline-none focus:ring focus:ring-yellow-400`}
             target={link.newTab ? '_blank' : '_self'}
@@ -53,7 +53,7 @@ export const LinkButton = ({ link, className }: { link: Link; className?: string
             <Link
               className={`mr-2 mt-2 inline-block rounded border border-indigo-600 ${
                 link.appearance === 'primary' && 'bg-indigo-600'
-              } px-12 py-3 text-sm font-medium ${
+              } px-12 py-3 max-sm:px-6 max-sm:py-1 text-sm font-medium ${
                 link.appearance === 'primary' ? 'text-white' : 'text-indigo-600'
               } transition hover:bg-indigo-700 hover:text-white focus:outline-none focus:ring focus:ring-yellow-400`}
               target={link.newTab ? '_blank' : '_self'}
