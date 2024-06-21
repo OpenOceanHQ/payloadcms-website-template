@@ -13,6 +13,7 @@ import { ContentBlock } from '../ContentBlock';
 import { LogoCloudBlock } from '../LogoCloudBlock';
 import { FeatureWithImageBlock } from '../FeatureWithImageBlock';
 import { FeatureWithThreeColumnBlock } from '../FeatureWithThreeColumnBlock';
+import { BannerBlock } from '../BannerBlock';
 import { BlogsBlock } from '../Blogs';
 import { FAQ } from '../FaqBlock';
 import { CardBlock } from '../CardBlock';
@@ -56,6 +57,8 @@ const blocks = (block: NonNullable<RenderBlocks>[number], index: number) => {
       return <FeatureWithImageBlock key={index} data={block} />;
     case 'feature-with-three-column-block':
       return <FeatureWithThreeColumnBlock key={index} data={block} />;
+    case 'banner-block':
+      return <BannerBlock key={index} data={block} />;
     case 'blogs-block':
       return <BlogsBlock key={index} data={block} />;
     case 'faq-block':
