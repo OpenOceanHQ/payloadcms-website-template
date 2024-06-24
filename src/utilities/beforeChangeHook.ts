@@ -3,6 +3,10 @@ import { S3 } from 'aws-sdk';
 import { v4 as uuidv4 } from 'uuid';
 
 export const beforeChangeHook: CollectionBeforeChangeHook = async ({ data, req }) => {
+  if (process.env.ALLOW_LOCAL_STORAGE && process.env.ALLOW_LOCAL_STORAGE === 'true') {
+    return data;
+  }
+
   try {
     const s3 = new S3({
       accessKeyId: process.env.AWS_ACCESS_KEY_ID,

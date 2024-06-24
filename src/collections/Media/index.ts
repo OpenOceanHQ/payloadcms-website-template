@@ -2,7 +2,7 @@ import { HTMLConverterFeature, lexicalEditor, lexicalHTML } from '@payloadcms/ri
 import type { CollectionConfig } from 'payload/types';
 import { adminsOrUsers } from '@/access/adminsOrUsers';
 import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+import path, { dirname } from 'path';
 import { beforeChangeHook } from '../../utilities/beforeChangeHook';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -11,8 +11,9 @@ const __dirname = dirname(__filename);
 export const Media: CollectionConfig = {
   slug: 'media',
   upload: {
-    // staticDir: path.resolve(__dirname, '../../../media'),
-    disableLocalStorage: true,
+    staticDir: path.resolve(__dirname, '../../../media'),
+    disableLocalStorage:
+      process.env.ALLOW_LOCAL_STORAGE && process.env.ALLOW_LOCAL_STORAGE === 'true' ? false : true,
   },
   admin: {
     hideAPIURL: true,

@@ -27,7 +27,7 @@
     "@tailwindcss/typography": "^0.5.13",
     "@typescript-eslint/eslint-plugin": "^7.11.0",
     "@typescript-eslint/parser": "^7.11.0",
-    "aws-sdk": "^2.1645.0",
+    "aws-sdk": "^2.1646.0",
     "cross-env": "^7.0.3",
     "graphql": "^16.8.1",
     "keen-slider": "^6.8.6",
