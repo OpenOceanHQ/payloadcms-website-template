@@ -8,11 +8,20 @@ export const MediaImage = ({
   media: Media | string | null | undefined;
   className: React.ComponentProps<'div'>['className'];
 }) => {
-  if (!media || typeof media === 'string') return null;
+  if (!media || typeof media === 'string')
+    return (
+      <Image
+        src={'/images/placeholder.jpg'}
+        width={500}
+        height={500}
+        alt={'placeholderImage'}
+        className={className}
+      />
+    );
 
   return (
     <Image
-      src={media.url ? media.url : '/placeholder.jpg'}
+      src={media.url ? media.url : '/images/placeholder.jpg'}
       width={media.width ?? 500}
       height={media.height ?? 500}
       alt={media.alt}
