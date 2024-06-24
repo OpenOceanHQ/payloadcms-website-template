@@ -1,9 +1,17 @@
 import type { CollectionConfig } from 'payload/types';
 import { adminsOrUsers } from '@/access/adminsOrUsers';
 import { HTMLConverterFeature, lexicalEditor, lexicalHTML } from '@payloadcms/richtext-lexical';
+import {
+  revalidateDeletedCollection,
+  revalidateUpdatedCollection,
+} from '../hooks/revalidateCollection';
 
 export const Blog: CollectionConfig = {
   slug: 'blog',
+  hooks: {
+    afterChange: [revalidateUpdatedCollection],
+    afterDelete: [revalidateDeletedCollection],
+  },
   admin: {
     hideAPIURL: true,
     useAsTitle: 'title',

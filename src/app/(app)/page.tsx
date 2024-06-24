@@ -10,6 +10,8 @@ import JsonLdSchema from '@/common/Components/JsonLd';
 
 const serverUrl = process.env.SERVER_URL;
 
+export const dynamic = 'force-dynamic';
+
 const getGlobalData = async () => {
   const payload = await getPayload({ config: configPromise });
 
