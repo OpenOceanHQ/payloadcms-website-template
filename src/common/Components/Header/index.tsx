@@ -28,15 +28,15 @@ async function Header() {
       <AdminBar />
       <header className="bg-white relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between">
-            <div className="md:flex md:items-center md:gap-12">
+          <div className="grid grid-cols-3 items-center relative h-16">
+            <div className="flex justify-start">
               <Link className="text-teal-600 flex gap-3 justify-center items-center" href="/">
                 {doc.showStoreLogo && <MediaImage className="h-14 w-auto p-2" media={doc.logo} />}
                 <span className="">{doc.storeName}</span>
               </Link>
             </div>
 
-            <div className="hidden md:block">
+            <div className="flex justify-center">
               <nav aria-label="Global">
                 <ul className="flex items-center gap-6 text-sm">
                   {doc.navLinks.map((item, idx) => {
@@ -61,7 +61,7 @@ async function Header() {
               </nav>
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex justify-end">
               {doc.links && doc.links.length > 0 && (
                 <>
                   <div className="hidden md:flex md:gap-4">
