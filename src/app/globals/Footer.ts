@@ -1,8 +1,12 @@
 import { GlobalConfig } from 'payload';
 import linkGroup from '../(payload)/fields/linkGroup';
+import revalidateGlobal from './hooks/revalidateGlobal';
 
 const Footer: GlobalConfig = {
   slug: 'footer',
+  hooks: {
+    afterChange: [revalidateGlobal],
+  },
   fields: [
     { name: 'logo', type: 'upload', relationTo: 'media' },
     {

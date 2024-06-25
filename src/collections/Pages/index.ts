@@ -14,6 +14,8 @@ import {
   Testimonial,
   LogoCloudBlock,
   FormBlock,
+  PricingBlock,
+  BannerBlock,
   BlogsBlock,
   FAQBlock,
   CardBlock,
@@ -22,9 +24,17 @@ import './style.css';
 
 import { admins } from '@/access/admins';
 import { CollectionConfig } from 'payload';
+import {
+  revalidateDeletedCollection,
+  revalidateUpdatedCollection,
+} from '../hooks/revalidateCollection';
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
+  hooks: {
+    afterChange: [revalidateUpdatedCollection],
+    afterDelete: [revalidateDeletedCollection],
+  },
   admin: {
     useAsTitle: 'title',
     defaultColumns: ['title', 'slug', 'updatedAt'],
@@ -94,6 +104,8 @@ export const Pages: CollectionConfig = {
         Testimonial,
         LogoCloudBlock,
         FormBlock,
+        PricingBlock,
+        BannerBlock,
         BlogsBlock,
         FAQBlock,
         CardBlock,

@@ -136,6 +136,8 @@ export interface Page {
         | TestimonialBlock
         | LogoCloudBlock
         | FormBlock
+        | PricingBlock
+        | BannerBlock
         | BlogsBlock
         | FAQ
         | CardBlock
@@ -809,6 +811,219 @@ export interface Form {
     | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PricingBlock".
+ */
+export interface PricingBlock {
+  pricingPlans: {
+    title: string;
+    description: string;
+    currency:
+      | 'USD'
+      | 'AED'
+      | 'AFN'
+      | 'ALL'
+      | 'AMD'
+      | 'ANG'
+      | 'AOA'
+      | 'ARS'
+      | 'AUD'
+      | 'AWG'
+      | 'AZN'
+      | 'BAM'
+      | 'BBD'
+      | 'BDT'
+      | 'BGN'
+      | 'BIF'
+      | 'BMD'
+      | 'BND'
+      | 'BOB'
+      | 'BRL'
+      | 'BSD'
+      | 'BWP'
+      | 'BYN'
+      | 'BZD'
+      | 'CAD'
+      | 'CDF'
+      | 'CHF'
+      | 'CLP'
+      | 'CNY'
+      | 'COP'
+      | 'CRC'
+      | 'CVE'
+      | 'CZK'
+      | 'DJF'
+      | 'DKK'
+      | 'DOP'
+      | 'DZD'
+      | 'EGP'
+      | 'ETB'
+      | 'EUR'
+      | 'FJD'
+      | 'FKP'
+      | 'GBP'
+      | 'GEL'
+      | 'GIP'
+      | 'GMD'
+      | 'GNF'
+      | 'GTQ'
+      | 'GYD'
+      | 'HKD'
+      | 'HNL'
+      | 'HTG'
+      | 'HUF'
+      | 'IDR'
+      | 'ILS'
+      | 'INR'
+      | 'ISK'
+      | 'JMD'
+      | 'JPY'
+      | 'KES'
+      | 'KGS'
+      | 'KHR'
+      | 'KMF'
+      | 'KRW'
+      | 'KYD'
+      | 'KZT'
+      | 'LAK'
+      | 'LBP'
+      | 'LKR'
+      | 'LRD'
+      | 'LSL'
+      | 'MAD'
+      | 'MDL'
+      | 'MGA'
+      | 'MKD'
+      | 'MMK'
+      | 'MNT'
+      | 'MOP'
+      | 'MRO'
+      | 'MUR'
+      | 'MVR'
+      | 'MWK'
+      | 'MXN'
+      | 'MYR'
+      | 'MZN'
+      | 'NAD'
+      | 'NGN'
+      | 'NIO'
+      | 'NOK'
+      | 'NPR'
+      | 'NZD'
+      | 'PAB'
+      | 'PEN'
+      | 'PGK'
+      | 'PHP'
+      | 'PKR'
+      | 'PLN'
+      | 'PYG'
+      | 'QAR'
+      | 'RON'
+      | 'RSD'
+      | 'RUB'
+      | 'RWF'
+      | 'SAR'
+      | 'SBD'
+      | 'SCR'
+      | 'SEK'
+      | 'SGD'
+      | 'SHP'
+      | 'SLE'
+      | 'SOS'
+      | 'SRD'
+      | 'STD'
+      | 'SZL'
+      | 'THB'
+      | 'TJS'
+      | 'TOP'
+      | 'TRY'
+      | 'TTD'
+      | 'TWD'
+      | 'TZS'
+      | 'UAH'
+      | 'UGX'
+      | 'UYU'
+      | 'UZS'
+      | 'VND'
+      | 'VUV'
+      | 'WST'
+      | 'XAF'
+      | 'XCD'
+      | 'XOF'
+      | 'XPF'
+      | 'YER'
+      | 'ZAR'
+      | 'ZMW';
+    monthlyPrice: number;
+    planDuration: number;
+    links?:
+      | {
+          link: {
+            type?: ('reference' | 'custom') | null;
+            newTab?: boolean | null;
+            reference?: {
+              relationTo: 'pages';
+              value: string | Page;
+            } | null;
+            url?: string | null;
+            label: string;
+            appearance?: ('primary' | 'secondary') | null;
+          };
+          id?: string | null;
+        }[]
+      | null;
+    planPerks: {
+      perk: string;
+      id?: string | null;
+    }[];
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'pricing-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BannerBlock".
+ */
+export interface BannerBlock {
+  sectionTitleAndDescription?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  sectionTitleAndDescription_html?: string | null;
+  links?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          url?: string | null;
+          label: string;
+          appearance?: ('primary' | 'secondary') | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'banner-block';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
