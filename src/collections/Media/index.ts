@@ -1,5 +1,5 @@
 import { HTMLConverterFeature, lexicalEditor, lexicalHTML } from '@payloadcms/richtext-lexical';
-import type { CollectionConfig } from 'payload/types';
+import { CollectionConfig } from 'payload';
 import { adminsOrUsers } from '@/access/adminsOrUsers';
 import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';

@@ -22,8 +22,8 @@ import {
 } from '@/app/(payload)/Blocks';
 import './style.css';
 
-import { CollectionConfig } from 'payload/types';
 import { admins } from '@/access/admins';
+import { CollectionConfig } from 'payload';
 import {
   revalidateDeletedCollection,
   revalidateUpdatedCollection,

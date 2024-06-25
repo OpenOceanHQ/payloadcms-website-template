@@ -1,4 +1,4 @@
-import type { Block } from 'payload/types';
+import type { Block } from 'payload';
 import linkGroup from '../../fields/linkGroup';
 import { CURRENCIES } from './currencies';
 

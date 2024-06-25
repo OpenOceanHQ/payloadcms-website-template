@@ -1,5 +1,5 @@
 import { HTMLConverterFeature, lexicalEditor, lexicalHTML } from '@payloadcms/richtext-lexical';
-import type { Block } from 'payload/types';
+import type { Block } from 'payload';
 import linkGroup from '../../fields/linkGroup';
 
 export const BannerBlock: Block = {

@@ -1,4 +1,4 @@
-import { CollectionAfterChangeHook } from 'payload/types';
+import { CollectionAfterChangeHook } from 'payload';
 
 export const loginAfterCreate: CollectionAfterChangeHook = async ({ doc, req, operation }) => {
   if (operation === 'create' && !req.user) {

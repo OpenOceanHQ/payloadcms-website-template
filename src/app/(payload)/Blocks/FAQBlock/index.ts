@@ -1,9 +1,9 @@
-import { Block } from 'payload/types';
+import { Block } from 'payload';
 
 export const FAQBlock: Block = {
   slug: 'faq-block',
   interfaceName: 'FAQ',
-  imageURL: process.env.SERVER_URL + 'blocks/faq-block.png',
+  imageURL: '/blocks/faq-block.png',
   imageAltText: 'FAQ Block',
   labels: {
     singular: 'FAQ',

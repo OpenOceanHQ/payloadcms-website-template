@@ -1,4 +1,4 @@
-import type { Block } from 'payload/types';
+import { Block } from 'payload';
 
 export const Testimonial: Block = {
   slug: 'testimonial-block',

@@ -1,5 +1,4 @@
-import type { AccessArgs } from 'payload/config';
-
+import { AccessArgs } from 'payload';
 import { checkRole } from './checkRole';
 
 type isAdmin = (args: AccessArgs) => boolean;

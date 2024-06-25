@@ -2,7 +2,7 @@ import { mongooseAdapter } from '@payloadcms/db-mongodb';
 // import { payloadCloud } from '@payloadcms/plugin-cloud'
 import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import path from 'path';
-import { buildConfig } from 'payload/config';
+
 // import sharp from 'sharp'
 import { fileURLToPath } from 'url';
 import { Users } from './collections/Users';
@@ -15,6 +15,7 @@ import { Media } from './collections/Media';
 import { admins } from './access/admins';
 import { adminsOrUsers } from './access/adminsOrUsers';
 import { Blog } from './collections/Blog';
+import { buildConfig } from 'payload';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);

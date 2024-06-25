@@ -43,20 +43,20 @@ const page = async () => {
 function Blogs({ blogs }: { blogs: BlogType[] }) {
   return (
     <>
-      <div className="mx-auto max-w-7xl py-12 px-6 lg:px-8">
+      <div className="px-6 py-12 mx-auto max-w-7xl lg:px-8">
         {blogs && blogs.length > 0 && (
           <Link href={`/blog/${blogs[0].slug}`} key={blogs[0].slug}>
-            <article className="relative isolate flex flex-col gap-8 lg:flex-row">
+            <article className="relative flex flex-col gap-8 isolate lg:flex-row">
               <div className="relative w-full aspect-[16/9] sm:aspect-[2/1] lg:aspect-[3/2] lg:w-[40rem] lg:shrink-0">
                 <MediaImage
-                  className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
+                  className="absolute inset-0 object-cover w-full h-full rounded-2xl bg-gray-50"
                   media={blogs[0].image}
                 />
 
                 <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
               </div>
               <div>
-                <div className="flex items-center gap-x-4 text-xs">
+                <div className="flex items-center text-xs gap-x-4">
                   <time dateTime={blogs[0].createdAt} className="text-gray-500">
                     {new Date(blogs[0].createdAt).toLocaleDateString('en-US', {
                       year: 'numeric',
@@ -65,7 +65,7 @@ function Blogs({ blogs }: { blogs: BlogType[] }) {
                     })}
                   </time>
                 </div>
-                <div className="group relative max-w-xl">
+                <div className="relative max-w-xl group">
                   <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                     <span className="absolute inset-0" />
                     {blogs[0].title}
@@ -77,10 +77,10 @@ function Blogs({ blogs }: { blogs: BlogType[] }) {
                     ></div>
                   )}
                 </div>
-                <div className="mt-6 flex border-t border-gray-900/5 pt-6">
+                <div className="flex pt-6 mt-6 border-t border-gray-900/5">
                   <div className="relative flex items-center gap-x-2">
                     <MediaImage
-                      className="h-6 w-6 rounded-full bg-gray-50"
+                      className="w-6 h-6 rounded-full bg-gray-50"
                       media={blogs[0].author_image}
                     />
                     <div className="text-sm leading-6">
@@ -95,7 +95,7 @@ function Blogs({ blogs }: { blogs: BlogType[] }) {
             </article>
           </Link>
         )}
-        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+        <div className="grid max-w-2xl grid-cols-1 mx-auto mt-16 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {blogs &&
             blogs.map((blog, idx) => {
               let date = new Date(blog.createdAt);
@@ -113,7 +113,7 @@ function Blogs({ blogs }: { blogs: BlogType[] }) {
                         <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
                       </div>
                       <div className="max-w-xl">
-                        <div className="mt-8 flex items-center gap-x-4 text-xs">
+                        <div className="flex items-center mt-8 text-xs gap-x-4">
                           <time dateTime={blog.createdAt} className="text-gray-500">
                             {date.toLocaleDateString('en-US', {
                               year: 'numeric',
@@ -122,21 +122,21 @@ function Blogs({ blogs }: { blogs: BlogType[] }) {
                             })}
                           </time>
                         </div>
-                        <div className="group relative">
+                        <div className="relative group">
                           <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                             <span className="absolute inset-0" />
                             {blog.title}
                           </h3>
                           {blog.content_html && (
                             <div
-                              className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600"
+                              className="mt-5 text-sm leading-6 text-gray-600 line-clamp-3"
                               dangerouslySetInnerHTML={{ __html: blog.content_html }}
                             ></div>
                           )}
                         </div>
-                        <div className="relative mt-8 flex items-center gap-x-4">
+                        <div className="relative flex items-center mt-8 gap-x-4">
                           <MediaImage
-                            className="h-5 w-5 rounded-full bg-gray-100"
+                            className="w-5 h-5 bg-gray-100 rounded-full"
                             media={blog.image}
                           />
 

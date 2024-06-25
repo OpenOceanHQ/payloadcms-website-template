@@ -1,5 +1,5 @@
 import { HTMLConverterFeature, lexicalEditor, lexicalHTML } from '@payloadcms/richtext-lexical';
-import { Block } from 'payload/types';
+import { Block } from 'payload';
 
 export const FormBlock: Block = {
   slug: 'form-block',
@@ -30,6 +30,9 @@ export const FormBlock: Block = {
       label: 'Intro Content',
       type: 'richText',
       required: true,
+      admin: {
+        condition: (_, siblingData) => siblingData.enableIntro,
+      },
       editor: lexicalEditor({
         features: ({ defaultFeatures }) => [...defaultFeatures, HTMLConverterFeature({})],
       }),

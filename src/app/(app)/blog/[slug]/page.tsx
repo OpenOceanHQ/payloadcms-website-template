@@ -17,14 +17,14 @@ export async function generateMetadata({ params }: { params: ParsedUrlQuery }) {
     where: { slug: { equals: slug } },
   });
 
+  if (docs.length === 0) {
+    return notFound();
+  }
+
   const url =
     docs[0].image && typeof docs[0].image !== 'string' && docs[0].image.url
       ? docs[0].image.url
       : '/placeholder.jpg';
-
-  if (docs.length === 0) {
-    throw new Error();
-  }
 
   return {
     title: docs[0].title,

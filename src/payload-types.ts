@@ -637,7 +637,7 @@ export interface LogoCloudBlock {
 export interface FormBlock {
   form: string | Form;
   enableIntro?: boolean | null;
-  introContent: {
+  introContent?: {
     root: {
       type: string;
       children: {
@@ -651,7 +651,7 @@ export interface FormBlock {
       version: number;
     };
     [k: string]: unknown;
-  };
+  } | null;
   intro_content_html?: string | null;
   id?: string | null;
   blockName?: string | null;

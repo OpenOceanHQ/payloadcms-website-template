@@ -1,4 +1,4 @@
-import { GlobalConfig } from 'payload/types';
+import { GlobalConfig } from 'payload';
 import revalidateGlobal from './hooks/revalidateGlobal';
 
 const Settings: GlobalConfig = {

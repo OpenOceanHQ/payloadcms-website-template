@@ -1,4 +1,4 @@
-import type { Block } from 'payload/types';
+import { Block } from 'payload';
 import { HTMLConverterFeature, lexicalEditor, lexicalHTML } from '@payloadcms/richtext-lexical';
 import { IconSelector } from '../../ui/IconSelector';
 import link from '@/app/(payload)/fields/link';

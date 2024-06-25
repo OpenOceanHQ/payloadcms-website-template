@@ -91,13 +91,13 @@ const FormBlock = ({ data }: { data: FormBlockType }) => {
     <section className="container mx-auto px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16 bg-white">
       {enableIntro && introContent && !hasSubmitted && intro_content_html && (
         <div
-          className={`mt-4 px-4 mb-4 flex leading-relaxed text-gray-700 prose lg:prose-lg xl:prose-xl prose-headings:text-inherit`}
+          className={`mt-4 px-4 mb-4 leading-relaxed text-gray-700 prose lg:prose-lg xl:prose-xl prose-headings:text-inherit`}
           dangerouslySetInnerHTML={{ __html: intro_content_html }}
         />
       )}
       {!isLoading && hasSubmitted && confirmationType === 'message' && confirmationMessageHtml && (
         <div
-          className={`mt-4 px-4 mb-4 flex leading-relaxed text-gray-700 prose lg:prose-lg xl:prose-xl prose-headings:text-inherit`}
+          className={`mt-4 px-4 mb-4 leading-relaxed text-gray-700 prose lg:prose-lg xl:prose-xl prose-headings:text-inherit`}
           dangerouslySetInnerHTML={{ __html: confirmationMessageHtml }}
         />
       )}

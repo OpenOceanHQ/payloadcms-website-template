@@ -1,9 +1,8 @@
 import { HTMLConverterFeature, lexicalEditor, lexicalHTML } from '@payloadcms/richtext-lexical';
-import { Block } from 'payload/types';
-
+import { Block } from 'payload';
 export const CardBlock: Block = {
   slug: 'card-block',
-  imageURL: process.env.SERVER_URL + 'blocks/card-block.png',
+  imageURL: '/blocks/card-block.png',
   imageAltText: 'Card Block',
   interfaceName: 'CardBlock',
   labels: {

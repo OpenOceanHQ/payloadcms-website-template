@@ -1,4 +1,4 @@
-import { GlobalConfig } from 'payload/types';
+import { GlobalConfig } from 'payload';
 import linkGroup from '../(payload)/fields/linkGroup';
 import revalidateGlobal from './hooks/revalidateGlobal';
 
