@@ -37,7 +37,10 @@ const Header: GlobalConfig = {
         },
       ],
     },
-
+    {
+      name: 'showBlogs',
+      type: 'checkbox',
+    },
     linkGroup({
       appearances: ['primary', 'secondary'],
       overrides: {

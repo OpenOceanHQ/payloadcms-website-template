@@ -1170,6 +1170,7 @@ export interface Header {
     } | null;
     id?: string | null;
   }[];
+  showBlogs?: boolean | null;
   links?:
     | {
         link: {
@@ -1223,6 +1224,13 @@ export interface Footer {
       | null;
     id?: string | null;
   }[];
+  showBlogs?: boolean | null;
+  blogs?:
+    | {
+        relationTo: 'blog';
+        value: string | Blog;
+      }[]
+    | null;
   copyright: string;
   updatedAt?: string | null;
   createdAt?: string | null;
