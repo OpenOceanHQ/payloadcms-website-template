@@ -65,6 +65,7 @@ const Footer: GlobalConfig = {
         },
       ],
     },
+
     {
       name: 'footerLinks',
       type: 'array',
@@ -82,6 +83,14 @@ const Footer: GlobalConfig = {
           },
         }),
       ],
+    },
+    { name: 'showBlogs', type: 'checkbox' },
+    {
+      name: 'blogs',
+      relationTo: ['blog'],
+      type: 'relationship',
+      hasMany: true,
+      admin: { condition: (_, siblingData) => siblingData.showBlogs },
     },
     { name: 'copyright', type: 'text', required: true },
   ],

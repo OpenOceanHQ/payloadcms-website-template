@@ -19,17 +19,17 @@ async function Footer() {
   return (
     <>
       <footer className="bg-white">
-        <div className="container mx-auto space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8">
+        <div className="container px-4 py-16 mx-auto space-y-8 sm:px-6 lg:space-y-16 lg:px-8">
           <div className="sm:flex sm:items-center sm:justify-between">
             <div className="text-teal-600">
               {doc.logo && (
                 <>
-                  <MediaImage className="h-20 w-auto" media={doc.logo} />
+                  <MediaImage className="w-auto h-20" media={doc.logo} />
                 </>
               )}
             </div>
 
-            <ul className="mt-8 flex justify-start gap-6 sm:mt-0 sm:justify-end">
+            <ul className="flex justify-start gap-6 mt-8 sm:mt-0 sm:justify-end">
               {doc.socialProfiles?.facebook && (
                 <li>
                   <a
@@ -41,7 +41,7 @@ async function Footer() {
                     <span className="sr-only">Facebook</span>
 
                     <svg
-                      className="h-6 w-6"
+                      className="w-6 h-6"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                       aria-hidden="true"
@@ -67,7 +67,7 @@ async function Footer() {
                     <span className="sr-only">Instagram</span>
 
                     <svg
-                      className="h-6 w-6"
+                      className="w-6 h-6"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                       aria-hidden="true"
@@ -93,7 +93,7 @@ async function Footer() {
                     <span className="sr-only">Twitter</span>
 
                     <svg
-                      className="h-6 w-6"
+                      className="w-6 h-6"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                       aria-hidden="true"
@@ -115,7 +115,7 @@ async function Footer() {
                     <span className="sr-only">YouTube</span>
 
                     <svg
-                      className="h-6 w-6"
+                      className="w-6 h-6"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                       aria-hidden="true"
@@ -137,7 +137,7 @@ async function Footer() {
                     <span className="sr-only">Email</span>
 
                     <svg
-                      className="h-6 w-6"
+                      className="w-6 h-6"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                       aria-hidden="true"
@@ -153,16 +153,33 @@ async function Footer() {
             </ul>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 border-t border-gray-100 pt-8 sm:grid-cols-2 lg:grid-cols-4 lg:pt-16">
+          <div className="grid grid-cols-1 gap-8 pt-8 border-t border-gray-100 sm:grid-cols-2 lg:grid-cols-4 lg:pt-16">
             {doc.footerLinks.map((data) => (
               <div key={data.title}>
                 <p className="font-medium text-gray-900">{data.title}</p>
 
-                <div className="mt-6 space-y-4 text-sm flex flex-col">
+                <div className="flex flex-col mt-6 space-y-4 text-sm">
                   {data.links && data.links.map((link) => <Links link={link.link} key={link.id} />)}
                 </div>
               </div>
             ))}
+            {doc.showBlogs && doc.blogs && (
+              <div>
+                <p className="font-medium text-gray-900">Blogs</p>
+                {doc.blogs.map((data) => {
+                  const blog = typeof data.value !== 'string' ? data.value : null;
+
+                  if (!blog) return null;
+                  return (
+                    <div key={blog.title} className="flex flex-col mt-6 space-y-4 text-sm">
+                      <Links
+                        link={{ url: '/blog/' + blog.slug, label: blog.title, type: 'custom' }}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            )}
           </div>
 
           {doc.copyright && <p className="text-xs text-gray-500">&copy; {doc.copyright}</p>}

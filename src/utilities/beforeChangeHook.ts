@@ -1,7 +1,7 @@
 import { CollectionBeforeChangeHook } from 'payload';
-import { S3 } from 'aws-sdk';
+import * as _S3 from 'aws-sdk';
 import { v4 as uuidv4 } from 'uuid';
-
+const S3 = _S3.S3;
 export const beforeChangeHook: CollectionBeforeChangeHook = async ({ data, req }) => {
   if (process.env.ALLOW_LOCAL_STORAGE && process.env.ALLOW_LOCAL_STORAGE === 'true') {
     return data;
